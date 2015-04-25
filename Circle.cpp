@@ -2,9 +2,10 @@
 #include <QPainter>
 
 Circle::Circle(QPainter *painter) :
-    Shape(painter)
+    Shape(painter),
+    m_radius(50)
 {
-
+    setPosition(QPoint(50,50));
 }
 
 Circle::~Circle()
@@ -21,6 +22,17 @@ void Circle::draw()
     m_painter->setBrush(brush);
     m_painter->setPen(pen);
 
-    m_painter->drawEllipse(150,20, 100,100);
+    m_painter->drawEllipse(getPosition(), m_radius, m_radius);
 }
+
+int Circle::getRadius() const
+{
+    return m_radius;
+}
+
+void Circle::setRadius(int value)
+{
+    m_radius = value;
+}
+
 

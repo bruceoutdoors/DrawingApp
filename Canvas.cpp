@@ -16,13 +16,15 @@ void Canvas::paintEvent(QPaintEvent *event)
     QPainter *painter = new QPainter(this);
     Circle *circle = new Circle(painter);
 
-    QColor fillColor(255, 0, 0);
+    QColor fillColor(255, 50, 50);
     circle->setFillColor(fillColor);
 
-    QColor outlineColor(0, 255, 0);
+    QColor outlineColor(0, 150, 250);
     circle->setLineColor(outlineColor);
 
-    circle->setlineThickness(10);
+    circle->setlineThickness(5);
+    circle->setRadius(15);
+    circle->setPosition(QPoint(150, 50));
 
     circle->draw();
 

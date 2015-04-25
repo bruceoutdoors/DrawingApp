@@ -28,6 +28,7 @@ HEADERS  += \
     IFillable.hpp \
     ILine.hpp \
     Circle.hpp \
-    Shape.hpp
+    Shape.hpp \
+    ITransformable.hpp
 
 FORMS    += mainwindow.ui

@@ -9,5 +9,11 @@ public:
     virtual ~Circle();
 
     void draw() override;
+
+    int getRadius() const;
+    void setRadius(int value);
+
+private:
+    int m_radius;
 };
 
