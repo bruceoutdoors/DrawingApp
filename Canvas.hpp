@@ -1,6 +1,9 @@
 #pragma once
 
 #include <QWidget>
+#include <vector>
+
+class VisualEntity;
 
 class Canvas : public QWidget
 {
@@ -12,5 +15,8 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
+
+private:
+    std::vector<VisualEntity*> m_visuals;
 };
 

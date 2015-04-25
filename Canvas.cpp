@@ -4,18 +4,7 @@
 
 Canvas::Canvas(QWidget *parent) : QWidget(parent)
 {
-
-}
-
-Canvas::~Canvas()
-{
-}
-
-void Canvas::paintEvent(QPaintEvent *event)
-{
-    QPainter *painter = new QPainter(this);
-    Circle *circle = new Circle(painter);
-
+    Circle *circle = new Circle();
     QColor fillColor(255, 50, 50);
     circle->setFillColor(fillColor);
 
@@ -26,9 +15,34 @@ void Canvas::paintEvent(QPaintEvent *event)
     circle->setRadius(15);
     circle->setPosition(QPoint(150, 50));
 
-    circle->draw();
+    Circle *circle2 = new Circle();
 
-    delete circle;
+    circle2->setFillColor(QColor(100, 250, 50));
+    circle2->setLineColor(QColor(200, 50, 250));
+
+    circle2->setlineThickness(3);
+    circle2->setRadius(35);
+    circle2->setPosition(QPoint(50, 80));
+
+    m_visuals.push_back(circle);
+    m_visuals.push_back(circle2);
+}
+
+Canvas::~Canvas()
+{
+    for (VisualEntity *visual : m_visuals) {
+        delete visual;
+    }
+}
+
+void Canvas::paintEvent(QPaintEvent *event)
+{
+    QPainter *painter = new QPainter(this);
+
+    for (VisualEntity *visual : m_visuals) {
+        visual->draw(painter);
+    }
+
     delete painter;
 }
 

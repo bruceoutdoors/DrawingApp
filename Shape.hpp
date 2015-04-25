@@ -7,7 +7,7 @@
 class Shape : public VisualEntity, public IFillable, public ILine
 {
 public:
-    Shape(QPainter *painter);
+    Shape();
     virtual ~Shape();
 
     void setFillColor(QColor val) override;

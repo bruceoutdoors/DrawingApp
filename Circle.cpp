@@ -1,8 +1,7 @@
 #include "Circle.hpp"
 #include <QPainter>
 
-Circle::Circle(QPainter *painter) :
-    Shape(painter),
+Circle::Circle() :
     m_radius(50)
 {
     setPosition(QPoint(50,50));
@@ -13,16 +12,16 @@ Circle::~Circle()
 
 }
 
-void Circle::draw()
+void Circle::draw(QPainter *painter)
 {
     QBrush brush(getFillColor());
     QPen pen(getLineColor());
     pen.setWidth(getlineThickness());
 
-    m_painter->setBrush(brush);
-    m_painter->setPen(pen);
+    painter->setBrush(brush);
+    painter->setPen(pen);
 
-    m_painter->drawEllipse(getPosition(), m_radius, m_radius);
+    painter->drawEllipse(getPosition(), m_radius, m_radius);
 }
 
 int Circle::getRadius() const
@@ -33,6 +32,21 @@ int Circle::getRadius() const
 void Circle::setRadius(int value)
 {
     m_radius = value;
+}
+
+bool Circle::contains(int x, int y)
+{
+    return true;
+}
+
+void Circle::setSelected(bool val)
+{
+
+}
+
+bool Circle::isSelected()
+{
+    return true;
 }
 
 

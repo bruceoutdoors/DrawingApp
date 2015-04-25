@@ -1,6 +1,6 @@
 #include "Shape.hpp"
 
-Shape::Shape(QPainter *painter) : VisualEntity(painter)
+Shape::Shape()
 {
 
 }
