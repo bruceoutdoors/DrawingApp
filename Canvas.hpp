@@ -4,6 +4,7 @@
 #include <vector>
 
 class VisualEntity;
+class Group;
 
 class Canvas : public QWidget
 {
@@ -12,11 +13,13 @@ class Canvas : public QWidget
 public:
     Canvas(QWidget *parent = 0);
     virtual ~Canvas();
+    void setBackgroundColor(QColor val);
+    void addVisualEntity(VisualEntity *val);
 
 protected:
     void paintEvent(QPaintEvent *event) override;
 
 private:
-    std::vector<VisualEntity*> m_visuals;
+    Group *m_mainGroup;
 };
 

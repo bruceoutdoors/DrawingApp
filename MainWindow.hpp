@@ -14,7 +14,11 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    void updateCanvas();
     ~MainWindow();
+
+private slots:
+    void on_actionCircle_triggered();
 
 private:
     Ui::MainWindow *ui;

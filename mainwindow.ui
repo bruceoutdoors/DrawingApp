@@ -28,9 +28,24 @@
      <string>File</string>
     </property>
    </widget>
+   <widget class="QMenu" name="menuDraw">
+    <property name="title">
+     <string>Draw</string>
+    </property>
+    <addaction name="actionCircle"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuDraw"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionCircle">
+   <property name="text">
+    <string>Circle</string>
+   </property>
+   <property name="statusTip">
+    <string>Draw a Circle</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

@@ -11,13 +11,15 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = DrawingApp
 TEMPLATE = app
 
-
-SOURCES += main.cpp\
+SOURCES += main.cpp \
     Canvas.cpp \
     MainWindow.cpp \
     VisualEntity.cpp \
     Shape.cpp \
-    Circle.cpp
+    Circle.cpp \
+    DrawCircleDialog.cpp \
+    Canvas.cpp \
+    Group.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -29,6 +31,10 @@ HEADERS  += \
     ILine.hpp \
     Circle.hpp \
     Shape.hpp \
-    ITransformable.hpp
+    ITransformable.hpp \
+    DrawCircleDialog.hpp \
+    Canvas.hpp \
+    Group.hpp
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    drawcircledialog.ui
