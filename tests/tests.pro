@@ -12,9 +12,10 @@ SOURCES += TestMain.cpp \
     ../app/Group.cpp \
     ../app/Shape.cpp \
     ../app/VisualEntity.cpp \
+    GroupTests.cpp \
+    VisualEntityTests.cpp
 
 HEADERS += \
-    TestGroup.hpp \
     ../app/Canvas.hpp \
     ../app/Circle.hpp \
     ../app/Group.hpp \

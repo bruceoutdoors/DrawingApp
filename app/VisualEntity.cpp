@@ -27,11 +27,12 @@ QPoint VisualEntity::getPosition()
 
 void VisualEntity::setParentGroup(Group *val)
 {
-    if (m_parentGroup != nullptr) {
-        m_parentGroup->removeVisualEntity(m_index);
-    }
-
     m_parentGroup = val;
+}
+
+Group *VisualEntity::getParentGroup()
+{
+    return m_parentGroup;
 }
 
 void VisualEntity::selfDestruct()

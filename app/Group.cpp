@@ -31,6 +31,7 @@ void Group::removeVisualEntity(int index)
         throw std::runtime_error("There is no such index in Group: " + index);
     }
 
+    m_visuals[index]->setIndex(-1);
     m_visuals.erase(m_visuals.begin() + index);
 }
 

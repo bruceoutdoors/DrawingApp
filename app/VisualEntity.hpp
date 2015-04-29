@@ -17,6 +17,7 @@ public:
     QPoint getPosition() override;
 
     void setParentGroup(Group *val);
+    Group* getParentGroup();
     void selfDestruct();
 
     int getIndex() const;
