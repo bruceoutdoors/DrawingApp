@@ -13,7 +13,8 @@ SOURCES += TestMain.cpp \
     ../app/Shape.cpp \
     ../app/VisualEntity.cpp \
     GroupTests.cpp \
-    VisualEntityTests.cpp
+    VisualEntityTests.cpp \
+    ../app/Rectangle.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -25,7 +26,8 @@ HEADERS += \
     ../app/ISelectable.hpp \
     ../app/ITransformable.hpp \
     ../app/Shape.hpp \
-    ../app/VisualEntity.hpp
+    ../app/VisualEntity.hpp \
+    ../app/Rectangle.hpp
 
 INCLUDEPATH += \
     ../app \

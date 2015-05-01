@@ -2,20 +2,17 @@
 
 #include "Shape.hpp"
 
-class Circle : public Shape
+class Rectangle : public Shape
 {
 public:
-    Circle();
-    virtual ~Circle();
+    Rectangle();
+    virtual ~Rectangle();
 
     void draw(QPainter *painter) override;
     QRect getBoundary() override;
     bool contains(int x, int y) override;
 
-    int getRadius() const;
-    void setRadius(int value);
-
 private:
-    int m_radius;
+    QRect m_rect;
 };
 

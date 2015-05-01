@@ -19,7 +19,8 @@ SOURCES += main.cpp \
     Circle.cpp \
     DrawCircleDialog.cpp \
     Canvas.cpp \
-    Group.cpp
+    Group.cpp \
+    Rectangle.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -34,7 +35,8 @@ HEADERS  += \
     ITransformable.hpp \
     DrawCircleDialog.hpp \
     Canvas.hpp \
-    Group.hpp
+    Group.hpp \
+    Rectangle.hpp
 
 FORMS    += mainwindow.ui \
     drawcircledialog.ui

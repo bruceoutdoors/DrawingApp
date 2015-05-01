@@ -2,7 +2,10 @@
 
 Shape::Shape()
 {
+    setFillColor(QColor(50, 150, 0));
+    setLineColor(QColor(0, 0, 0));
 
+    setlineThickness(3);
 }
 
 Shape::~Shape()

@@ -1,5 +1,6 @@
 #include "Canvas.hpp"
 #include "Circle.hpp"
+#include "Rectangle.hpp"
 #include "Group.hpp"
 
 #include <QPainter>
@@ -21,7 +22,10 @@ Canvas::Canvas(QWidget *parent) : QWidget(parent)
     circle->setRadius(35);
     circle->setPosition(QPoint(150, 50));
 
+    Rectangle *r = new Rectangle();
+
     m_mainGroup->addVisualEntity(circle);
+    m_mainGroup->addVisualEntity(r);
 
     setBackgroundColor(Qt::white);
 }
