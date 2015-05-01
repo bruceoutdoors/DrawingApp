@@ -7,11 +7,13 @@
 class QPainter;
 class Group;
 
-class VisualEntity : public IDrawable, public ITransformable
+class VisualEntity : public IDrawable, public ITransformable, public ISelectable
 {
 public:
     VisualEntity();
     virtual ~VisualEntity();
+
+    void drawSelection(QPainter *painter) override;
 
     void setPosition(QPoint pos) override;
     QPoint getPosition() override;

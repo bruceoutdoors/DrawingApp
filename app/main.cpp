@@ -3,8 +3,6 @@
 #include <exception>
 #include <QDebug>
 
-#include "Shape.hpp"
-
 int main(int argc, char *argv[])
 {
     int status;

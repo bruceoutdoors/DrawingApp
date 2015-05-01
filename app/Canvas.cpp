@@ -1,7 +1,10 @@
 #include "Canvas.hpp"
 #include "Circle.hpp"
 #include "Group.hpp"
+
 #include <QPainter>
+#include <QDebug>
+#include <QMouseEvent>
 
 Canvas::Canvas(QWidget *parent) : QWidget(parent)
 {
@@ -14,8 +17,8 @@ Canvas::Canvas(QWidget *parent) : QWidget(parent)
     QColor outlineColor(0, 150, 250);
     circle->setLineColor(outlineColor);
 
-    circle->setlineThickness(5);
-    circle->setRadius(15);
+    circle->setlineThickness(8);
+    circle->setRadius(35);
     circle->setPosition(QPoint(150, 50));
 
     m_mainGroup->addVisualEntity(circle);
@@ -46,7 +49,19 @@ void Canvas::paintEvent(QPaintEvent *event)
     QPainter *painter = new QPainter(this);
 
     m_mainGroup->draw(painter);
+    m_mainGroup->drawSelection(painter);
 
     delete painter;
+}
+
+void Canvas::mousePressEvent(QMouseEvent *event)
+{
+    qDebug() << "Click: " << event->pos();
+
+    if (m_mainGroup->contains(event->pos().x(), event->pos().y())) {
+        qDebug() << "Clicked!";
+    } else {
+        qDebug() << "Missed!";
+    }
 }
 

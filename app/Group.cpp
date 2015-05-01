@@ -52,6 +52,36 @@ void Group::draw(QPainter *painter)
     }
 }
 
+QRect Group::getBoundary()
+{
+    if (m_visuals.size() == 0) return QRect();
+
+    int x = INT_MAX;
+    int y = INT_MAX;
+    int right = 0;
+    int bottom = 0;
+
+    for (VisualEntity *visual : m_visuals) {
+        QRect b = visual->getBoundary();
+
+        if (b.x() < x) x = b.x();
+        if (b.y() < y) y = b.y();
+        if (b.right()  > right)  right  = b.right();
+        if (b.bottom() > bottom) bottom = b.bottom();
+    }
+
+    return QRect(QPoint(x, y), QPoint(right, bottom));
+}
+
+bool Group::contains(int x, int y)
+{
+    for (VisualEntity *visual : m_visuals) {
+        if (visual->contains(x, y)) return true;
+    }
+
+    return false;
+}
+
 int Group::getSize()
 {
     return m_visuals.size();

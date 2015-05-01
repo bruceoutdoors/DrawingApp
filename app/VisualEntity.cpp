@@ -1,7 +1,9 @@
 #include "VisualEntity.hpp"
 #include "Group.hpp"
+
 #include <exception>
 #include <stdexcept>
+#include <QPainter>
 
 VisualEntity::VisualEntity() :
     m_parentGroup(nullptr)
@@ -13,6 +15,20 @@ VisualEntity::VisualEntity() :
 VisualEntity::~VisualEntity()
 {
 
+}
+
+void VisualEntity::drawSelection(QPainter *painter)
+{
+    QBrush brush;
+    QPen pen(Qt::DashLine);
+
+    pen.setColor(QColor(255, 0, 0));
+    pen.setWidth(2);
+
+    painter->setBrush(brush);
+    painter->setPen(pen);
+
+    painter->drawRect(getBoundary());
 }
 
 void VisualEntity::setPosition(QPoint pos)

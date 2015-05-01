@@ -12,8 +12,12 @@ public:
     int addVisualEntity(VisualEntity *val);
     void removeVisualEntity(int index);
     void destroyVisualEntity(int index);
-    void draw(QPainter *painter) override;
     int getSize();
+
+    void draw(QPainter *painter) override;
+    QRect getBoundary() override;
+
+    bool contains(int x, int y) override;
 
 private:
     std::vector<VisualEntity*> m_visuals;

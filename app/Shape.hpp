@@ -19,7 +19,7 @@ public:
     void setlineThickness(int val) override;
     int getlineThickness() override;
 
-private:
+protected:
     QColor m_fillColor;
     QColor m_lineColor;
     int m_lineThickness;

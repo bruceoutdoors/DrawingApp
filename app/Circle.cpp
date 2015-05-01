@@ -1,5 +1,6 @@
 #include "Circle.hpp"
 #include <QPainter>
+#include <QDebug>
 
 Circle::Circle() :
     m_radius(50)
@@ -29,6 +30,18 @@ void Circle::draw(QPainter *painter)
     painter->drawEllipse(getPosition(), m_radius, m_radius);
 }
 
+QRect Circle::getBoundary()
+{
+    int rad = m_radius + m_lineThickness;
+
+    int x = m_position.x() - rad;
+    int y = m_position.y() - rad;
+    int w = rad * 2;
+    int h = w;
+
+    return QRect(x, y, w, h);
+}
+
 int Circle::getRadius() const
 {
     return m_radius;
@@ -41,17 +54,18 @@ void Circle::setRadius(int value)
 
 bool Circle::contains(int x, int y)
 {
-    return true;
-}
+    int relX = x - m_position.x();
+    int relY = y - m_position.y();
+    int distanceFromOrigin = (relX * relX) + (relY * relY);
 
-void Circle::setSelected(bool val)
-{
+//    qDebug() << "distance: " << distanceFromOrigin;
 
-}
+    // not quite sure why the offset is needed, but it clicks better...
+    int rad = m_radius + m_lineThickness - 3;
 
-bool Circle::isSelected()
-{
-    return true;
+//    qDebug() << "radius: " << rad*rad;
+
+    return distanceFromOrigin <= (rad * rad);
 }
 
 

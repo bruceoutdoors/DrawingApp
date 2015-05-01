@@ -2,20 +2,19 @@
 
 #include "Shape.hpp"
 
-class Circle : public Shape, public ISelectable
+class Circle : public Shape
 {
 public:
     Circle();
     virtual ~Circle();
 
     void draw(QPainter *painter) override;
+    QRect getBoundary() override;
 
     int getRadius() const;
     void setRadius(int value);
 
     bool contains(int x, int y) override;
-    void setSelected(bool val) override;
-    bool isSelected() override;
 
 private:
     int m_radius;
