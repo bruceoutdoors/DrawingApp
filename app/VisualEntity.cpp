@@ -8,6 +8,8 @@
 VisualEntity::VisualEntity() :
     m_parentGroup(nullptr)
 {
+    setSelected(false);
+
     m_index = -1;
     m_position = QPoint(0, 0);
 }
@@ -29,6 +31,21 @@ void VisualEntity::drawSelection(QPainter *painter)
     painter->setPen(pen);
 
     painter->drawRect(getBoundary());
+}
+
+void VisualEntity::setSelected(bool val)
+{
+    m_selected = val;
+}
+
+void VisualEntity::toogleSelect()
+{
+    m_selected = !m_selected;
+}
+
+bool VisualEntity::isSelected()
+{
+    return m_selected;
 }
 
 void VisualEntity::setPosition(QPoint pos)

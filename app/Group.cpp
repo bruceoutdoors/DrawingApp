@@ -49,6 +49,10 @@ void Group::draw(QPainter *painter)
 {
     for (VisualEntity *visual : m_visuals) {
         visual->draw(painter);
+
+        if (visual->isSelected()) {
+            visual->drawSelection(painter);
+        }
     }
 }
 
@@ -80,6 +84,16 @@ bool Group::contains(int x, int y)
     }
 
     return false;
+}
+
+// first in order gets sent back
+VisualEntity *Group::getClicked(int x, int y)
+{
+    for (VisualEntity *visual : m_visuals) {
+        if (visual->contains(x, y)) return visual;
+    }
+
+    return nullptr;
 }
 
 int Group::getSize()

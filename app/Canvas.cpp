@@ -49,7 +49,7 @@ void Canvas::paintEvent(QPaintEvent *event)
     QPainter *painter = new QPainter(this);
 
     m_mainGroup->draw(painter);
-    m_mainGroup->drawSelection(painter);
+//    m_mainGroup->drawSelection(painter);
 
     delete painter;
 }
@@ -58,8 +58,12 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 {
     qDebug() << "Click: " << event->pos();
 
-    if (m_mainGroup->contains(event->pos().x(), event->pos().y())) {
+    VisualEntity *clicked = m_mainGroup->getClicked(event->pos().x(), event->pos().y());
+
+    if (clicked != nullptr) {
         qDebug() << "Clicked!";
+        clicked->toogleSelect();
+        repaint();
     } else {
         qDebug() << "Missed!";
     }

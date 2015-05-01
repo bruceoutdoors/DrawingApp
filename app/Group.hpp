@@ -18,6 +18,7 @@ public:
     QRect getBoundary() override;
 
     bool contains(int x, int y) override;
+    VisualEntity* getClicked(int x, int y);
 
 private:
     std::vector<VisualEntity*> m_visuals;
