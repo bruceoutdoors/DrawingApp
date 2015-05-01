@@ -49,7 +49,12 @@ void Group::draw(QPainter *painter)
 {
     for (VisualEntity *visual : m_visuals) {
         visual->draw(painter);
+    }
+}
 
+void Group::drawSelectedSelection(QPainter *painter)
+{
+    for (VisualEntity *visual : m_visuals) {
         if (visual->isSelected()) {
             visual->drawSelection(painter);
         }

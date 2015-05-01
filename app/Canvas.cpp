@@ -49,7 +49,7 @@ void Canvas::paintEvent(QPaintEvent *event)
     QPainter *painter = new QPainter(this);
 
     m_mainGroup->draw(painter);
-//    m_mainGroup->drawSelection(painter);
+    m_mainGroup->drawSelectedSelection(painter);
 
     delete painter;
 }

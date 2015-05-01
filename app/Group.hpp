@@ -12,6 +12,7 @@ public:
     int addVisualEntity(VisualEntity *val);
     void removeVisualEntity(int index);
     void destroyVisualEntity(int index);
+    void drawSelectedSelection(QPainter *painter);
     int getSize();
 
     void draw(QPainter *painter) override;
