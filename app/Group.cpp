@@ -94,8 +94,9 @@ bool Group::contains(int x, int y)
 // first in order gets sent back
 VisualEntity *Group::getClicked(int x, int y)
 {
-    for (VisualEntity *visual : m_visuals) {
-        if (visual->contains(x, y)) return visual;
+    // last drawn visual entity is in the most front
+    for (int i = m_visuals.size() - 1; i >= 0; i--) {
+        if (m_visuals[i]->contains(x, y)) return m_visuals[i];
     }
 
     return nullptr;
