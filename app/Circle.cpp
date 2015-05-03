@@ -27,7 +27,8 @@ void Circle::draw(QPainter *painter)
 
 QRect Circle::getBoundary()
 {
-    int rad = m_radius + m_lineThickness;
+    int margin = 3;
+    int rad = m_radius + m_lineThickness/2 + 3;
 
     int x = m_position.x() - rad;
     int y = m_position.y() - rad;
@@ -56,7 +57,7 @@ bool Circle::contains(int x, int y)
 //    qDebug() << "distance: " << distanceFromOrigin;
 
     // not quite sure why the offset is needed, but it clicks better...
-    int rad = m_radius + m_lineThickness - 3;
+    int rad = m_radius + m_lineThickness/2;
 
 //    qDebug() << "radius: " << rad*rad;
 

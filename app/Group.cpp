@@ -61,6 +61,11 @@ void Group::drawSelectedSelection(QPainter *painter)
     }
 }
 
+void Group::deselectAll()
+{
+    
+}
+
 QRect Group::getBoundary()
 {
     if (m_visuals.size() == 0) return QRect();

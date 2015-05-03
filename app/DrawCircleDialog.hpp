@@ -19,14 +19,13 @@ public:
 
 private slots:
     void on_buttonBox_accepted();
-
     void on_buttonBox_rejected();
-
     void on_RadiusSpinBox_valueChanged(int arg1);
-
     void on_XPositionSpinBox_valueChanged(int arg1);
-
     void on_YPositionSpinBox_valueChanged(int arg1);
+    void on_FillBtn_clicked();
+    void on_OutlineBtn_clicked();
+    void on_OutlineThicknessSpinBox_valueChanged(int arg1);
 
 private:
     Ui::DrawCircleDialog *ui;
