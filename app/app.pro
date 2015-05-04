@@ -17,10 +17,11 @@ SOURCES += main.cpp \
     VisualEntity.cpp \
     Shape.cpp \
     Circle.cpp \
-    DrawCircleDialog.cpp \
     Canvas.cpp \
     Group.cpp \
-    Rectangle.cpp
+    Rectangle.cpp \
+    DrawDialog.cpp \
+    DrawDialogFactory.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -33,12 +34,13 @@ HEADERS  += \
     Circle.hpp \
     Shape.hpp \
     ITransformable.hpp \
-    DrawCircleDialog.hpp \
     Canvas.hpp \
     Group.hpp \
-    Rectangle.hpp
+    Rectangle.hpp \
+    DrawDialog.hpp \
+    DrawDialogFactory.hpp
 
 FORMS    += mainwindow.ui \
-    drawcircledialog.ui
+    drawdialog.ui
 
 DESTDIR = $$PWD/../build

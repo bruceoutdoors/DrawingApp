@@ -1,8 +1,9 @@
 #include "MainWindow.hpp"
 #include "ui_mainwindow.h"
 #include "Canvas.hpp"
-#include "DrawCircleDialog.hpp"
+#include "DrawDialogFactory.hpp"
 #include "Circle.hpp"
+#include "Rectangle.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -29,6 +30,18 @@ void MainWindow::on_actionCircle_triggered()
 {
     Circle *c = new Circle();
     m_canvas->addVisualEntity(c);
-    DrawCircleDialog drawCircle(this, c);
-    drawCircle.exec();
+
+    DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, c);
+    d->exec();
+    delete d;
+}
+
+void MainWindow::on_actionRectangle_triggered()
+{
+    Rectangle *r = new Rectangle();
+    m_canvas->addVisualEntity(r);
+
+    DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, r);
+    d->exec();
+    delete d;
 }
