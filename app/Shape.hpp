@@ -19,7 +19,11 @@ public:
     void setlineThickness(int val) override;
     int getlineThickness() override;
 
+    void setPosition(QPoint pos);
+    QPoint getPosition();
+
 protected:
+    QPoint m_position;
     QColor m_fillColor;
     QColor m_lineColor;
     int m_lineThickness;

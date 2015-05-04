@@ -19,9 +19,6 @@ public:
     void toogleSelect() override;
     bool isSelected() override;
 
-    void setPosition(QPoint pos) override;
-    QPoint getPosition() override;
-
     void setParentGroup(Group *val);
     Group* getParentGroup();
     void selfDestruct();
@@ -31,7 +28,7 @@ public:
 
 protected:
     Group *m_parentGroup;
-    QPoint m_position;
+
     int m_index;
     bool m_selected;
 };

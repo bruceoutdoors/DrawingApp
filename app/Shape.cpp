@@ -13,6 +13,16 @@ Shape::~Shape()
 
 }
 
+void Shape::setPosition(QPoint pos)
+{
+    m_position = pos;
+}
+
+QPoint Shape::getPosition()
+{
+    return m_position;
+}
+
 void Shape::setFillColor(QColor val)
 {
     m_fillColor = val;

@@ -34,6 +34,7 @@
     </property>
     <addaction name="actionCircle"/>
     <addaction name="actionRectangle"/>
+    <addaction name="actionLine"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuDraw"/>
@@ -50,6 +51,11 @@
   <action name="actionRectangle">
    <property name="text">
     <string>Rectangle</string>
+   </property>
+  </action>
+  <action name="actionLine">
+   <property name="text">
+    <string>Line</string>
    </property>
   </action>
  </widget>

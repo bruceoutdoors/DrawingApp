@@ -19,8 +19,10 @@ public:
 
     void draw(QPainter *painter) override;
     QRect getBoundary() override;
-
     bool contains(int x, int y) override;
+
+    void setPosition(QPoint val) override;
+    QPoint getPosition() override;
 
 private:
     std::vector<VisualEntity*> m_visuals;

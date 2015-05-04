@@ -20,6 +20,7 @@ public:
 private slots:
     void on_actionCircle_triggered();
     void on_actionRectangle_triggered();
+    void on_actionLine_triggered();
 
 private:
     Ui::MainWindow *ui;

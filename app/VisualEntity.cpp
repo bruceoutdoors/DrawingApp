@@ -11,7 +11,6 @@ VisualEntity::VisualEntity() :
     setSelected(false);
 
     m_index = -1;
-    m_position = QPoint(0, 0);
 }
 
 VisualEntity::~VisualEntity()
@@ -46,16 +45,6 @@ void VisualEntity::toogleSelect()
 bool VisualEntity::isSelected()
 {
     return m_selected;
-}
-
-void VisualEntity::setPosition(QPoint pos)
-{
-    m_position = pos;
-}
-
-QPoint VisualEntity::getPosition()
-{
-    return m_position;
 }
 
 void VisualEntity::setParentGroup(Group *val)

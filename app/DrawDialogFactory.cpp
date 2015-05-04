@@ -1,8 +1,10 @@
 #include "DrawDialogFactory.hpp"
 #include "DrawDialog.hpp"
+
 #include "Shape.hpp"
 #include "Circle.hpp"
 #include "Rectangle.hpp"
+#include "Line.hpp"
 
 DrawDialogFactory::DrawDialogFactory()
 {
@@ -63,6 +65,37 @@ DrawDialog *DrawDialogFactory::CreateDrawDialog(MainWindow *parent, Rectangle *r
     d->appendSpinBox("Height",
                      [=]() { return r->getHeight(); },
                      [=](int h) { r->setHeight(h); });
+
+    return d;
+}
+
+DrawDialog *DrawDialogFactory::CreateDrawDialog(MainWindow *parent, Line *l)
+{
+    DrawDialog *d = new DrawDialog(parent);
+
+    d->appendSpinBox("P1.x",
+                     [=]() { return l->getP1().x(); },
+                     [=](int x) { l->setP1(QPoint(x, l->getP1().y())); });
+
+    d->appendSpinBox("P1.y",
+                     [=]() { return l->getP1().y(); },
+                     [=](int y) { l->setP1(QPoint(l->getP1().x(), y)); });
+
+    d->appendSpinBox("P2.x",
+                     [=]() { return l->getP2().x(); },
+                     [=](int x) { l->setP2(QPoint(x, l->getP2().y())); });
+
+    d->appendSpinBox("P2.y",
+                     [=]() { return l->getP2().y(); },
+                     [=](int y) { l->setP2(QPoint(l->getP2().x(), y)); });
+
+    d->appendColorPicker("Line Color",
+                         [=]() { return l->getLineColor(); },
+                         [=](QColor c) { l->setLineColor(c); });
+
+    d->appendSpinBox("Line Thickness",
+                     [=]() { return l->getlineThickness(); },
+                     [=](int t) { l->setlineThickness(t); });
 
     return d;
 }

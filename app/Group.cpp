@@ -96,6 +96,19 @@ bool Group::contains(int x, int y)
     return false;
 }
 
+void Group::setPosition(QPoint val)
+{
+    // TODO: implement this...
+}
+
+QPoint Group::getPosition()
+{
+    QRect b = getBoundary();
+
+    return QPoint(b.x() + b.width()/2,
+                  b.y() + b.height()/2);
+}
+
 // first in order gets sent back
 VisualEntity *Group::getClicked(int x, int y)
 {

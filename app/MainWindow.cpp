@@ -4,6 +4,7 @@
 #include "DrawDialogFactory.hpp"
 #include "Circle.hpp"
 #include "Rectangle.hpp"
+#include "Line.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -42,6 +43,16 @@ void MainWindow::on_actionRectangle_triggered()
     m_canvas->addVisualEntity(r);
 
     DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, r);
+    d->exec();
+    delete d;
+}
+
+void MainWindow::on_actionLine_triggered()
+{
+    Line *l = new Line();
+    m_canvas->addVisualEntity(l);
+
+    DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, l);
     d->exec();
     delete d;
 }

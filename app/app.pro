@@ -21,7 +21,8 @@ SOURCES += main.cpp \
     Group.cpp \
     Rectangle.cpp \
     DrawDialog.cpp \
-    DrawDialogFactory.cpp
+    DrawDialogFactory.cpp \
+    Line.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -38,7 +39,8 @@ HEADERS  += \
     Group.hpp \
     Rectangle.hpp \
     DrawDialog.hpp \
-    DrawDialogFactory.hpp
+    DrawDialogFactory.hpp \
+    Line.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui
