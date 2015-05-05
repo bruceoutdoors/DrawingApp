@@ -45,12 +45,35 @@ void Line::draw(QPainter *painter)
 
 QRect Line::getBoundary()
 {
-    return QRect();
+    QRect b = QRect(m_p1, m_p2);
+    int l = getlineThickness()/2 + 2;
+    b += QMargins(l, l, l, l);
+    return b;
 }
 
 bool Line::contains(int x, int y)
 {
-    return false;
+    float r = getlineThickness() <= 4 ? 4 : getlineThickness(); // impact margin
+
+    if (!getBoundary().contains(x, y)) return false;
+
+    // calculate whether line is clicked using circle-line intersection:
+    float A, B, C, m, f, discriminant;
+
+    float dx = m_p2.x() - m_p1.x();
+    if (dx == 0) return true;
+
+    // convert points m_p1 and m_p2 to the equation of the line y = mx + f
+    m = float(m_p2.y() - m_p1.y()) / dx;
+    f = m_p1.y() - m * m_p1.x();
+
+    A = m*m + 1;
+    B = 2 * (m*f - m*y - x);
+    C = y*y - r*r + x*x - 2*f*y + f*f;
+
+    discriminant = B*B - 4*A*C;
+
+    return discriminant >= 0;
 }
 
 void Line::setPosition(QPoint pos)
