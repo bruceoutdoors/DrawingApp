@@ -2,8 +2,9 @@
 
 #include "ILine.hpp"
 #include "VisualEntity.hpp"
+#include "ITransformable.hpp"
 
-class Line : public VisualEntity, public ILine
+class Line : public VisualEntity, public ILine, public ITransformable
 {
 public:
     Line();

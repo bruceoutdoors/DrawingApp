@@ -22,7 +22,9 @@ SOURCES += main.cpp \
     Rectangle.cpp \
     DrawDialog.cpp \
     DrawDialogFactory.cpp \
-    Line.cpp
+    Line.cpp \
+    Selection.cpp \
+    AbstractGroup.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -40,7 +42,9 @@ HEADERS  += \
     Rectangle.hpp \
     DrawDialog.hpp \
     DrawDialogFactory.hpp \
-    Line.hpp
+    Line.hpp \
+    Selection.hpp \
+    AbstractGroup.h
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

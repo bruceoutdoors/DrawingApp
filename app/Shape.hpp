@@ -4,7 +4,7 @@
 #include "ILine.hpp"
 #include "VisualEntity.hpp"
 
-class Shape : public VisualEntity, public IFillable, public ILine
+class Shape : public VisualEntity, public IFillable, public ILine, public ITransformable
 {
 public:
     Shape();

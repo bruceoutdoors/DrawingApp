@@ -14,7 +14,9 @@ SOURCES += TestMain.cpp \
     ../app/VisualEntity.cpp \
     GroupTests.cpp \
     VisualEntityTests.cpp \
-    ../app/Rectangle.cpp
+    ../app/Rectangle.cpp \
+    ../app/Selection.cpp \
+    ../app/AbstractGroup.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -27,7 +29,9 @@ HEADERS += \
     ../app/ITransformable.hpp \
     ../app/Shape.hpp \
     ../app/VisualEntity.hpp \
-    ../app/Rectangle.hpp
+    ../app/Rectangle.hpp \
+    ../app/Selection.hpp \
+    ../app/AbstractGroup.h
 
 INCLUDEPATH += \
     ../app \

@@ -1,31 +1,24 @@
-#ifndef GROUP_H
-#define GROUP_H
+#pragma once
 
+#include "AbstractGroup.h"
 #include "VisualEntity.hpp"
+
 #include <vector>
 
-class Group : public VisualEntity
+class Group : public AbstractGroup, public VisualEntity
 {
 public:
     Group();
     ~Group();
-    void removeVisualEntity(int index);
-    void destroyVisualEntity(int index);
-    void drawSelectedSelection(QPainter *painter);
-    void deselectAll();
-    int addVisualEntity(VisualEntity *val);
-    int getSize();
+
+    int add(VisualEntity *val) override;
+
     VisualEntity* getClicked(int x, int y);
 
     void draw(QPainter *painter) override;
-    QRect getBoundary() override;
     bool contains(int x, int y) override;
 
-    void setPosition(QPoint val) override;
-    QPoint getPosition() override;
-
-private:
-    std::vector<VisualEntity*> m_visuals;
+    // as visual entity inherits IDrawable, we need to
+    // reimplement it again (just reuse implementation from AbstractGroup)
+    QRect getBoundary() override;
 };
-
-#endif // GROUP_H

@@ -6,14 +6,13 @@
 
 class QPainter;
 class Group;
+class Selection;
 
-class VisualEntity : public IDrawable, public ITransformable, public ISelectable
+class VisualEntity : public IDrawable, public ISelectable
 {
 public:
     VisualEntity();
     virtual ~VisualEntity();
-
-    void drawSelection(QPainter *painter) override;
 
     void setSelected(bool val) override;
     void toogleSelect() override;
@@ -28,8 +27,8 @@ public:
 
 protected:
     Group *m_parentGroup;
+    Selection *m_selection;
 
     int m_index;
-    bool m_selected;
 };
 

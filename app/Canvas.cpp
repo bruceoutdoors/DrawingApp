@@ -2,6 +2,7 @@
 #include "Circle.hpp"
 #include "Rectangle.hpp"
 #include "Group.hpp"
+#include "Selection.hpp"
 
 #include <QPainter>
 #include <QDebug>
@@ -10,6 +11,7 @@
 Canvas::Canvas(QWidget *parent) : QWidget(parent)
 {
     m_mainGroup = new Group();
+    m_selection = &Selection::getInstance();
 
     Circle *circle = new Circle();
     QColor fillColor(255, 50, 50);
@@ -22,7 +24,7 @@ Canvas::Canvas(QWidget *parent) : QWidget(parent)
     circle->setRadius(35);
     circle->setPosition(QPoint(150, 50));
 
-    m_mainGroup->addVisualEntity(circle);
+    m_mainGroup->add(circle);
 
     setBackgroundColor(Qt::white);
 }
@@ -42,7 +44,7 @@ void Canvas::setBackgroundColor(QColor val)
 
 void Canvas::addVisualEntity(VisualEntity *val)
 {
-    m_mainGroup->addVisualEntity(val);
+    m_mainGroup->add(val);
 }
 
 void Canvas::paintEvent(QPaintEvent *event)
@@ -50,23 +52,24 @@ void Canvas::paintEvent(QPaintEvent *event)
     QPainter *painter = new QPainter(this);
 
     m_mainGroup->draw(painter);
-    m_mainGroup->drawSelectedSelection(painter);
+    m_selection->draw(painter);
 
     delete painter;
 }
 
 void Canvas::mousePressEvent(QMouseEvent *event)
 {
-    qDebug() << "Click: " << event->pos();
+//    qDebug() << "Click: " << event->pos();
 
     VisualEntity *clicked = m_mainGroup->getClicked(event->pos().x(), event->pos().y());
 
     if (clicked != nullptr) {
-        qDebug() << "Clicked!";
-        clicked->toogleSelect();
-        repaint();
+        m_selection->deselectAll();
+        clicked->setSelected(true);
     } else {
-        qDebug() << "Missed!";
+        m_selection->deselectAll();
     }
+
+    repaint();
 }
 

@@ -8,7 +8,7 @@
 TEST_CASE("getParentGroup test") {
     Group g;
     Circle *c = new Circle();
-    g.addVisualEntity(c);
+    g.add(c);
 
     REQUIRE(c->getParentGroup() == &g);
     REQUIRE(c->getIndex() == 0);
@@ -21,7 +21,7 @@ TEST_CASE("selfDestruct test") {
 
     SECTION("Kills itself using parent") {
         Group g;
-        g.addVisualEntity(c);
+        g.add(c);
         REQUIRE(g.getSize() == 1);
 
         c->selfDestruct();

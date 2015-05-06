@@ -5,6 +5,7 @@
 
 class VisualEntity;
 class Group;
+class Selection;
 
 class Canvas : public QWidget
 {
@@ -22,5 +23,6 @@ protected:
 
 private:
     Group *m_mainGroup;
+    Selection *m_selection;
 };
 

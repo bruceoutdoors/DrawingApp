@@ -1,5 +1,6 @@
 #include "VisualEntity.hpp"
 #include "Group.hpp"
+#include "Selection.hpp"
 
 #include <exception>
 #include <stdexcept>
@@ -8,43 +9,32 @@
 VisualEntity::VisualEntity() :
     m_parentGroup(nullptr)
 {
-    setSelected(false);
+    m_selection = &Selection::getInstance();
 
     m_index = -1;
 }
 
 VisualEntity::~VisualEntity()
 {
-
-}
-
-void VisualEntity::drawSelection(QPainter *painter)
-{
-    QBrush brush;
-    QPen pen(Qt::DashLine);
-
-    pen.setColor(QColor(255, 0, 0));
-    pen.setWidth(2);
-
-    painter->setBrush(brush);
-    painter->setPen(pen);
-
-    painter->drawRect(getBoundary());
+    setSelected(false);
 }
 
 void VisualEntity::setSelected(bool val)
 {
-    m_selected = val;
+    if (val)
+        m_selection->add(this);
+    else
+        m_selection->remove(this);
 }
 
 void VisualEntity::toogleSelect()
 {
-    m_selected = !m_selected;
+    m_selection->toggleSelect(this);
 }
 
 bool VisualEntity::isSelected()
 {
-    return m_selected;
+    return m_selection->isSelected(this);
 }
 
 void VisualEntity::setParentGroup(Group *val)
@@ -63,7 +53,7 @@ void VisualEntity::selfDestruct()
         throw std::runtime_error("Self-destruct only works if Visual Entity is under a parent group!");
     }
 
-    m_parentGroup->destroyVisualEntity(m_index);
+    m_parentGroup->destroy(m_index);
 }
 
 int VisualEntity::getIndex() const
