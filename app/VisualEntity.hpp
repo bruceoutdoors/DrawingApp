@@ -8,7 +8,7 @@ class QPainter;
 class Group;
 class Selection;
 
-class VisualEntity : public IDrawable, public ISelectable
+class VisualEntity : public IDrawable, public ISelectable, public ITransformable
 {
 public:
     VisualEntity();

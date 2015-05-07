@@ -41,11 +41,6 @@ bool Group::contains(int x, int y)
     return false;
 }
 
-QRect Group::getBoundary()
-{
-    return AbstractGroup::getBoundary();
-}
-
 // first in order gets sent back
 VisualEntity *Group::getClicked(int x, int y)
 {
