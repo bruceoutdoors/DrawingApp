@@ -71,7 +71,7 @@ void MainWindow::on_actionSelectionTool_triggered()
 {
     uncheckAllToolbar();
     ui->actionSelectionTool->setChecked(true);
-    setActiveTool(m_selectionTool);
+    setActiveTool(m_selectionTool.get());
 }
 
 void MainWindow::uncheckAllToolbar()
