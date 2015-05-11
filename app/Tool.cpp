@@ -3,7 +3,8 @@
 #include <QEvent>
 #include <QWidget>
 
-Tool::Tool()
+Tool::Tool(Canvas *canvas) :
+    m_canvas(canvas)
 {
 
 }

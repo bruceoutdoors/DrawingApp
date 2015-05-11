@@ -8,14 +8,13 @@ class Selection;
 class SelectionTool : public Tool
 {
 public:
-    SelectionTool(Group *mainGroup);
+    SelectionTool(Canvas *canvas);
     ~SelectionTool();
 
 protected:
     void mousePress(QMouseEvent *event) override;
 
 private:
-    Group *m_mainGroup;
     Selection *m_selection;
 };
 

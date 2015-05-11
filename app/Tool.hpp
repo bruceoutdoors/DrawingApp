@@ -3,11 +3,12 @@
 class QEvent;
 class QMouseEvent;
 class QKeyEvent;
+class Canvas;
 
 class Tool
 {
 public:
-    Tool();
+    Tool(Canvas *canvas);
     ~Tool();
 
     bool handleEvent(QEvent *event);
@@ -15,5 +16,7 @@ public:
 protected:
     virtual void mousePress(QMouseEvent *event) {}
     virtual void keyPress(QKeyEvent *event) {}
+
+    Canvas *m_canvas;
 };
 

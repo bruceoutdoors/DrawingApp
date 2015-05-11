@@ -54,3 +54,6 @@ FORMS    += mainwindow.ui \
     drawdialog.ui
 
 DESTDIR = $$PWD/../build
+
+RESOURCES += \
+    resource.qrc

@@ -13,7 +13,6 @@ Canvas::Canvas(QWidget *parent) : QWidget(parent)
 {
     m_mainGroup = new Group();
     m_selection = &Selection::getInstance();
-    m_selectionTool = std::unique_ptr<SelectionTool>(new SelectionTool(m_mainGroup));
 
     Circle *circle = new Circle();
     QColor fillColor(255, 50, 50);
@@ -29,12 +28,16 @@ Canvas::Canvas(QWidget *parent) : QWidget(parent)
     m_mainGroup->add(circle);
 
     setBackgroundColor(Qt::white);
-    setActiveTool(m_selectionTool.get());
 }
 
 Canvas::~Canvas()
 {
     delete m_mainGroup;
+}
+
+VisualEntity *Canvas::getVEFromPosition(int x, int y)
+{
+    return m_mainGroup->getClicked(x, y);
 }
 
 void Canvas::setBackgroundColor(QColor val)

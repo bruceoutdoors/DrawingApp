@@ -17,6 +17,7 @@ class Canvas : public QWidget
 public:
     Canvas(QWidget *parent = 0);
     virtual ~Canvas();
+    VisualEntity *getVEFromPosition(int x, int y);
     void setBackgroundColor(QColor val);
     void addVisualEntity(VisualEntity *val);
     void setActiveTool(Tool *val);
@@ -29,6 +30,5 @@ private:
     Group *m_mainGroup;
     Selection *m_selection;
     Tool *m_activeTool;
-    std::unique_ptr<SelectionTool> m_selectionTool;
 };
 

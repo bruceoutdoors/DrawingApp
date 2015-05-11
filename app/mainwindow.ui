@@ -40,6 +40,21 @@
    <addaction name="menuDraw"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionSelectionTool"/>
+   <addaction name="actionDrawCircle"/>
+   <addaction name="actionDrawRectangle"/>
+   <addaction name="actionDrawLine"/>
+  </widget>
   <action name="actionCircle">
    <property name="text">
     <string>Circle</string>
@@ -58,8 +73,79 @@
     <string>Line</string>
    </property>
   </action>
+  <action name="actionDrawCircle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/CircleIcon.png</normaloff>:/Icons/resource/CircleIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>DrawCircle</string>
+   </property>
+   <property name="toolTip">
+    <string>Draw Circle</string>
+   </property>
+   <property name="statusTip">
+    <string>Click-drag to begin drawing; click on canvas to show Circle Draw Dialog</string>
+   </property>
+  </action>
+  <action name="actionSelectionTool">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/CursorIcon.png</normaloff>:/Icons/resource/CursorIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>SelectionTool</string>
+   </property>
+   <property name="toolTip">
+    <string>Selection Tool</string>
+   </property>
+  </action>
+  <action name="actionDrawRectangle">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/RectangleIcon.png</normaloff>:/Icons/resource/RectangleIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>DrawRectangle</string>
+   </property>
+   <property name="statusTip">
+    <string>Click-drag to begin drawing; click on canvas to show Rectangle Draw Dialog</string>
+   </property>
+  </action>
+  <action name="actionDrawLine">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/LineIcon.png</normaloff>:/Icons/resource/LineIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>actionDrawLine</string>
+   </property>
+   <property name="toolTip">
+    <string>Draw Line</string>
+   </property>
+   <property name="statusTip">
+    <string>Click to draw 1st point, click again to finish it.</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
