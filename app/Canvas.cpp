@@ -3,6 +3,7 @@
 #include "Rectangle.hpp"
 #include "Group.hpp"
 #include "Selection.hpp"
+#include "SelectionTool.hpp"
 
 #include <QPainter>
 #include <QDebug>
@@ -12,6 +13,7 @@ Canvas::Canvas(QWidget *parent) : QWidget(parent)
 {
     m_mainGroup = new Group();
     m_selection = &Selection::getInstance();
+    m_selectionTool = std::unique_ptr<SelectionTool>(new SelectionTool(m_mainGroup));
 
     Circle *circle = new Circle();
     QColor fillColor(255, 50, 50);
@@ -27,6 +29,7 @@ Canvas::Canvas(QWidget *parent) : QWidget(parent)
     m_mainGroup->add(circle);
 
     setBackgroundColor(Qt::white);
+    setActiveTool(m_selectionTool.get());
 }
 
 Canvas::~Canvas()
@@ -47,6 +50,11 @@ void Canvas::addVisualEntity(VisualEntity *val)
     m_mainGroup->add(val);
 }
 
+void Canvas::setActiveTool(Tool *val)
+{
+    m_activeTool = val;
+}
+
 void Canvas::paintEvent(QPaintEvent *event)
 {
     QPainter *painter = new QPainter(this);
@@ -61,14 +69,7 @@ void Canvas::mousePressEvent(QMouseEvent *event)
 {
 //    qDebug() << "Click: " << event->pos();
 
-    VisualEntity *clicked = m_mainGroup->getClicked(event->pos().x(), event->pos().y());
-
-    if (clicked != nullptr) {
-        m_selection->deselectAll();
-        clicked->setSelected(true);
-    } else {
-        m_selection->deselectAll();
-    }
+    m_activeTool->handleEvent(event);
 
     repaint();
 }

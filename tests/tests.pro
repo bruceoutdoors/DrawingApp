@@ -16,7 +16,9 @@ SOURCES += TestMain.cpp \
     VisualEntityTests.cpp \
     ../app/Rectangle.cpp \
     ../app/Selection.cpp \
-    ../app/AbstractGroup.cpp
+    ../app/AbstractGroup.cpp \
+    ../app/SelectionTool.cpp \
+    ../app/Tool.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -31,7 +33,9 @@ HEADERS += \
     ../app/VisualEntity.hpp \
     ../app/Rectangle.hpp \
     ../app/Selection.hpp \
-    ../app/AbstractGroup.h
+    ../app/AbstractGroup.h \
+    ../app/SelectionTool.hpp \
+    ../app/Tool.hpp
 
 INCLUDEPATH += \
     ../app \

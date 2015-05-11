@@ -35,9 +35,9 @@ SCENARIO( "remove does not destroy shape; destroy does.") {
         WHEN( "A shape is removed with remove" ) {
             g.remove(0);
 
-            THEN( "the size changes, but shape still exists" ) {
+            THEN( "the size changes, but shape still exists, and index is retained" ) {
                 REQUIRE(g.getSize() == 0);
-                REQUIRE(c->getIndex() == -1);
+                REQUIRE(c->getIndex() == 0);
             }
         }
 
@@ -48,7 +48,7 @@ SCENARIO( "remove does not destroy shape; destroy does.") {
             THEN( "the size changes, but shape is deleted" ) {
                 REQUIRE(g.getSize() == 0);
                 REQUIRE(c->getRadius() != 509);
-                REQUIRE(c->getIndex() < 0);
+                REQUIRE(c->getIndex() != 0);
             }
         }
     }

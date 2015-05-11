@@ -24,7 +24,9 @@ SOURCES += main.cpp \
     DrawDialogFactory.cpp \
     Line.cpp \
     Selection.cpp \
-    AbstractGroup.cpp
+    AbstractGroup.cpp \
+    Tool.cpp \
+    SelectionTool.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -44,7 +46,9 @@ HEADERS  += \
     DrawDialogFactory.hpp \
     Line.hpp \
     Selection.hpp \
-    AbstractGroup.h
+    AbstractGroup.h \
+    Tool.hpp \
+    SelectionTool.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

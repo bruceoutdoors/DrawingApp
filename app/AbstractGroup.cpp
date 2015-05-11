@@ -23,11 +23,8 @@ VisualEntity *AbstractGroup::get(int index)
 // removes the pointer from container; does not delete the actual entity
 void AbstractGroup::remove(int index)
 {
-    if (index > (m_children.size() - 1) || index < 0) {
-        throw std::runtime_error("There is no such index in Group: " + index);
-    }
+    get(index); // just validates whether it exists
 
-    m_children[index]->setIndex(-1);
     m_children.erase(m_children.begin() + index);
 }
 
