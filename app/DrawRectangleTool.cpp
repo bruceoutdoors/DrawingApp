@@ -1,3 +1,4 @@
+#include "GlobalDrawProperties.hpp"
 #include "DrawRectangleTool.hpp"
 #include "Selection.hpp"
 #include "Rectangle.hpp"
@@ -60,7 +61,7 @@ void DrawRectangleTool::mouseMove(QMouseEvent *event)
 void DrawRectangleTool::mouseRelease(QMouseEvent *event)
 {
     m_clickPressed = false;
-    m_selection->removeAll();
-    m_selection->add(m_rectangle);
+    m_selection->deselectAll();
+    m_rectangle->setSelected(true);
 }
 

@@ -37,11 +37,6 @@ void AbstractGroup::remove(VisualEntity *val)
     }
 }
 
-void AbstractGroup::removeAll()
-{
-    m_children.clear();
-}
-
 void AbstractGroup::destroy(int index)
 {
     auto v = m_children[index];
@@ -64,14 +59,15 @@ QRect AbstractGroup::getBoundary()
     int y = INT_MAX;
     int right = 0;
     int bottom = 0;
+    int margin = 3;
 
     for (VisualEntity *visual : m_children) {
         QRect b = visual->getBoundary();
 
-        if (b.x() < x) x = b.x();
-        if (b.y() < y) y = b.y();
-        if (b.right()  > right)  right  = b.right();
-        if (b.bottom() > bottom) bottom = b.bottom();
+        if (b.x() < x) x = b.x() - margin;
+        if (b.y() < y) y = b.y() - margin;
+        if (b.right()  > right)  right  = b.right() + margin;
+        if (b.bottom() > bottom) bottom = b.bottom() + margin;
     }
 
     return QRect(QPoint(x, y), QPoint(right, bottom));

@@ -14,19 +14,6 @@ Canvas::Canvas(QWidget *parent) : QWidget(parent)
     m_mainGroup = new Group();
     m_selection = &Selection::getInstance();
 
-    Circle *circle = new Circle();
-    QColor fillColor(255, 50, 50);
-    circle->setFillColor(fillColor);
-
-    QColor outlineColor(0, 150, 250);
-    circle->setLineColor(outlineColor);
-
-    circle->setlineThickness(8);
-    circle->setRadius(35);
-    circle->setPosition(QPoint(150, 50));
-
-    m_mainGroup->add(circle);
-
     setBackgroundColor(Qt::white);
 }
 

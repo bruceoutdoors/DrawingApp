@@ -11,14 +11,20 @@ Selection &Selection::getInstance()
 void Selection::draw(QPainter *painter)
 {
     QBrush brush;
-    QPen pen(Qt::DashLine);
+    QPen pen(Qt::DotLine);
 
-    pen.setColor(QColor(255, 0, 0));
     pen.setWidth(2);
 
     painter->setBrush(brush);
-    painter->setPen(pen);
 
+    if (m_children.size() > 1) {
+        pen.setColor(QColor(250, 150, 150));
+        painter->setPen(pen);
+        painter->drawRect(getBoundary());
+    }
+
+    pen.setColor(QColor(255, 20, 20));
+    painter->setPen(pen);
     for (auto child : m_children) {
         painter->drawRect(child->getBoundary());
     }

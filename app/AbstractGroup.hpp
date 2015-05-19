@@ -17,7 +17,6 @@ public:
     VisualEntity* get(int index);
     void remove(int index);
     void remove(VisualEntity *val);
-    void removeAll();
     void destroy(int index);
     int getSize();
     QRect getBoundary() override;

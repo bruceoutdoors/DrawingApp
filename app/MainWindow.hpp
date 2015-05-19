@@ -9,6 +9,7 @@ class SelectionTool;
 class DrawCircleTool;
 class DrawRectangleTool;
 class DrawLineTool;
+class GlobalDrawProperties;
 
 namespace Ui {
 class MainWindow;
@@ -20,7 +21,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    void updateCanvas();
+    Canvas* getCanvas();
     void setActiveTool(Tool *tool);
     ~MainWindow();
 
@@ -39,6 +40,8 @@ private:
     Ui::MainWindow *ui;
     Canvas *m_canvas;
     Tool *m_activeTool;
+    GlobalDrawProperties *m_gp;
+
     std::unique_ptr<SelectionTool> m_selectionTool;
     std::unique_ptr<DrawCircleTool> m_drawCircleTool;
     std::unique_ptr<DrawRectangleTool> m_drawRectangleTool;

@@ -29,7 +29,10 @@ SOURCES += main.cpp \
     SelectionTool.cpp \
     DrawCircleTool.cpp \
     DrawRectangleTool.cpp \
-    DrawLineTool.cpp
+    DrawLineTool.cpp \
+    PropertySpinBox.cpp \
+    PropertyColorButton.cpp \
+    GlobalDrawProperties.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -54,7 +57,10 @@ HEADERS  += \
     DrawCircleTool.hpp \
     DrawRectangleTool.hpp \
     DrawLineTool.hpp \
-    AbstractGroup.hpp
+    AbstractGroup.hpp \
+    PropertySpinBox.hpp \
+    PropertyColorButton.hpp \
+    GlobalDrawProperties.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

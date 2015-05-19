@@ -17,6 +17,9 @@ void Rectangle::draw(QPainter *painter)
 {
     QBrush brush(getFillColor());
     QPen pen(getLineColor());
+
+    if (getlineThickness() == 0) pen.setStyle(Qt::NoPen);
+
     pen.setWidth(getlineThickness());
 
     painter->setBrush(brush);

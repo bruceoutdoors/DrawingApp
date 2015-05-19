@@ -4,6 +4,7 @@
 
 class Group;
 class Selection;
+class GlobalDrawProperties;
 
 class SelectionTool : public Tool
 {
@@ -16,5 +17,6 @@ protected:
 
 private:
     Selection *m_selection;
+    GlobalDrawProperties *m_gp;
 };
 

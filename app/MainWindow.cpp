@@ -9,6 +9,9 @@
 #include "DrawCircleTool.hpp"
 #include "DrawRectangleTool.hpp"
 #include "DrawLineTool.hpp"
+#include "PropertyColorButton.hpp"
+#include "PropertySpinBox.hpp"
+#include "GlobalDrawProperties.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -16,20 +19,46 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     m_canvas = new Canvas(this);
+    m_gp = &GlobalDrawProperties::getInstance();
 
-    m_selectionTool = std::unique_ptr<SelectionTool>(new SelectionTool(m_canvas));
-    m_drawCircleTool = std::unique_ptr<DrawCircleTool>(new DrawCircleTool(m_canvas));
-    m_drawRectangleTool = std::unique_ptr<DrawRectangleTool>(new DrawRectangleTool(m_canvas));
-    m_drawLineTool = std::unique_ptr<DrawLineTool>(new DrawLineTool(m_canvas));
+    m_selectionTool = std::unique_ptr<SelectionTool>
+            (new SelectionTool(m_canvas));
+    m_drawCircleTool = std::unique_ptr<DrawCircleTool>
+            (new DrawCircleTool(m_canvas));
+    m_drawRectangleTool = std::unique_ptr<DrawRectangleTool>
+            (new DrawRectangleTool(m_canvas));
+    m_drawLineTool = std::unique_ptr<DrawLineTool>
+            (new DrawLineTool(m_canvas));
 
     m_canvas->setActiveTool(m_selectionTool.get());
+
+    PropertyColorButton *fillColorBtn =
+            new PropertyColorButton(this, getCanvas(),
+                                    []() { return QColor(200, 200, 200); },
+                                    [](QColor c) {});
+
+    PropertyColorButton *lineColorBtn =
+            new PropertyColorButton(this, getCanvas(),
+                                    []() { return QColor(0, 0, 0); },
+                                    [](QColor c) {});
+
+    PropertySpinBox *thicknessSpinBox =
+            new PropertySpinBox(this, getCanvas(),
+                                []() { return 2; },
+                                [](int i) {});
+
+    m_gp->setGlobals(fillColorBtn, lineColorBtn, thicknessSpinBox);
+
+    ui->VEProp->addRow("Fill Color", fillColorBtn);
+    ui->VEProp->addRow("Line Color", lineColorBtn);
+    ui->VEProp->addRow("Line Thickness", thicknessSpinBox);
 
     setCentralWidget(m_canvas);
 }
 
-void MainWindow::updateCanvas()
+Canvas *MainWindow::getCanvas()
 {
-    m_canvas->repaint();
+    return m_canvas;
 }
 
 void MainWindow::setActiveTool(Tool *tool)

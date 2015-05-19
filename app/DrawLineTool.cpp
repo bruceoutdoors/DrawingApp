@@ -1,5 +1,6 @@
 #include "DrawLineTool.hpp"
 
+#include "GlobalDrawProperties.hpp"
 #include "Selection.hpp"
 #include "Line.hpp"
 #include "Canvas.hpp"
@@ -39,7 +40,7 @@ void DrawLineTool::mouseMove(QMouseEvent *event)
 void DrawLineTool::mouseRelease(QMouseEvent *event)
 {
     m_clickPressed = false;
-    m_selection->removeAll();
-    m_selection->add(m_line);
+    m_selection->deselectAll();
+    m_line->setSelected(true);
 }
 

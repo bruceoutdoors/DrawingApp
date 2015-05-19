@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>683</width>
+    <height>352</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>683</width>
      <height>21</height>
     </rect>
    </property>
@@ -44,6 +44,9 @@
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonIconOnly</enum>
+   </property>
    <attribute name="toolBarArea">
     <enum>LeftToolBarArea</enum>
    </attribute>
@@ -54,6 +57,24 @@
    <addaction name="actionDrawCircle"/>
    <addaction name="actionDrawRectangle"/>
    <addaction name="actionDrawLine"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="floating">
+    <bool>false</bool>
+   </property>
+   <property name="windowTitle">
+    <string>Properties</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QFormLayout" name="VEProp"/>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <action name="actionCircle">
    <property name="text">
@@ -107,6 +128,9 @@
    </property>
    <property name="toolTip">
     <string>Selection Tool</string>
+   </property>
+   <property name="statusTip">
+    <string>Click to select; Shift-Select for multiple select</string>
    </property>
   </action>
   <action name="actionDrawRectangle">

@@ -1,3 +1,4 @@
+#include "GlobalDrawProperties.hpp"
 #include "VisualEntity.hpp"
 #include "Group.hpp"
 #include "Selection.hpp"
@@ -21,10 +22,12 @@ VisualEntity::~VisualEntity()
 
 void VisualEntity::setSelected(bool val)
 {
-    if (val)
+    if (val) {
         m_selection->add(this);
-    else
+        GlobalDrawProperties::getInstance().setVisualEntity(this);
+    } else {
         m_selection->remove(this);
+    }
 }
 
 void VisualEntity::toogleSelect()

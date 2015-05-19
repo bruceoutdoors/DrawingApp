@@ -18,7 +18,10 @@ SOURCES += TestMain.cpp \
     ../app/Selection.cpp \
     ../app/AbstractGroup.cpp \
     ../app/SelectionTool.cpp \
-    ../app/Tool.cpp
+    ../app/Tool.cpp \
+    ../app/GlobalDrawProperties.cpp \
+    ../app/PropertyColorButton.cpp \
+    ../app/PropertySpinBox.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -35,7 +38,10 @@ HEADERS += \
     ../app/Selection.hpp \
     ../app/AbstractGroup.h \
     ../app/SelectionTool.hpp \
-    ../app/Tool.hpp
+    ../app/Tool.hpp \
+    ../app/GlobalDrawProperties.hpp \
+    ../app/PropertyColorButton.hpp \
+    ../app/PropertySpinBox.hpp
 
 INCLUDEPATH += \
     ../app \
