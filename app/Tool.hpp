@@ -14,10 +14,10 @@ public:
     bool handleEvent(QEvent *event);
 
 protected:
-    virtual void mousePress(QMouseEvent *event) {}
-    virtual void mouseMove(QMouseEvent *event) {}
-    virtual void mouseRelease(QMouseEvent *event) {}
-    virtual void keyPress(QKeyEvent *event) {}
+    virtual void mousePress(QMouseEvent*) {}
+    virtual void mouseMove(QMouseEvent*) {}
+    virtual void mouseRelease(QMouseEvent*) {}
+    virtual void keyPress(QKeyEvent*) {}
 
     Canvas *m_canvas;
 };

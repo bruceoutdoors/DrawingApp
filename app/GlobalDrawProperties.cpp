@@ -51,7 +51,7 @@ void GlobalDrawProperties::setVisualEntity(VisualEntity *ve)
 
         m_fillColorProp->setGetterSetter(
                     [=]() { return getFillColor(); },
-                    [=](QColor c) {});
+                    [=](QColor) {});
         return;
     }
 
@@ -78,15 +78,15 @@ void GlobalDrawProperties::unlinkProperties()
 {
     m_lineColorProp->setGetterSetter(
                 [=]() { return m_lineColor; },
-                [=](QColor c) { });
+                [=](QColor) { });
 
     m_thicknessProp->setGetterSetter(
                 [=]() { return m_thicknessProp->value(); },
-                [=](int i) { });
+                [=](int) { });
 
     m_fillColorProp->setGetterSetter(
                 [=]() { return m_fillColor; },
-                [=](QColor c) { });
+                [=](QColor) { });
 }
 
 

@@ -35,17 +35,17 @@ MainWindow::MainWindow(QWidget *parent) :
     PropertyColorButton *fillColorBtn =
             new PropertyColorButton(this, getCanvas(),
                                     []() { return QColor(200, 200, 200); },
-                                    [](QColor c) {});
+                                    [](QColor) {});
 
     PropertyColorButton *lineColorBtn =
             new PropertyColorButton(this, getCanvas(),
                                     []() { return QColor(0, 0, 0); },
-                                    [](QColor c) {});
+                                    [](QColor) {});
 
     PropertySpinBox *thicknessSpinBox =
             new PropertySpinBox(this, getCanvas(),
                                 []() { return 2; },
-                                [](int i) {});
+                                [](int) {});
 
     m_gp->setGlobals(fillColorBtn, lineColorBtn, thicknessSpinBox);
 
