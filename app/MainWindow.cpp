@@ -6,6 +6,9 @@
 #include "Rectangle.hpp"
 #include "Line.hpp"
 #include "SelectionTool.hpp"
+#include "DrawCircleTool.hpp"
+#include "DrawRectangleTool.hpp"
+#include "DrawLineTool.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -13,7 +16,11 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     m_canvas = new Canvas(this);
+
     m_selectionTool = std::unique_ptr<SelectionTool>(new SelectionTool(m_canvas));
+    m_drawCircleTool = std::unique_ptr<DrawCircleTool>(new DrawCircleTool(m_canvas));
+    m_drawRectangleTool = std::unique_ptr<DrawRectangleTool>(new DrawRectangleTool(m_canvas));
+    m_drawLineTool = std::unique_ptr<DrawLineTool>(new DrawLineTool(m_canvas));
 
     m_canvas->setActiveTool(m_selectionTool.get());
 
@@ -86,16 +93,19 @@ void MainWindow::on_actionDrawCircle_triggered()
 {
     uncheckAllToolbar();
     ui->actionDrawCircle->setChecked(true);
+    setActiveTool(m_drawCircleTool.get());
 }
 
 void MainWindow::on_actionDrawRectangle_triggered()
 {
     uncheckAllToolbar();
     ui->actionDrawRectangle->setChecked(true);
+    setActiveTool(m_drawRectangleTool.get());
 }
 
 void MainWindow::on_actionDrawLine_triggered()
 {
     uncheckAllToolbar();
     ui->actionDrawLine->setChecked(true);
+    setActiveTool(m_drawLineTool.get());
 }

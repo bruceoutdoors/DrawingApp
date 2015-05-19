@@ -68,12 +68,17 @@ void Canvas::paintEvent(QPaintEvent *event)
     delete painter;
 }
 
-void Canvas::mousePressEvent(QMouseEvent *event)
+bool Canvas::event(QEvent *event)
 {
-//    qDebug() << "Click: " << event->pos();
+    if (event->type() == QEvent::Paint) {
+        QPaintEvent *ke = reinterpret_cast<QPaintEvent *>(event);
+        paintEvent(ke);
+        return true;
+    }
 
-    m_activeTool->handleEvent(event);
+    bool result = m_activeTool->handleEvent(event);
 
     repaint();
-}
 
+    return result;
+}

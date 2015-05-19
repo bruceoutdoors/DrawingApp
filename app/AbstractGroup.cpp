@@ -1,4 +1,4 @@
-#include "AbstractGroup.h"
+#include "AbstractGroup.hpp"
 #include "VisualEntity.hpp"
 
 AbstractGroup::AbstractGroup()
@@ -35,6 +35,11 @@ void AbstractGroup::remove(VisualEntity *val)
     if (result != m_children.end()) {
         m_children.erase(result);
     }
+}
+
+void AbstractGroup::removeAll()
+{
+    m_children.clear();
 }
 
 void AbstractGroup::destroy(int index)

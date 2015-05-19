@@ -30,6 +30,11 @@ int Selection::add(VisualEntity *val)
     return m_children.size() - 1;
 }
 
+VisualEntity *Selection::getLastSelected()
+{
+    return m_children[m_children.size() - 1];
+}
+
 bool Selection::isSelected(VisualEntity *val)
 {
     return find(val) != m_children.end();

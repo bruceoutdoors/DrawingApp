@@ -24,7 +24,7 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event) override;
-    void mousePressEvent(QMouseEvent *event) override;
+    bool event(QEvent *event) override;
 
 private:
     Group *m_mainGroup;

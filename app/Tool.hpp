@@ -15,6 +15,8 @@ public:
 
 protected:
     virtual void mousePress(QMouseEvent *event) {}
+    virtual void mouseMove(QMouseEvent *event) {}
+    virtual void mouseRelease(QMouseEvent *event) {}
     virtual void keyPress(QKeyEvent *event) {}
 
     Canvas *m_canvas;

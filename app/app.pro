@@ -26,7 +26,10 @@ SOURCES += main.cpp \
     Selection.cpp \
     AbstractGroup.cpp \
     Tool.cpp \
-    SelectionTool.cpp
+    SelectionTool.cpp \
+    DrawCircleTool.cpp \
+    DrawRectangleTool.cpp \
+    DrawLineTool.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -46,9 +49,12 @@ HEADERS  += \
     DrawDialogFactory.hpp \
     Line.hpp \
     Selection.hpp \
-    AbstractGroup.h \
     Tool.hpp \
-    SelectionTool.hpp
+    SelectionTool.hpp \
+    DrawCircleTool.hpp \
+    DrawRectangleTool.hpp \
+    DrawLineTool.hpp \
+    AbstractGroup.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

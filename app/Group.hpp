@@ -1,6 +1,6 @@
 #pragma once
 
-#include "AbstractGroup.h"
+#include "AbstractGroup.hpp"
 #include "VisualEntity.hpp"
 
 class Group : public AbstractGroup, public VisualEntity

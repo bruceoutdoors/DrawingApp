@@ -6,6 +6,9 @@
 class Canvas;
 class Tool;
 class SelectionTool;
+class DrawCircleTool;
+class DrawRectangleTool;
+class DrawLineTool;
 
 namespace Ui {
 class MainWindow;
@@ -37,5 +40,8 @@ private:
     Canvas *m_canvas;
     Tool *m_activeTool;
     std::unique_ptr<SelectionTool> m_selectionTool;
+    std::unique_ptr<DrawCircleTool> m_drawCircleTool;
+    std::unique_ptr<DrawRectangleTool> m_drawRectangleTool;
+    std::unique_ptr<DrawLineTool> m_drawLineTool;
 };
 

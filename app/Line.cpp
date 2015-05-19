@@ -46,8 +46,8 @@ void Line::draw(QPainter *painter)
 QRect Line::getBoundary()
 {
     QRect b = QRect(m_p1, m_p2);
-    int l = getlineThickness()/2 + 2;
-    b += QMargins(l, l, l, l);
+//    int l = getlineThickness()/2 + 2;
+//    b += QMargins(l, l, l, l);
     return b;
 }
 

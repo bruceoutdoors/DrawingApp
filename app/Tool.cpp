@@ -23,7 +23,12 @@ bool Tool::handleEvent(QEvent *event)
     } else if (event->type() == QEvent::MouseButtonPress) {
         QMouseEvent *me = reinterpret_cast<QMouseEvent *>(event);
         mousePress(me);
-        return true;
+    } else if (event->type() == QEvent::MouseMove) {
+        QMouseEvent *me = reinterpret_cast<QMouseEvent *>(event);
+        mouseMove(me);
+    } else if (event->type() == QEvent::MouseButtonRelease) {
+        QMouseEvent *me = reinterpret_cast<QMouseEvent *>(event);
+        mouseRelease(me);
     }
 
     return true;
