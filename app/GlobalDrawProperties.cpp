@@ -17,6 +17,9 @@ void GlobalDrawProperties::setGlobals(PropertyColorButton *fillColorProp,
     m_fillColorProp = fillColorProp;
     m_lineColorProp = lineColorProp;
     m_thicknessProp = thicknessProp;
+
+    m_fillColor = m_fillColorProp->getColor();
+    m_lineColor = m_lineColorProp->getColor();
 }
 
 QColor GlobalDrawProperties::getFillColor()
@@ -42,7 +45,7 @@ void GlobalDrawProperties::setVisualEntity(VisualEntity *ve)
         m_lineColor = QColor(line->getLineColor());
         m_lineColorProp->setGetterSetter(
                     [=]() { return line->getLineColor(); },
-                    [=](QColor c) { line->setLineColor(c); m_lineColor = QColor(c); });
+                    [=](QColor c) { line->setLineColor(c); m_lineColor = c; });
 
 
         m_thicknessProp->setGetterSetter(
@@ -61,7 +64,7 @@ void GlobalDrawProperties::setVisualEntity(VisualEntity *ve)
         m_lineColor = QColor(shape->getLineColor());
         m_lineColorProp->setGetterSetter(
                     [=]() { return shape->getLineColor(); },
-                    [=](QColor c) { shape->setLineColor(c); m_lineColor = QColor(c); });
+                    [=](QColor c) { shape->setLineColor(c); m_lineColor = c; });
 
         m_thicknessProp->setGetterSetter(
                     [=]() { return shape->getlineThickness(); },
@@ -70,7 +73,7 @@ void GlobalDrawProperties::setVisualEntity(VisualEntity *ve)
         m_fillColor = QColor(shape->getFillColor());
         m_fillColorProp->setGetterSetter(
                     [=]() { return shape->getFillColor(); },
-                    [=](QColor c) { shape->setFillColor(c); m_fillColor = QColor(c); });
+                    [=](QColor c) { shape->setFillColor(c); m_fillColor = c; });
     }
 }
 
