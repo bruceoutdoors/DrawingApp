@@ -1,5 +1,6 @@
 #include "Line.hpp"
 #include <QPainter>
+#include <cmath>
 #include "GlobalDrawProperties.hpp"
 
 Line::Line()
@@ -50,10 +51,12 @@ void Line::draw(QPainter *painter)
 
 QRect Line::getBoundary()
 {
-    QRect b = QRect(m_p1, m_p2);
-//    int l = getlineThickness()/2 + 2;
-//    b += QMargins(l, l, l, l);
-    return b;
+    int x = m_p1.x() < m_p2.x() ? m_p1.x() : m_p2.x();
+    int y  = m_p1.y() < m_p2.y() ? m_p1.y() : m_p2.y();
+    int w = std::abs(m_p1.x() - m_p2.x());
+    int h = std::abs(m_p1.y() - m_p2.y());
+
+    return QRect(x, y, w, h);;
 }
 
 bool Line::contains(int x, int y)
