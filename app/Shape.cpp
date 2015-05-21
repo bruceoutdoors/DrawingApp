@@ -5,9 +5,15 @@ Shape::Shape()
 {
     GlobalDrawProperties *gp = &GlobalDrawProperties::getInstance();
 
-    setlineThickness(gp->getThickness());
-    setLineColor(gp->getLineColor());
-    setFillColor(gp->getFillColor());
+    if (gp->isSetup()) {
+        setlineThickness(gp->getThickness());
+        setLineColor(gp->getLineColor());
+        setFillColor(gp->getFillColor());
+    } else {
+        setFillColor(QColor(50, 150, 0));
+        setLineColor(QColor(0, 0, 0));
+        setlineThickness(2);
+    }
 }
 
 Shape::~Shape()

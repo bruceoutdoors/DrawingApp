@@ -10,8 +10,12 @@ Line::Line()
 
     GlobalDrawProperties *gp = &GlobalDrawProperties::getInstance();
 
-    setlineThickness(gp->getThickness());
-    setLineColor(gp->getLineColor());
+    if (gp->isSetup()) {
+        setlineThickness(gp->getThickness());
+        setLineColor(gp->getLineColor());
+    } else {
+        setlineThickness(2);
+    }
 }
 
 Line::~Line()

@@ -47,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent) :
                                 []() { return 2; },
                                 [](int) {});
 
-    m_gp->setGlobals(fillColorBtn, lineColorBtn, thicknessSpinBox);
+    m_gp->setup(fillColorBtn, lineColorBtn, thicknessSpinBox);
 
     ui->VEProp->addRow("Fill Color", fillColorBtn);
     ui->VEProp->addRow("Line Color", lineColorBtn);

@@ -10,10 +10,12 @@ GlobalDrawProperties &GlobalDrawProperties::getInstance()
     return instance;
 }
 
-void GlobalDrawProperties::setGlobals(PropertyColorButton *fillColorProp,
+void GlobalDrawProperties::setup(PropertyColorButton *fillColorProp,
                                   PropertyColorButton *lineColorProp,
                                   PropertySpinBox *thicknessProp)
 {
+    m_isSetup = true;
+
     m_fillColorProp = fillColorProp;
     m_lineColorProp = lineColorProp;
     m_thicknessProp = thicknessProp;
