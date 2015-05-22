@@ -33,6 +33,8 @@ private slots:
     void on_actionDrawCircle_triggered();
     void on_actionDrawRectangle_triggered();
     void on_actionDrawLine_triggered();
+    void on_actionUndo_triggered();
+    void on_actionRedo_triggered();
 
 private:
     void uncheckAllToolbar();

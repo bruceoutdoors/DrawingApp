@@ -32,7 +32,12 @@ SOURCES += main.cpp \
     DrawLineTool.cpp \
     PropertySpinBox.cpp \
     PropertyColorButton.cpp \
-    GlobalDrawProperties.cpp
+    GlobalDrawProperties.cpp \
+    CommandStack.cpp \
+    Command.cpp \
+    DrawCircleCommand.cpp \
+    DrawRectangleCommand.cpp \
+    DrawLineCommand.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -60,7 +65,12 @@ HEADERS  += \
     AbstractGroup.hpp \
     PropertySpinBox.hpp \
     PropertyColorButton.hpp \
-    GlobalDrawProperties.hpp
+    GlobalDrawProperties.hpp \
+    Command.hpp \
+    CommandStack.hpp \
+    DrawCircleCommand.hpp \
+    DrawRectangleCommand.hpp \
+    DrawLineCommand.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

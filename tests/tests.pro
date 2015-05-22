@@ -21,7 +21,10 @@ SOURCES += TestMain.cpp \
     ../app/Tool.cpp \
     ../app/GlobalDrawProperties.cpp \
     ../app/PropertyColorButton.cpp \
-    ../app/PropertySpinBox.cpp
+    ../app/PropertySpinBox.cpp \
+    ../app/CommandStack.cpp \
+    CommandStackTest.cpp \
+    ../app/Command.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -41,7 +44,9 @@ HEADERS += \
     ../app/Tool.hpp \
     ../app/GlobalDrawProperties.hpp \
     ../app/PropertyColorButton.hpp \
-    ../app/PropertySpinBox.hpp
+    ../app/PropertySpinBox.hpp \
+    ../app/Command.hpp \
+    ../app/CommandStack.hpp
 
 INCLUDEPATH += \
     ../app \

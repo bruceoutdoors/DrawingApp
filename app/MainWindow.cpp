@@ -12,6 +12,11 @@
 #include "PropertyColorButton.hpp"
 #include "PropertySpinBox.hpp"
 #include "GlobalDrawProperties.hpp"
+#include "CommandStack.hpp"
+
+#include "DrawCircleCommand.hpp"
+#include "DrawRectangleCommand.hpp"
+#include "DrawLineCommand.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -81,6 +86,9 @@ void MainWindow::on_actionCircle_triggered()
     DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, c);
     d->exec();
     delete d;
+
+    DrawCircleCommand *comm = new DrawCircleCommand(c);
+    comm->addtoCommandStack();
 }
 
 void MainWindow::on_actionRectangle_triggered()
@@ -91,6 +99,9 @@ void MainWindow::on_actionRectangle_triggered()
     DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, r);
     d->exec();
     delete d;
+
+    DrawRectangleCommand *comm = new DrawRectangleCommand(r);
+    comm->addtoCommandStack();
 }
 
 void MainWindow::on_actionLine_triggered()
@@ -101,6 +112,9 @@ void MainWindow::on_actionLine_triggered()
     DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, l);
     d->exec();
     delete d;
+
+    DrawLineCommand *comm = new DrawLineCommand(l);
+    comm->addtoCommandStack();
 }
 
 void MainWindow::on_actionSelectionTool_triggered()
@@ -137,4 +151,14 @@ void MainWindow::on_actionDrawLine_triggered()
     uncheckAllToolbar();
     ui->actionDrawLine->setChecked(true);
     setActiveTool(m_drawLineTool.get());
+}
+
+void MainWindow::on_actionUndo_triggered()
+{
+    CommandStack::getInstance().undo();
+}
+
+void MainWindow::on_actionRedo_triggered()
+{
+    CommandStack::getInstance().redo();
 }
