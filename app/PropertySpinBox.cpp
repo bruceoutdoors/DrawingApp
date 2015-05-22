@@ -8,6 +8,7 @@ PropertySpinBox::PropertySpinBox(QWidget *parent, Canvas *canvas,
     QSpinBox(parent),
     m_canvas(canvas)
 {
+    setMaximum(999);
     setGetterSetter(getter, setter);
 }
 
@@ -16,16 +17,14 @@ void PropertySpinBox::setGetterSetter(std::function<int()> getter,
 {
     QObject::disconnect(m_connection);
 
+    setValue(getter());
+
     m_connection =
             connect(this, static_cast<void (QSpinBox::*) (int)>(&QSpinBox::valueChanged),
                [ = ](int v) {
                    setter(v);
                    m_canvas->repaint();
                });
-
-    setMaximum(999);
-
-    setValue(getter());
 }
 
 PropertySpinBox::~PropertySpinBox()
