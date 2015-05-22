@@ -24,9 +24,6 @@ void SelectionTool::mousePress(QMouseEvent *event)
             m_canvas->getVEFromPosition(event->pos().x(), event->pos().y());
 
     if (clicked != nullptr) {
-        m_gp->setVisualEntity(clicked);
-
-
         if (!(event->modifiers() & Qt::ShiftModifier)) {
             m_selection->deselectAll();
         }

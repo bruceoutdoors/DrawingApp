@@ -3,6 +3,9 @@
 #include "PropertySpinBox.hpp"
 #include "Line.hpp"
 #include "Shape.hpp"
+#include "Selection.hpp"
+
+Selection *selection = &Selection::getInstance();
 
 GlobalDrawProperties &GlobalDrawProperties::getInstance()
 {
@@ -39,24 +42,77 @@ int GlobalDrawProperties::getThickness()
     return m_thicknessProp->value();
 }
 
-void GlobalDrawProperties::setVisualEntity(VisualEntity *ve)
+// get from one source; apply to many
+void GlobalDrawProperties::update()
 {
+    const static auto setLineColorFunc = [=](QColor c) {
+        for (int i = 0; i < selection->getSize(); i++) {
+            VisualEntity *entity = selection->get(i);
+            Line *l = dynamic_cast<Line*>(entity);
+
+            if (l) {
+                l->setLineColor(c);
+                m_lineColor = c;
+                continue;
+            }
+
+            Shape *s = dynamic_cast<Shape*>(entity);
+
+            if (s) {
+                s->setLineColor(c);
+                m_lineColor = c;
+            }
+        }
+    };
+
+    const static auto setFillColorFunc = [=](QColor c) {
+        for (int i = 0; i < selection->getSize(); i++) {
+            VisualEntity *entity = selection->get(i);
+
+            if (dynamic_cast<Line*>(entity)) continue;
+
+            Shape *s = dynamic_cast<Shape*>(entity);
+
+            if (s) {
+                s->setFillColor(c);
+                m_fillColor = c;
+            }
+        }
+    };
+
+    const static auto setThicknessFunc = [=](int t) {
+        for (int i = 0; i < selection->getSize(); i++) {
+            VisualEntity *entity = selection->get(i);
+
+            Line *l = dynamic_cast<Line*>(entity);
+
+            if (l) {
+                l->setlineThickness(t);
+                continue;
+            }
+
+            Shape *s = dynamic_cast<Shape*>(entity);
+
+            if (s) s->setlineThickness(t);
+        }
+    };
+
+    VisualEntity *ve = selection->getLastSelected();
     Line *line = dynamic_cast<Line*>(ve);
 
     if (line) {
         m_lineColor = QColor(line->getLineColor());
         m_lineColorProp->setGetterSetter(
                     [=]() { return line->getLineColor(); },
-                    [=](QColor c) { line->setLineColor(c); m_lineColor = c; });
-
+                    setLineColorFunc);
 
         m_thicknessProp->setGetterSetter(
                     [=]() { return line->getlineThickness(); },
-                    [=](int i) { line->setlineThickness(i); });
+                    setThicknessFunc);
 
         m_fillColorProp->setGetterSetter(
                     [=]() { return getFillColor(); },
-                    [=](QColor) {});
+                    setFillColorFunc);
         return;
     }
 
@@ -66,16 +122,16 @@ void GlobalDrawProperties::setVisualEntity(VisualEntity *ve)
         m_lineColor = QColor(shape->getLineColor());
         m_lineColorProp->setGetterSetter(
                     [=]() { return shape->getLineColor(); },
-                    [=](QColor c) { shape->setLineColor(c); m_lineColor = c; });
+                    setLineColorFunc);
 
         m_thicknessProp->setGetterSetter(
                     [=]() { return shape->getlineThickness(); },
-                    [=](int i) { shape->setlineThickness(i); });
+                    setThicknessFunc);
 
         m_fillColor = QColor(shape->getFillColor());
         m_fillColorProp->setGetterSetter(
                     [=]() { return shape->getFillColor(); },
-                    [=](QColor c) { shape->setFillColor(c); m_fillColor = c; });
+                    setFillColorFunc);
     }
 }
 

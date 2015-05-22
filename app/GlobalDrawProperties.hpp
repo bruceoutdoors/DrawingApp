@@ -5,6 +5,7 @@
 class VisualEntity;
 class PropertyColorButton;
 class PropertySpinBox;
+class Selection;
 
 // singleton
 class GlobalDrawProperties
@@ -18,7 +19,7 @@ public:
     QColor getLineColor();
     bool isSetup() { return m_isSetup; }
     int getThickness();
-    void setVisualEntity(VisualEntity *ve);
+    void update();
     void unlinkProperties();
 
 private:

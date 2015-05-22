@@ -24,7 +24,6 @@ void VisualEntity::setSelected(bool val)
 {
     if (val) {
         m_selection->add(this);
-        GlobalDrawProperties::getInstance().setVisualEntity(this);
     } else {
         m_selection->remove(this);
     }

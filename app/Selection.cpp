@@ -1,5 +1,6 @@
 #include "Selection.hpp"
 #include "Group.hpp"
+#include "GlobalDrawProperties.hpp"
 #include <QPainter>
 
 Selection &Selection::getInstance()
@@ -32,7 +33,13 @@ void Selection::draw(QPainter *painter)
 
 int Selection::add(VisualEntity *val)
 {
+    for (int i = 0; i < m_children.size(); i++) {
+        if (m_children[i] == val)
+            return i;
+    }
+
     m_children.push_back(val);
+    GlobalDrawProperties::getInstance().update();
     return m_children.size() - 1;
 }
 
