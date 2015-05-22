@@ -25,22 +25,22 @@ DrawLineCommand::DrawLineCommand(Line *l) :
                     l->getLineColor(),
                     l->getlineThickness())
 {
-    m_line = l;
+    m_index = l->getIndex();
 }
 
 void DrawLineCommand::execute()
 {
-    m_line = new Line();
-    m_line->setP1(m_p1);
-    m_line->setP2(m_p2);
-    m_line->setLineColor(m_outline);
-    m_line->setlineThickness(m_thickness);
+    Line *l = new Line();
+    l->setP1(m_p1);
+    l->setP2(m_p2);
+    l->setLineColor(m_outline);
+    l->setlineThickness(m_thickness);
 
-    m_group->add(m_line);
+    m_index = m_group->add(l);
 }
 
 void DrawLineCommand::undo()
 {
-    m_line->selfDestruct();
+    m_group->destroy(m_index);
 }
 

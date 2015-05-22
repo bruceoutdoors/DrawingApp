@@ -37,7 +37,8 @@ SOURCES += main.cpp \
     Command.cpp \
     DrawCircleCommand.cpp \
     DrawRectangleCommand.cpp \
-    DrawLineCommand.cpp
+    DrawLineCommand.cpp \
+    DrawShapeCommand.cpp
 
 HEADERS  += \
     IDrawable.hpp \
@@ -70,7 +71,8 @@ HEADERS  += \
     CommandStack.hpp \
     DrawCircleCommand.hpp \
     DrawRectangleCommand.hpp \
-    DrawLineCommand.hpp
+    DrawLineCommand.hpp \
+    DrawShapeCommand.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Command.hpp"
+#include "DrawShapeCommand.hpp"
 
 #include <QPoint>
 #include <QColor>
@@ -8,7 +8,7 @@
 class Group;
 class Rectangle;
 
-class DrawRectangleCommand : public Command
+class DrawRectangleCommand : public DrawShapeCommand
 {
 public:
     DrawRectangleCommand(Group *group, QPoint pos,
@@ -18,16 +18,8 @@ public:
     ~DrawRectangleCommand();
 
     void execute() override;
-    void undo()    override;
 
 private:
-    Group *m_group;
-    Rectangle *m_rect;
     int m_width;
     int m_height;
-    int m_thickness;
-    QPoint m_pos;
-    QColor m_fill;
-    QColor m_outline;
 };
-

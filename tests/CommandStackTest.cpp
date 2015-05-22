@@ -96,4 +96,25 @@ TEST_CASE("Command Stack Test") {
         cs->undo();
         REQUIRE(globalVariable == 0);
     }
+
+    SECTION("Bla bla bla") {
+        TestCommand *c1 = new TestCommand(24);
+        TestCommand *c2 = new TestCommand(34);
+
+        c1->addtoCommandStack();
+        c1->execute();
+
+        REQUIRE(globalVariable == 24);
+        cs->undo();
+        REQUIRE(globalVariable == 0);
+
+        c2->addtoCommandStack();
+        c2->execute();
+
+        REQUIRE(globalVariable == 34);
+        cs->undo();
+        REQUIRE(globalVariable == 0);
+
+
+    }
 }

@@ -21,7 +21,7 @@ public:
 
 private:
     Group *m_group;
-    Line *m_line;
+    int m_index;
     QPoint m_p1;
     QPoint m_p2;
     QColor m_fill;
