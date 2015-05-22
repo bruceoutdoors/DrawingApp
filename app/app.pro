@@ -16,68 +16,75 @@ SOURCES += main.cpp \
     MainWindow.cpp \
     VisualEntity.cpp \
     Shape.cpp \
-    Circle.cpp \
     Canvas.cpp \
     Group.cpp \
-    Rectangle.cpp \
     DrawDialog.cpp \
     DrawDialogFactory.cpp \
-    Line.cpp \
     Selection.cpp \
     AbstractGroup.cpp \
     Tool.cpp \
-    SelectionTool.cpp \
-    DrawCircleTool.cpp \
-    DrawRectangleTool.cpp \
-    DrawLineTool.cpp \
     PropertySpinBox.cpp \
     PropertyColorButton.cpp \
     GlobalDrawProperties.cpp \
     CommandStack.cpp \
     Command.cpp \
-    DrawCircleCommand.cpp \
-    DrawRectangleCommand.cpp \
-    DrawLineCommand.cpp \
-    DrawShapeCommand.cpp
+    commands/DrawCircleCommand.cpp \
+    commands/DrawLineCommand.cpp \
+    commands/DrawRectangleCommand.cpp \
+    commands/DrawShapeCommand.cpp \
+    shapes/Circle.cpp \
+    shapes/Line.cpp \
+    shapes/Rectangle.cpp \
+    tools/DrawCircleTool.cpp \
+    tools/DrawLineTool.cpp \
+    tools/DrawRectangleTool.cpp \
+    tools/SelectionTool.cpp
 
 HEADERS  += \
-    IDrawable.hpp \
     MainWindow.hpp \
     Canvas.hpp \
     VisualEntity.hpp \
-    ISelectable.hpp \
-    IFillable.hpp \
-    ILine.hpp \
-    Circle.hpp \
     Shape.hpp \
-    ITransformable.hpp \
     Canvas.hpp \
     Group.hpp \
-    Rectangle.hpp \
     DrawDialog.hpp \
     DrawDialogFactory.hpp \
-    Line.hpp \
     Selection.hpp \
     Tool.hpp \
-    SelectionTool.hpp \
-    DrawCircleTool.hpp \
-    DrawRectangleTool.hpp \
-    DrawLineTool.hpp \
     AbstractGroup.hpp \
     PropertySpinBox.hpp \
     PropertyColorButton.hpp \
     GlobalDrawProperties.hpp \
     Command.hpp \
     CommandStack.hpp \
-    DrawCircleCommand.hpp \
-    DrawRectangleCommand.hpp \
-    DrawLineCommand.hpp \
-    DrawShapeCommand.hpp
+    interfaces/IDrawable.hpp \
+    interfaces/IFillable.hpp \
+    interfaces/ILine.hpp \
+    interfaces/ISelectable.hpp \
+    interfaces/ITransformable.hpp \
+    commands/DrawCircleCommand.hpp \
+    commands/DrawLineCommand.hpp \
+    commands/DrawRectangleCommand.hpp \
+    commands/DrawShapeCommand.hpp \
+    shapes/Circle.hpp \
+    shapes/Line.hpp \
+    shapes/Rectangle.hpp \
+    tools/DrawCircleTool.hpp \
+    tools/DrawLineTool.hpp \
+    tools/DrawRectangleTool.hpp \
+    tools/SelectionTool.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui
 
 DESTDIR = $$PWD/../build
+
+INCLUDEPATH += \
+    $$PWD \
+    interfaces \
+    commands \
+    tools \
+    shapes
 
 RESOURCES += \
     resource.qrc
