@@ -1,7 +1,7 @@
 #include "GlobalDrawProperties.hpp"
 #include "VisualEntity.hpp"
 #include "Group.hpp"
-#include "Selection.hpp"
+#include "ActiveSelection.hpp"
 
 #include <exception>
 #include <stdexcept>
@@ -10,7 +10,7 @@
 VisualEntity::VisualEntity() :
     m_parentGroup(nullptr)
 {
-    m_selection = &Selection::getInstance();
+    m_selection = &ActiveSelection::getInstance();
 
     m_index = -1;
 }

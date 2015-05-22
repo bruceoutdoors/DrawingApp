@@ -3,7 +3,7 @@
 #include "Tool.hpp"
 #include <QPoint>
 
-class Selection;
+class ActiveSelection;
 class Line;
 
 class DrawLineTool : public Tool
@@ -18,7 +18,7 @@ protected:
     void mouseRelease(QMouseEvent *event) override;
 
 private:
-    Selection *m_selection;
+    ActiveSelection *m_selection;
     Line *m_line;
     bool m_clickPressed;
     QPoint m_startPosition;

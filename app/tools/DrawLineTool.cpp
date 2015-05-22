@@ -2,7 +2,7 @@
 #include "DrawLineCommand.hpp"
 
 #include "GlobalDrawProperties.hpp"
-#include "Selection.hpp"
+#include "ActiveSelection.hpp"
 #include "Line.hpp"
 #include "Canvas.hpp"
 
@@ -12,7 +12,7 @@ DrawLineTool::DrawLineTool(Canvas *canvas) :
     Tool(canvas),
     m_clickPressed(false)
 {
-    m_selection = &Selection::getInstance();
+    m_selection = &ActiveSelection::getInstance();
 }
 
 DrawLineTool::~DrawLineTool()

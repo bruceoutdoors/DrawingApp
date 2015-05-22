@@ -3,7 +3,7 @@
 #include "Tool.hpp"
 #include <QPoint>
 
-class Selection;
+class ActiveSelection;
 class Rectangle;
 
 class DrawRectangleTool : public Tool
@@ -18,7 +18,7 @@ protected:
     void mouseRelease(QMouseEvent *event) override;
 
 private:
-    Selection *m_selection;
+    ActiveSelection *m_selection;
     Rectangle *m_rectangle;
     bool m_clickPressed;
     QPoint m_startPosition;

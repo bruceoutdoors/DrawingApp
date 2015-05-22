@@ -38,7 +38,8 @@ SOURCES += main.cpp \
     tools/DrawCircleTool.cpp \
     tools/DrawLineTool.cpp \
     tools/DrawRectangleTool.cpp \
-    tools/SelectionTool.cpp
+    tools/SelectionTool.cpp \
+    ActiveSelection.cpp
 
 HEADERS  += \
     MainWindow.hpp \
@@ -72,7 +73,8 @@ HEADERS  += \
     tools/DrawCircleTool.hpp \
     tools/DrawLineTool.hpp \
     tools/DrawRectangleTool.hpp \
-    tools/SelectionTool.hpp
+    tools/SelectionTool.hpp \
+    ActiveSelection.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

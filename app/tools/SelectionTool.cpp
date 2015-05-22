@@ -1,5 +1,5 @@
 #include "SelectionTool.hpp"
-#include "Selection.hpp"
+#include "ActiveSelection.hpp"
 #include "Group.hpp"
 #include "Canvas.hpp"
 #include "GlobalDrawProperties.hpp"
@@ -9,7 +9,7 @@
 SelectionTool::SelectionTool(Canvas *canvas) :
     Tool(canvas)
 {
-    m_selection = &Selection::getInstance();
+    m_selection = &ActiveSelection::getInstance();
     m_gp = &GlobalDrawProperties::getInstance();
 }
 

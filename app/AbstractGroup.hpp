@@ -14,11 +14,11 @@ public:
 
     virtual int add(VisualEntity *val) = 0;
     std::vector<VisualEntity*>::iterator find(VisualEntity *val);
-    VisualEntity* get(int index);
+    VisualEntity* get(int index) const;
     void remove(int index);
     void remove(VisualEntity *val);
     void destroy(int index);
-    int getSize();
+    int getSize() const;
     QRect getBoundary() override;
 
     void setPosition(QPoint pos) override;

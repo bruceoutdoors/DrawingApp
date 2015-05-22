@@ -24,7 +24,9 @@ SOURCES += TestMain.cpp \
     ../app/Command.cpp \
     ../app/shapes/Circle.cpp \
     ../app/shapes/Rectangle.cpp \
-    ../app/tools/SelectionTool.cpp
+    ../app/tools/SelectionTool.cpp \
+    SelectionTests.cpp \
+    ../app/ActiveSelection.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -46,7 +48,8 @@ HEADERS += \
     ../app/interfaces/ITransformable.hpp \
     ../app/shapes/Circle.hpp \
     ../app/shapes/Rectangle.hpp \
-    ../app/tools/SelectionTool.hpp
+    ../app/tools/SelectionTool.hpp \
+    ../app/ActiveSelection.hpp
 
 INCLUDEPATH += \
     ../app \

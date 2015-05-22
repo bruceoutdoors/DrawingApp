@@ -3,9 +3,9 @@
 #include "PropertySpinBox.hpp"
 #include "Line.hpp"
 #include "Shape.hpp"
-#include "Selection.hpp"
+#include "ActiveSelection.hpp"
 
-Selection *selection = &Selection::getInstance();
+ActiveSelection *selection = &ActiveSelection::getInstance();
 
 GlobalDrawProperties &GlobalDrawProperties::getInstance()
 {

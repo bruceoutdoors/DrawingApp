@@ -1,7 +1,7 @@
 #include "GlobalDrawProperties.hpp"
 #include "DrawRectangleTool.hpp"
 #include "DrawRectangleCommand.hpp"
-#include "Selection.hpp"
+#include "ActiveSelection.hpp"
 #include "Rectangle.hpp"
 #include "Canvas.hpp"
 
@@ -11,7 +11,7 @@ DrawRectangleTool::DrawRectangleTool(Canvas *canvas) :
     Tool(canvas),
     m_clickPressed(false)
 {
-    m_selection = &Selection::getInstance();
+    m_selection = &ActiveSelection::getInstance();
 }
 
 DrawRectangleTool::~DrawRectangleTool()

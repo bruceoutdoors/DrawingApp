@@ -11,7 +11,7 @@ AbstractGroup::~AbstractGroup()
 
 }
 
-VisualEntity *AbstractGroup::get(int index)
+VisualEntity *AbstractGroup::get(int index) const
 {
     if (index > (m_children.size() - 1) || index < 0) {
         throw std::runtime_error("There is no such index in Group: " + index);
@@ -46,7 +46,7 @@ void AbstractGroup::destroy(int index)
     delete v;
 }
 
-int AbstractGroup::getSize()
+int AbstractGroup::getSize() const
 {
     return m_children.size();
 }

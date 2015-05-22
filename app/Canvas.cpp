@@ -2,7 +2,7 @@
 #include "Circle.hpp"
 #include "Rectangle.hpp"
 #include "Group.hpp"
-#include "Selection.hpp"
+#include "ActiveSelection.hpp"
 #include "SelectionTool.hpp"
 
 #include <QPainter>
@@ -12,7 +12,7 @@
 Canvas::Canvas(QWidget *parent) : QWidget(parent)
 {
     m_mainGroup = new Group();
-    m_selection = &Selection::getInstance();
+    m_selection = &ActiveSelection::getInstance();
 
     setBackgroundColor(Qt::white);
 }

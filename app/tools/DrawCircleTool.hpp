@@ -4,7 +4,7 @@
 
 #include <QPoint>
 
-class Selection;
+class ActiveSelection;
 class Circle;
 
 class DrawCircleTool : public Tool
@@ -19,7 +19,7 @@ protected:
     void mouseRelease(QMouseEvent *event) override;
 
 private:
-    Selection *m_selection;
+    ActiveSelection *m_selection;
     Circle *m_circle;
     bool m_clickPressed;
     QPoint m_startPosition;

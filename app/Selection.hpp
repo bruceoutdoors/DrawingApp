@@ -5,11 +5,13 @@
 class VisualEntity;
 class Group;
 
-// singleton
 class Selection : public AbstractGroup
 {
 public:
-    static Selection& getInstance();
+    Selection();
+    virtual ~Selection();
+    Selection(Selection const &other);
+    Selection& operator=(Selection const &other);
 
     void draw(QPainter *painter) override;
     int add(VisualEntity *val) override;
@@ -19,11 +21,5 @@ public:
     void toggleSelect(VisualEntity *val);
     void deselectAll();
 //    Group* makeGroup();
-
-private:
-    Selection();
-    ~Selection();
-    Selection(Selection const&) {}
-    Selection& operator=(Selection const&) {}
 };
 

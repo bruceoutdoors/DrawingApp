@@ -6,7 +6,7 @@
 
 class QPainter;
 class Group;
-class Selection;
+class ActiveSelection;
 
 class VisualEntity : public IDrawable, public ISelectable, public ITransformable
 {
@@ -27,7 +27,7 @@ public:
 
 protected:
     Group *m_parentGroup;
-    Selection *m_selection;
+    ActiveSelection *m_selection;
 
     int m_index;
 };

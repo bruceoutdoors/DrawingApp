@@ -1,13 +1,6 @@
 #include "Selection.hpp"
 #include "Group.hpp"
-#include "GlobalDrawProperties.hpp"
 #include <QPainter>
-
-Selection &Selection::getInstance()
-{
-    static Selection instance;
-    return instance;
-}
 
 void Selection::draw(QPainter *painter)
 {
@@ -39,7 +32,7 @@ int Selection::add(VisualEntity *val)
     }
 
     m_children.push_back(val);
-    GlobalDrawProperties::getInstance().update();
+
     return m_children.size() - 1;
 }
 
@@ -73,5 +66,22 @@ Selection::Selection()
 
 Selection::~Selection()
 {
+}
+
+Selection::Selection(const Selection &other)
+{
+    *this = other;
+}
+
+Selection &Selection::operator=(const Selection &other)
+{
+    if(this != &other) {
+        deselectAll();
+        for (int i = 0; i < other.getSize(); i++) {
+            add(other.get(i));
+        }
+    }
+
+    return *this;
 }
 

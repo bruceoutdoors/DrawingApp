@@ -3,7 +3,7 @@
 #include "Tool.hpp"
 
 class Group;
-class Selection;
+class ActiveSelection;
 class GlobalDrawProperties;
 
 class SelectionTool : public Tool
@@ -16,7 +16,7 @@ protected:
     void mousePress(QMouseEvent *event) override;
 
 private:
-    Selection *m_selection;
+    ActiveSelection *m_selection;
     GlobalDrawProperties *m_gp;
 };
 

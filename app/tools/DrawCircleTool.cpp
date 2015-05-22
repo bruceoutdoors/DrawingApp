@@ -1,7 +1,7 @@
 #include "DrawCircleTool.hpp"
 #include "DrawCircleCommand.hpp"
 #include "GlobalDrawProperties.hpp"
-#include "Selection.hpp"
+#include "ActiveSelection.hpp"
 #include "Group.hpp"
 #include "Canvas.hpp"
 #include "Circle.hpp"
@@ -14,7 +14,7 @@ DrawCircleTool::DrawCircleTool(Canvas *canvas) :
     Tool(canvas),
     m_clickPressed(false)
 {
-    m_selection = &Selection::getInstance();
+    m_selection = &ActiveSelection::getInstance();
 }
 
 DrawCircleTool::~DrawCircleTool()

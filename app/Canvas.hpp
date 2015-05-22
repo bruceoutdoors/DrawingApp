@@ -6,7 +6,7 @@
 
 class VisualEntity;
 class Group;
-class Selection;
+class ActiveSelection;
 class Tool;
 class SelectionTool;
 
@@ -28,7 +28,7 @@ protected:
 
 private:
     Group *m_mainGroup;
-    Selection *m_selection;
+    ActiveSelection *m_selection;
     Tool *m_activeTool;
 };
 
