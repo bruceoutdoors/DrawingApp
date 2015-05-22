@@ -8,11 +8,14 @@ class PropertyColorButton : public QPushButton
 {
 public:
     PropertyColorButton(QWidget *parent,
+                        Canvas *canvas, QColor startColor);
+    PropertyColorButton(QWidget *parent,
                         Canvas *canvas,
                         std::function<QColor()> getter,
                         std::function<void(QColor)> setter);
     void setGetterSetter(std::function<QColor()> getter,
                          std::function<void(QColor)> setter);
+    void setColor(QColor color);
     QColor getColor() const;
     ~PropertyColorButton();
 

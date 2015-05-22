@@ -38,19 +38,13 @@ MainWindow::MainWindow(QWidget *parent) :
     m_canvas->setActiveTool(m_selectionTool.get());
 
     PropertyColorButton *fillColorBtn =
-            new PropertyColorButton(this, getCanvas(),
-                                    []() { return QColor(200, 200, 200); },
-                                    [](QColor) {});
+            new PropertyColorButton(this, getCanvas(), QColor(200, 200, 200));
 
     PropertyColorButton *lineColorBtn =
-            new PropertyColorButton(this, getCanvas(),
-                                    []() { return QColor(0, 0, 0); },
-                                    [](QColor) {});
+            new PropertyColorButton(this, getCanvas(), QColor(0, 0, 0));
 
     PropertySpinBox *thicknessSpinBox =
-            new PropertySpinBox(this, getCanvas(),
-                                []() { return 2; },
-                                [](int) {});
+            new PropertySpinBox(this, getCanvas(), 2);
 
     m_gp->setup(fillColorBtn, lineColorBtn, thicknessSpinBox);
 

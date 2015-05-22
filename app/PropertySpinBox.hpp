@@ -9,6 +9,8 @@ class PropertySpinBox : public QSpinBox
 {
 public:
     PropertySpinBox(QWidget *parent,
+                    Canvas *canvas, int startVal);
+    PropertySpinBox(QWidget *parent,
                     Canvas *canvas,
                     std::function<int()> getter,
                     std::function<void(int)> setter);
