@@ -13,5 +13,7 @@ class ITransformable
 
     virtual void setPosition(QPoint pos) = 0;
     virtual QPoint getPosition() = 0;
+
+    virtual ~ITransformable() {}
 };
 

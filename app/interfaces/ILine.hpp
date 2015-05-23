@@ -10,6 +10,8 @@ public:
 
     virtual void setLineThickness(int val) = 0;
     virtual int getLineThickness() = 0;
+
+    virtual ~ILine() {}
 };
 
 

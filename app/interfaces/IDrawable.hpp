@@ -9,6 +9,8 @@ class IDrawable
 public:
     virtual void draw(QPainter *painter) = 0;
     virtual QRect getBoundary() = 0;
+
+    virtual ~IDrawable() {}
 };
 
 
