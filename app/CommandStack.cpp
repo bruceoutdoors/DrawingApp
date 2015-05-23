@@ -15,7 +15,7 @@ void CommandStack::add(Command *c)
     }
 
     // wipe out commands on top, if any
-    while (m_stack.size()-1 > m_current) {
+    while (int(m_stack.size() - 1) > m_current) {
         int next = m_current + 1;
         delete m_stack[next];
         m_stack.erase(m_stack.begin() + next);

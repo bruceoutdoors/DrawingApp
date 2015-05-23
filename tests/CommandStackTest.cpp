@@ -107,10 +107,12 @@ TEST_CASE("Command Stack Test") {
         REQUIRE(globalVariable == 24);
         cs->undo();
         REQUIRE(globalVariable == 0);
+        REQUIRE(cs->getSize() == 1);
 
         c2->addtoCommandStack();
         c2->execute();
 
+        REQUIRE(cs->getSize() == 1);
         REQUIRE(globalVariable == 34);
         cs->undo();
         REQUIRE(globalVariable == 0);
