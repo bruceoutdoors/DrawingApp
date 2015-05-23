@@ -59,7 +59,7 @@ void DrawRectangleTool::mouseMove(QMouseEvent *event)
     }
 }
 
-void DrawRectangleTool::mouseRelease(QMouseEvent *event)
+void DrawRectangleTool::mouseRelease(QMouseEvent *)
 {
     m_clickPressed = false;
     m_selection->deselectAll();

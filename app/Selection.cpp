@@ -26,7 +26,7 @@ void Selection::draw(QPainter *painter)
 
 int Selection::add(VisualEntity *val)
 {
-    for (int i = 0; i < m_children.size(); i++) {
+    for (int i = 0; i < int(m_children.size()); i++) {
         if (m_children[i] == val)
             return i;
     }

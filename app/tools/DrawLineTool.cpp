@@ -38,7 +38,7 @@ void DrawLineTool::mouseMove(QMouseEvent *event)
     }
 }
 
-void DrawLineTool::mouseRelease(QMouseEvent *event)
+void DrawLineTool::mouseRelease(QMouseEvent *)
 {
     m_clickPressed = false;
     m_selection->deselectAll();

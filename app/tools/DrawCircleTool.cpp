@@ -46,7 +46,7 @@ void DrawCircleTool::mouseMove(QMouseEvent *event)
     }
 }
 
-void DrawCircleTool::mouseRelease(QMouseEvent *event)
+void DrawCircleTool::mouseRelease(QMouseEvent *)
 {
     m_clickPressed = false;
     m_selection->deselectAll();

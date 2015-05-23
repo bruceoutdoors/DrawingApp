@@ -13,7 +13,7 @@ AbstractGroup::~AbstractGroup()
 
 VisualEntity *AbstractGroup::get(int index) const
 {
-    if (index > (m_children.size() - 1) || index < 0) {
+    if (index > int(m_children.size() - 1) || index < 0) {
         throw std::runtime_error("There is no such index in Group: " + index);
     }
 
@@ -81,7 +81,7 @@ std::vector<VisualEntity*>::iterator AbstractGroup::find(VisualEntity *val)
     } else return m_children.end();
 }
 
-void AbstractGroup::setPosition(QPoint pos)
+void AbstractGroup::setPosition(QPoint )
 {
     // TODO: implement this...
 }

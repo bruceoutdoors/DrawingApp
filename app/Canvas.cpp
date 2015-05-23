@@ -45,7 +45,7 @@ void Canvas::setActiveTool(Tool *val)
     m_activeTool = val;
 }
 
-void Canvas::paintEvent(QPaintEvent *event)
+void Canvas::paintEvent(QPaintEvent *)
 {
     QPainter *painter = new QPainter(this);
 
