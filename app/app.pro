@@ -6,6 +6,8 @@
 
 QT       += core gui
 
+CONFIG += c++11
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = DrawingApp
@@ -16,7 +18,6 @@ SOURCES += main.cpp \
     MainWindow.cpp \
     VisualEntity.cpp \
     Shape.cpp \
-    Canvas.cpp \
     Group.cpp \
     DrawDialog.cpp \
     DrawDialogFactory.cpp \
@@ -39,14 +40,14 @@ SOURCES += main.cpp \
     commands/ChangeFillColorCommand.cpp \
     commands/ChangeLineColorCommand.cpp \
     commands/ChangeLineThicknessCommand.cpp \
-    commands/DrawCommand.cpp
+    commands/DrawCommand.cpp \
+    commands/DeleteSelectedCommand.cpp
 
 HEADERS  += \
     MainWindow.hpp \
     Canvas.hpp \
     VisualEntity.hpp \
     Shape.hpp \
-    Canvas.hpp \
     Group.hpp \
     DrawDialog.hpp \
     DrawDialogFactory.hpp \
@@ -74,7 +75,8 @@ HEADERS  += \
     commands/ChangeFillColorCommand.hpp \
     commands/ChangeLineColorCommand.hpp \
     commands/ChangeLineThicknessCommand.hpp \
-    commands/DrawCommand.hpp
+    commands/DrawCommand.hpp \
+    commands/DeleteSelectedCommand.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

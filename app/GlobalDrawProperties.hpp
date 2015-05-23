@@ -13,6 +13,8 @@ class ChangeLineColorCommand;
 // singleton
 class GlobalDrawProperties : public QObject
 {
+	Q_OBJECT
+
 public:
     static GlobalDrawProperties& getInstance();
     void setup(PropertyColorButton *fillColorProp,
@@ -46,7 +48,5 @@ private:
 
     GlobalDrawProperties() : m_isSetup(false) {}
     ~GlobalDrawProperties() {}
-    GlobalDrawProperties(GlobalDrawProperties const&) {}
-    GlobalDrawProperties& operator=(GlobalDrawProperties const&) {}
 };
 

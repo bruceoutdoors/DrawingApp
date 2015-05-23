@@ -43,7 +43,7 @@ void CommandStack::redo()
 
 void CommandStack::clear()
 {
-    for (auto &command : m_stack) {
+    for (Command *command : m_stack) {
         delete command;
     }
 

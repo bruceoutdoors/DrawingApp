@@ -1,5 +1,7 @@
 #include "AbstractGroup.hpp"
 #include "VisualEntity.hpp"
+#include <stdexcept>
+#include <climits>
 
 AbstractGroup::AbstractGroup()
 {

@@ -5,6 +5,7 @@ TARGET = DrawingAppUnitTests
 TEMPLATE = app
 
 CONFIG += console
+CONFIG += c++11
 
 SOURCES += TestMain.cpp \
     ../app/Canvas.cpp \
@@ -30,7 +31,8 @@ SOURCES += TestMain.cpp \
     ../app/commands/ChangeFillColorCommand.cpp \
     ../app/commands/ChangeLineColorCommand.cpp \
     ../app/commands/ChangeLineThicknessCommand.cpp \
-    ../app/commands/DrawCommand.cpp
+    ../app/commands/DrawCommand.cpp \
+    ../app/shapes/Line.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -57,7 +59,8 @@ HEADERS += \
     ../app/commands/ChangeFillColorCommand.hpp \
     ../app/commands/ChangeLineColorCommand.hpp \
     ../app/commands/ChangeLineThicknessCommand.hpp \
-    ../app/commands/DrawCommand.hpp
+    ../app/commands/DrawCommand.hpp \
+    ../app/shapes/Line.hpp
 
 INCLUDEPATH += \
     ../app \
