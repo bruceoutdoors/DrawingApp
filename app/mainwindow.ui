@@ -10,6 +10,9 @@
     <height>352</height>
    </rect>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -51,6 +54,9 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="toolBar">
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
@@ -69,6 +75,9 @@
    <addaction name="actionDrawLine"/>
   </widget>
   <widget class="QDockWidget" name="dockWidget">
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
    <property name="floating">
     <bool>false</bool>
    </property>
