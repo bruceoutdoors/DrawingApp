@@ -1,5 +1,4 @@
-#ifndef DRAWCIRCLEDIALOG_H
-#define DRAWCIRCLEDIALOG_H
+#pragma once
 
 #include "MainWindow.hpp"
 #include <functional>
@@ -29,5 +28,3 @@ private:
     Ui::DrawDialog *ui;
     MainWindow *m_parent;
 };
-
-#endif // DRAWCIRCLEDIALOG_H
