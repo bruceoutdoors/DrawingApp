@@ -1,5 +1,5 @@
 #include "DrawLineTool.hpp"
-#include "DrawLineCommand.hpp"
+#include "DrawCommand.hpp"
 
 #include "GlobalDrawProperties.hpp"
 #include "ActiveSelection.hpp"
@@ -44,7 +44,7 @@ void DrawLineTool::mouseRelease(QMouseEvent *)
     m_selection->deselectAll();
     m_line->setSelected(true);
 
-    DrawLineCommand *comm = new DrawLineCommand(m_line);
+    DrawCommand *comm = new DrawCommand(m_line);
     comm->addtoCommandStack();
 }
 

@@ -13,10 +13,11 @@ public:
     virtual ~AbstractGroup();
 
     virtual int add(VisualEntity *val) = 0;
+    virtual void remove(int index);
+    virtual void remove(VisualEntity *val);
+
     std::vector<VisualEntity*>::iterator find(VisualEntity *val);
     VisualEntity* get(int index) const;
-    void remove(int index);
-    void remove(VisualEntity *val);
     void destroy(int index);
     int getSize() const;
     QRect getBoundary() override;

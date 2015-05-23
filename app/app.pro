@@ -28,10 +28,6 @@ SOURCES += main.cpp \
     GlobalDrawProperties.cpp \
     CommandStack.cpp \
     Command.cpp \
-    commands/DrawCircleCommand.cpp \
-    commands/DrawLineCommand.cpp \
-    commands/DrawRectangleCommand.cpp \
-    commands/DrawShapeCommand.cpp \
     shapes/Circle.cpp \
     shapes/Line.cpp \
     shapes/Rectangle.cpp \
@@ -42,7 +38,8 @@ SOURCES += main.cpp \
     ActiveSelection.cpp \
     commands/ChangeFillColorCommand.cpp \
     commands/ChangeLineColorCommand.cpp \
-    commands/ChangeLineThicknessCommand.cpp
+    commands/ChangeLineThicknessCommand.cpp \
+    commands/DrawCommand.cpp
 
 HEADERS  += \
     MainWindow.hpp \
@@ -66,10 +63,6 @@ HEADERS  += \
     interfaces/ILine.hpp \
     interfaces/ISelectable.hpp \
     interfaces/ITransformable.hpp \
-    commands/DrawCircleCommand.hpp \
-    commands/DrawLineCommand.hpp \
-    commands/DrawRectangleCommand.hpp \
-    commands/DrawShapeCommand.hpp \
     shapes/Circle.hpp \
     shapes/Line.hpp \
     shapes/Rectangle.hpp \
@@ -80,7 +73,8 @@ HEADERS  += \
     ActiveSelection.hpp \
     commands/ChangeFillColorCommand.hpp \
     commands/ChangeLineColorCommand.hpp \
-    commands/ChangeLineThicknessCommand.hpp
+    commands/ChangeLineThicknessCommand.hpp \
+    commands/DrawCommand.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

@@ -1,5 +1,5 @@
 #include "DrawCircleTool.hpp"
-#include "DrawCircleCommand.hpp"
+#include "DrawCommand.hpp"
 #include "GlobalDrawProperties.hpp"
 #include "ActiveSelection.hpp"
 #include "Group.hpp"
@@ -52,7 +52,7 @@ void DrawCircleTool::mouseRelease(QMouseEvent *)
     m_selection->deselectAll();
     m_circle->setSelected(true);
 
-    DrawCircleCommand *comm = new DrawCircleCommand(m_circle);
+    DrawCommand *comm = new DrawCommand(m_circle);
     comm->addtoCommandStack();
 }
 

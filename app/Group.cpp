@@ -41,6 +41,18 @@ bool Group::contains(int x, int y)
     return false;
 }
 
+void Group::remove(int index)
+{
+    remove(get(index));
+}
+
+void Group::remove(VisualEntity *val)
+{
+    AbstractGroup::remove(val);
+    val->setParentGroup(nullptr);
+    val->setSelected(false);
+}
+
 // first in order gets sent back
 VisualEntity *Group::getClicked(int x, int y)
 {

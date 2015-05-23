@@ -23,9 +23,7 @@ VisualEntity *AbstractGroup::get(int index) const
 // removes the pointer from container; does not delete the actual entity
 void AbstractGroup::remove(int index)
 {
-    get(index); // just validates whether it exists
-
-    m_children.erase(m_children.begin() + index);
+    remove(get(index));
 }
 
 void AbstractGroup::remove(VisualEntity *val)
@@ -39,7 +37,7 @@ void AbstractGroup::remove(VisualEntity *val)
 
 void AbstractGroup::destroy(int index)
 {
-    auto v = m_children[index];
+    auto v = get(index);
 
     remove(index);
 

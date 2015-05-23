@@ -1,6 +1,6 @@
 #include "GlobalDrawProperties.hpp"
 #include "DrawRectangleTool.hpp"
-#include "DrawRectangleCommand.hpp"
+#include "DrawCommand.hpp"
 #include "ActiveSelection.hpp"
 #include "Rectangle.hpp"
 #include "Canvas.hpp"
@@ -65,7 +65,7 @@ void DrawRectangleTool::mouseRelease(QMouseEvent *)
     m_selection->deselectAll();
     m_rectangle->setSelected(true);
 
-    DrawRectangleCommand *comm = new DrawRectangleCommand(m_rectangle);
+    DrawCommand *comm = new DrawCommand(m_rectangle);
     comm->addtoCommandStack();
 }
 

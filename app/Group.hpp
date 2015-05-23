@@ -16,6 +16,9 @@ public:
     void draw(QPainter *painter) override;
     bool contains(int x, int y) override;
 
+    void remove(int index) override;
+    void remove(VisualEntity *val) override;
+
     // as visual entity inherits IDrawable and ITransformable, we need to
     // reimplement it again (just reuse implementation from AbstractGroup)
     QRect getBoundary() override          { return AbstractGroup::getBoundary(); }

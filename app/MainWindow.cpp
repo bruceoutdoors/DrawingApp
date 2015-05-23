@@ -14,10 +14,7 @@
 #include "GlobalDrawProperties.hpp"
 #include "CommandStack.hpp"
 #include "ActiveSelection.hpp"
-
-#include "DrawCircleCommand.hpp"
-#include "DrawRectangleCommand.hpp"
-#include "DrawLineCommand.hpp"
+#include "DrawCommand.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -85,7 +82,7 @@ void MainWindow::on_actionCircle_triggered()
     ActiveSelection::getInstance().deselectAll();
     c->setSelected(true);
 
-    DrawCircleCommand *comm = new DrawCircleCommand(c);
+    DrawCommand *comm = new DrawCommand(c);
     comm->addtoCommandStack();
 }
 
@@ -101,7 +98,7 @@ void MainWindow::on_actionRectangle_triggered()
     ActiveSelection::getInstance().deselectAll();
     r->setSelected(true);
 
-    DrawRectangleCommand *comm = new DrawRectangleCommand(r);
+    DrawCommand *comm = new DrawCommand(r);
     comm->addtoCommandStack();
 }
 
@@ -117,7 +114,7 @@ void MainWindow::on_actionLine_triggered()
     ActiveSelection::getInstance().deselectAll();
     l->setSelected(true);
 
-    DrawLineCommand *comm = new DrawLineCommand(l);
+    DrawCommand *comm = new DrawCommand(l);
     comm->addtoCommandStack();
 }
 
