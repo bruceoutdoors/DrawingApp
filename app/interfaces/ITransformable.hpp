@@ -5,6 +5,7 @@
 
 class ITransformable
 {
+public:
 //    virtual void setRotate(int deg) = 0;
 //    virtual int getRotate() = 0;
 
