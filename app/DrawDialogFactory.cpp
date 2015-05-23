@@ -37,8 +37,8 @@ DrawDialog *DrawDialogFactory::CreateShapeDrawDialog(MainWindow *parent, Shape *
                       std::bind(&Shape::setLineColor, shape, std::placeholders::_1));
 
     d->appendSpinBox("Outline Thickness",
-                  std::bind(&Shape::getlineThickness, shape),
-                  std::bind(&Shape::setlineThickness, shape, std::placeholders::_1));
+                  std::bind(&Shape::getLineThickness, shape),
+                  std::bind(&Shape::setLineThickness, shape, std::placeholders::_1));
 
     return d;
 }
@@ -94,8 +94,8 @@ DrawDialog *DrawDialogFactory::CreateDrawDialog(MainWindow *parent, Line *l)
                          [=](QColor c) { l->setLineColor(c); });
 
     d->appendSpinBox("Line Thickness",
-                     [=]() { return l->getlineThickness(); },
-                     [=](int t) { l->setlineThickness(t); });
+                     [=]() { return l->getLineThickness(); },
+                     [=](int t) { l->setLineThickness(t); });
 
     return d;
 }

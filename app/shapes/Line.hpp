@@ -11,8 +11,8 @@ public:
     void setLineColor(QColor val) override;
     QColor getLineColor() override;
 
-    void setlineThickness(int val) override;
-    int getlineThickness() override;
+    void setLineThickness(int val) override;
+    int getLineThickness() override;
 
     void draw(QPainter *painter) override;
     QRect getBoundary() override;

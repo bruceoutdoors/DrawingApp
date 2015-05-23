@@ -13,6 +13,7 @@
 #include "PropertySpinBox.hpp"
 #include "GlobalDrawProperties.hpp"
 #include "CommandStack.hpp"
+#include "ActiveSelection.hpp"
 
 #include "DrawCircleCommand.hpp"
 #include "DrawRectangleCommand.hpp"
@@ -81,6 +82,9 @@ void MainWindow::on_actionCircle_triggered()
     d->exec();
     delete d;
 
+    ActiveSelection::getInstance().deselectAll();
+    c->setSelected(true);
+
     DrawCircleCommand *comm = new DrawCircleCommand(c);
     comm->addtoCommandStack();
 }
@@ -94,6 +98,9 @@ void MainWindow::on_actionRectangle_triggered()
     d->exec();
     delete d;
 
+    ActiveSelection::getInstance().deselectAll();
+    r->setSelected(true);
+
     DrawRectangleCommand *comm = new DrawRectangleCommand(r);
     comm->addtoCommandStack();
 }
@@ -106,6 +113,9 @@ void MainWindow::on_actionLine_triggered()
     DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, l);
     d->exec();
     delete d;
+
+    ActiveSelection::getInstance().deselectAll();
+    l->setSelected(true);
 
     DrawLineCommand *comm = new DrawLineCommand(l);
     comm->addtoCommandStack();
@@ -150,9 +160,11 @@ void MainWindow::on_actionDrawLine_triggered()
 void MainWindow::on_actionUndo_triggered()
 {
     CommandStack::getInstance().undo();
+    m_canvas->repaint();
 }
 
 void MainWindow::on_actionRedo_triggered()
 {
     CommandStack::getInstance().redo();
+    m_canvas->repaint();
 }

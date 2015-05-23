@@ -6,13 +6,13 @@ Shape::Shape()
     GlobalDrawProperties *gp = &GlobalDrawProperties::getInstance();
 
     if (gp->isSetup()) {
-        setlineThickness(gp->getThickness());
+        setLineThickness(gp->getThickness());
         setLineColor(gp->getLineColor());
         setFillColor(gp->getFillColor());
     } else {
         setFillColor(QColor(50, 150, 0));
         setLineColor(QColor(0, 0, 0));
-        setlineThickness(2);
+        setLineThickness(2);
     }
 }
 
@@ -51,12 +51,12 @@ QColor Shape::getLineColor()
     return m_lineColor;
 }
 
-void Shape::setlineThickness(int val)
+void Shape::setLineThickness(int val)
 {
     m_lineThickness = val;
 }
 
-int Shape::getlineThickness()
+int Shape::getLineThickness()
 {
     return m_lineThickness;
 }

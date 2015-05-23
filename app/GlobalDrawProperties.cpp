@@ -4,6 +4,12 @@
 #include "Line.hpp"
 #include "Shape.hpp"
 #include "ActiveSelection.hpp"
+#include "ChangeFillColorCommand.hpp"
+#include "ChangeLineColorCommand.hpp"
+#include "ChangeLineThicknessCommand.hpp"
+
+#include <QDebug>
+#include <QColorDialog>
 
 ActiveSelection *selection = &ActiveSelection::getInstance();
 
@@ -23,8 +29,19 @@ void GlobalDrawProperties::setup(PropertyColorButton *fillColorProp,
     m_lineColorProp = lineColorProp;
     m_thicknessProp = thicknessProp;
 
-    m_fillColor = m_fillColorProp->getColor();
-    m_lineColor = m_lineColorProp->getColor();
+    connect(m_fillColorProp, &PropertyColorButton::pressed,
+            this, &GlobalDrawProperties::onClickFillColor);
+    connect(m_fillColorProp->getColorDialog(), &QColorDialog::colorSelected,
+            this, &GlobalDrawProperties::onSelectFillColor);
+    connect(m_fillColorProp->getColorDialog(), &QColorDialog::rejected,
+            this, &GlobalDrawProperties::onRejectFillColor);
+
+    connect(m_lineColorProp, &PropertyColorButton::pressed,
+            this, &GlobalDrawProperties::onClickLineColor);
+    connect(m_lineColorProp->getColorDialog(), &QColorDialog::colorSelected,
+            this, &GlobalDrawProperties::onSelectLineColor);
+    connect(m_lineColorProp->getColorDialog(), &QColorDialog::rejected,
+            this, &GlobalDrawProperties::onRejectLineColor);
 }
 
 QColor GlobalDrawProperties::getFillColor()
@@ -46,68 +63,38 @@ int GlobalDrawProperties::getThickness()
 void GlobalDrawProperties::update()
 {
     const static auto setLineColorFunc = [=](QColor c) {
-        for (int i = 0; i < selection->getSize(); i++) {
-            VisualEntity *entity = selection->get(i);
-            Line *l = dynamic_cast<Line*>(entity);
-
-            if (l) {
-                l->setLineColor(c);
-                m_lineColor = c;
-                continue;
-            }
-
-            Shape *s = dynamic_cast<Shape*>(entity);
-
-            if (s) {
-                s->setLineColor(c);
-                m_lineColor = c;
-            }
-        }
+        m_changeLineColorComm->setColor(c);
+        m_changeLineColorComm->execute();
     };
 
     const static auto setFillColorFunc = [=](QColor c) {
-        for (int i = 0; i < selection->getSize(); i++) {
-            VisualEntity *entity = selection->get(i);
-
-            if (dynamic_cast<Line*>(entity)) continue;
-
-            Shape *s = dynamic_cast<Shape*>(entity);
-
-            if (s) {
-                s->setFillColor(c);
-                m_fillColor = c;
-            }
-        }
+        m_changeFillColorComm->setColor(c);
+        m_changeFillColorComm->execute();
     };
 
     const static auto setThicknessFunc = [=](int t) {
-        for (int i = 0; i < selection->getSize(); i++) {
-            VisualEntity *entity = selection->get(i);
-
-            Line *l = dynamic_cast<Line*>(entity);
-
-            if (l) {
-                l->setlineThickness(t);
-                continue;
-            }
-
-            Shape *s = dynamic_cast<Shape*>(entity);
-
-            if (s) s->setlineThickness(t);
-        }
+        ChangeLineThicknessCommand *changeLineThicknessComm =
+                new ChangeLineThicknessCommand();
+        changeLineThicknessComm->setThickness(t);
+        changeLineThicknessComm->execute();
+        changeLineThicknessComm->addtoCommandStack();
     };
+
+    if (selection->getSize() == 0) {
+        unlinkProperties();
+        return;
+    }
 
     VisualEntity *ve = selection->getLastSelected();
     Line *line = dynamic_cast<Line*>(ve);
 
     if (line) {
-        m_lineColor = QColor(line->getLineColor());
         m_lineColorProp->setGetterSetter(
                     [=]() { return line->getLineColor(); },
                     setLineColorFunc);
 
         m_thicknessProp->setGetterSetter(
-                    [=]() { return line->getlineThickness(); },
+                    [=]() { return line->getLineThickness(); },
                     setThicknessFunc);
 
         m_fillColorProp->setGetterSetter(
@@ -119,16 +106,14 @@ void GlobalDrawProperties::update()
     Shape *shape = dynamic_cast<Shape*>(ve);
 
     if (shape) {
-        m_lineColor = QColor(shape->getLineColor());
         m_lineColorProp->setGetterSetter(
                     [=]() { return shape->getLineColor(); },
                     setLineColorFunc);
 
         m_thicknessProp->setGetterSetter(
-                    [=]() { return shape->getlineThickness(); },
+                    [=]() { return shape->getLineThickness(); },
                     setThicknessFunc);
 
-        m_fillColor = QColor(shape->getFillColor());
         m_fillColorProp->setGetterSetter(
                     [=]() { return shape->getFillColor(); },
                     setFillColorFunc);
@@ -137,17 +122,55 @@ void GlobalDrawProperties::update()
 
 void GlobalDrawProperties::unlinkProperties()
 {
-    m_lineColorProp->setGetterSetter(
-                [=]() { return m_lineColor; },
-                [=](QColor) { });
+    m_lineColorProp->unlink();
+    m_thicknessProp->unlink();
+    m_fillColorProp->unlink();
+}
 
-    m_thicknessProp->setGetterSetter(
-                [=]() { return m_thicknessProp->value(); },
-                [=](int) { });
+void GlobalDrawProperties::onClickFillColor()
+{
+    if (selection->getSize() == 0) return;
 
-    m_fillColorProp->setGetterSetter(
-                [=]() { return m_fillColor; },
-                [=](QColor) { });
+    m_changeFillColorComm = new ChangeFillColorCommand();
+}
+
+void GlobalDrawProperties::onSelectFillColor(QColor color)
+{
+    if (selection->getSize() == 0) return;
+
+    m_changeFillColorComm->setColor(color);
+    m_changeFillColorComm->addtoCommandStack();
+}
+
+void GlobalDrawProperties::onRejectFillColor()
+{
+    if (selection->getSize() == 0) return;
+
+    m_changeFillColorComm->undo();
+    delete m_changeFillColorComm;
+}
+
+void GlobalDrawProperties::onClickLineColor()
+{
+    if (selection->getSize() == 0) return;
+
+    m_changeLineColorComm = new ChangeLineColorCommand();
+}
+
+void GlobalDrawProperties::onSelectLineColor(QColor color)
+{
+    if (selection->getSize() == 0) return;
+
+    m_changeLineColorComm->setColor(color);
+    m_changeLineColorComm->addtoCommandStack();
+}
+
+void GlobalDrawProperties::onRejectLineColor()
+{
+    if (selection->getSize() == 0) return;
+
+    m_changeLineColorComm->undo();
+    delete m_changeLineColorComm;
 }
 
 

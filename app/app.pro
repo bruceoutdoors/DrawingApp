@@ -39,7 +39,10 @@ SOURCES += main.cpp \
     tools/DrawLineTool.cpp \
     tools/DrawRectangleTool.cpp \
     tools/SelectionTool.cpp \
-    ActiveSelection.cpp
+    ActiveSelection.cpp \
+    commands/ChangeFillColorCommand.cpp \
+    commands/ChangeLineColorCommand.cpp \
+    commands/ChangeLineThicknessCommand.cpp
 
 HEADERS  += \
     MainWindow.hpp \
@@ -74,7 +77,10 @@ HEADERS  += \
     tools/DrawLineTool.hpp \
     tools/DrawRectangleTool.hpp \
     tools/SelectionTool.hpp \
-    ActiveSelection.hpp
+    ActiveSelection.hpp \
+    commands/ChangeFillColorCommand.hpp \
+    commands/ChangeLineColorCommand.hpp \
+    commands/ChangeLineThicknessCommand.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

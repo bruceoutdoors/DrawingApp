@@ -26,7 +26,10 @@ SOURCES += TestMain.cpp \
     ../app/shapes/Rectangle.cpp \
     ../app/tools/SelectionTool.cpp \
     SelectionTests.cpp \
-    ../app/ActiveSelection.cpp
+    ../app/ActiveSelection.cpp \
+    ../app/commands/ChangeFillColorCommand.cpp \
+    ../app/commands/ChangeLineColorCommand.cpp \
+    ../app/commands/ChangeLineThicknessCommand.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -49,11 +52,15 @@ HEADERS += \
     ../app/shapes/Circle.hpp \
     ../app/shapes/Rectangle.hpp \
     ../app/tools/SelectionTool.hpp \
-    ../app/ActiveSelection.hpp
+    ../app/ActiveSelection.hpp \
+    ../app/commands/ChangeFillColorCommand.hpp \
+    ../app/commands/ChangeLineColorCommand.hpp \
+    ../app/commands/ChangeLineThicknessCommand.hpp
 
 INCLUDEPATH += \
     ../app \
     ../app/tools \
+    ../app/commands \
     ../app/interfaces \
     ../app/shapes \
     ../lib

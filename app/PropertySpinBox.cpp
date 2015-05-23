@@ -32,7 +32,13 @@ void PropertySpinBox::setGetterSetter(std::function<int()> getter,
                [ = ](int v) {
                    setter(v);
                    m_canvas->repaint();
-               });
+    });
+}
+
+void PropertySpinBox::unlink()
+{
+    setGetterSetter([=]() { return value(); },
+                    [=](int) { });
 }
 
 PropertySpinBox::~PropertySpinBox()

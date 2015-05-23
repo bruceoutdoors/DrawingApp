@@ -16,6 +16,7 @@ public:
                     std::function<void(int)> setter);
     void setGetterSetter(std::function<int()> getter,
                          std::function<void(int)> setter);
+    void unlink();
     ~PropertySpinBox();
 
 private:

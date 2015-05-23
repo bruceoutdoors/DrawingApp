@@ -11,10 +11,10 @@ Line::Line()
     GlobalDrawProperties *gp = &GlobalDrawProperties::getInstance();
 
     if (gp->isSetup()) {
-        setlineThickness(gp->getThickness());
+        setLineThickness(gp->getThickness());
         setLineColor(gp->getLineColor());
     } else {
-        setlineThickness(2);
+        setLineThickness(2);
     }
 }
 
@@ -33,12 +33,12 @@ QColor Line::getLineColor()
     return m_lineColor;
 }
 
-void Line::setlineThickness(int val)
+void Line::setLineThickness(int val)
 {
     m_lineThickness = val;
 }
 
-int Line::getlineThickness()
+int Line::getLineThickness()
 {
     return m_lineThickness;
 }
@@ -46,7 +46,7 @@ int Line::getlineThickness()
 void Line::draw(QPainter *painter)
 {
     QPen pen(getLineColor());
-    pen.setWidth(getlineThickness());
+    pen.setWidth(getLineThickness());
 
     painter->setPen(pen);
 
@@ -65,7 +65,7 @@ QRect Line::getBoundary()
 
 bool Line::contains(int x, int y)
 {
-    float r = getlineThickness() <= 4 ? 4 : getlineThickness(); // impact margin
+    float r = getLineThickness() <= 4 ? 4 : getLineThickness(); // impact margin
 
     if (!getBoundary().contains(x, y)) return false;
 

@@ -1,4 +1,6 @@
 #include "DrawLineCommand.hpp"
+#include "GlobalDrawProperties.hpp"
+#include "ActiveSelection.hpp"
 #include "Line.hpp"
 #include "Group.hpp"
 
@@ -23,7 +25,7 @@ DrawLineCommand::DrawLineCommand(Line *l) :
     DrawLineCommand(l->getParentGroup(),
                     l->getP1(), l->getP2(),
                     l->getLineColor(),
-                    l->getlineThickness())
+                    l->getLineThickness())
 {
     m_index = l->getIndex();
 }
@@ -34,13 +36,16 @@ void DrawLineCommand::execute()
     l->setP1(m_p1);
     l->setP2(m_p2);
     l->setLineColor(m_outline);
-    l->setlineThickness(m_thickness);
+    l->setLineThickness(m_thickness);
 
     m_index = m_group->add(l);
+    ActiveSelection::getInstance().deselectAll();
+    l->setSelected(true);
 }
 
 void DrawLineCommand::undo()
 {
     m_group->destroy(m_index);
+    GlobalDrawProperties::getInstance().unlinkProperties();
 }
 
