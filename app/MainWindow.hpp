@@ -35,6 +35,7 @@ private slots:
     void on_actionDrawLine_triggered();
     void on_actionUndo_triggered();
     void on_actionRedo_triggered();
+    void on_actionDelete_triggered();
 
 private:
     void uncheckAllToolbar();

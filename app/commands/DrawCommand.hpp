@@ -1,8 +1,6 @@
 #pragma once
 
 #include "Command.hpp"
-#include <QPoint>
-#include <QColor>
 
 class VisualEntity;
 class Group;
@@ -19,5 +17,6 @@ public:
 private:
     VisualEntity *m_ve;
     Group *m_parent;
+    Group *m_drawCommandGroup;
 };
 

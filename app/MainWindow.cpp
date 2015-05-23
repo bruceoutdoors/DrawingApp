@@ -15,6 +15,7 @@
 #include "CommandStack.hpp"
 #include "ActiveSelection.hpp"
 #include "DrawCommand.hpp"
+#include "DeleteSelectedCommand.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -163,5 +164,16 @@ void MainWindow::on_actionUndo_triggered()
 void MainWindow::on_actionRedo_triggered()
 {
     CommandStack::getInstance().redo();
+    m_canvas->repaint();
+}
+
+void MainWindow::on_actionDelete_triggered()
+{
+    if (ActiveSelection::getInstance().getSize() == 0) return;
+
+    DeleteSelectedCommand *dsc = new DeleteSelectedCommand();
+    dsc->execute();
+    dsc->addtoCommandStack();
+
     m_canvas->repaint();
 }

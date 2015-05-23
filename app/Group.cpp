@@ -17,6 +17,11 @@ Group::~Group()
 // returns index of added visual entity
 int Group::add(VisualEntity *val)
 {
+    if (val->getParentGroup()) {
+        Group *xparent = val->getParentGroup();
+        xparent->remove(val);
+    }
+
     val->setParentGroup(this);
     m_children.push_back(val);
     int index = m_children.size() - 1;
