@@ -37,6 +37,15 @@ void AbstractGroup::remove(VisualEntity *val)
     }
 }
 
+bool AbstractGroup::contains(int x, int y)
+{
+    for (VisualEntity *visual : m_children) {
+        if (visual->contains(x, y)) return true;
+    }
+
+    return false;
+}
+
 void AbstractGroup::destroy(int index)
 {
     auto v = get(index);

@@ -39,11 +39,7 @@ void Group::draw(QPainter *painter)
 
 bool Group::contains(int x, int y)
 {
-    for (VisualEntity *visual : m_children) {
-        if (visual->contains(x, y)) return true;
-    }
-
-    return false;
+    return AbstractGroup::contains(x, y);
 }
 
 void Group::remove(int index)

@@ -41,7 +41,8 @@ SOURCES += main.cpp \
     commands/ChangeLineColorCommand.cpp \
     commands/ChangeLineThicknessCommand.cpp \
     commands/DrawCommand.cpp \
-    commands/DeleteSelectedCommand.cpp
+    commands/DeleteSelectedCommand.cpp \
+    commands/MoveSelectionCommand.cpp
 
 HEADERS  += \
     MainWindow.hpp \
@@ -76,7 +77,8 @@ HEADERS  += \
     commands/ChangeLineColorCommand.hpp \
     commands/ChangeLineThicknessCommand.hpp \
     commands/DrawCommand.hpp \
-    commands/DeleteSelectedCommand.hpp
+    commands/DeleteSelectedCommand.hpp \
+    commands/MoveSelectionCommand.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

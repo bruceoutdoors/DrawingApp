@@ -88,9 +88,11 @@ bool Line::contains(int x, int y)
     return discriminant >= 0;
 }
 
-void Line::setPosition(QPoint )
+void Line::setPosition(QPoint pos)
 {
-    // TODO: implement this...
+    QPoint diff = pos - getPosition();
+    m_p1 += diff;
+    m_p2 += diff;
 }
 
 QPoint Line::getPosition()

@@ -15,6 +15,7 @@ public:
     virtual int add(VisualEntity *val) = 0;
     virtual void remove(int index);
     virtual void remove(VisualEntity *val);
+    virtual bool contains(int x, int y);
 
     std::vector<VisualEntity*>::iterator find(VisualEntity *val);
     VisualEntity* get(int index) const;
