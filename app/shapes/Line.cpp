@@ -55,12 +55,14 @@ void Line::draw(QPainter *painter)
 
 QRect Line::getBoundary()
 {
+    int margin = getLineThickness() <= 4 ? 4 : getLineThickness()/2+2;
+
     int x = m_p1.x() < m_p2.x() ? m_p1.x() : m_p2.x();
     int y  = m_p1.y() < m_p2.y() ? m_p1.y() : m_p2.y();
     int w = std::abs(m_p1.x() - m_p2.x());
     int h = std::abs(m_p1.y() - m_p2.y());
 
-    return QRect(x, y, w, h);;
+    return QRect(x-margin, y-margin, w+margin*2, h+margin*2);;
 }
 
 bool Line::contains(int x, int y)
