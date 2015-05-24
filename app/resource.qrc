@@ -4,5 +4,15 @@
         <file>resource/CursorIcon.png</file>
         <file>resource/RectangleIcon.png</file>
         <file>resource/LineIcon.png</file>
+        <file>resource/bringForward.png</file>
+        <file>resource/bringToFront.png</file>
+        <file>resource/sendBackward.png</file>
+        <file>resource/sendToBack.png</file>
+        <file>resource/new.png</file>
+        <file>resource/open.png</file>
+        <file>resource/redo.png</file>
+        <file>resource/save.png</file>
+        <file>resource/undo.png</file>
+        <file>resource/trash_can.png</file>
     </qresource>
 </RCC>

@@ -30,6 +30,11 @@
     <property name="title">
      <string>File</string>
     </property>
+    <addaction name="actionNew"/>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuDraw">
     <property name="title">
@@ -48,8 +53,18 @@
     <addaction name="separator"/>
     <addaction name="actionDelete"/>
    </widget>
+   <widget class="QMenu" name="menuArrange">
+    <property name="title">
+     <string>Arrange</string>
+    </property>
+    <addaction name="actionBring_To_Front"/>
+    <addaction name="actionSend_to_Back"/>
+    <addaction name="actionBring_Forward"/>
+    <addaction name="actionSend_Backward"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuArrange"/>
    <addaction name="menuDraw"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -96,6 +111,10 @@
    </widget>
   </widget>
   <action name="actionCircle">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/CircleIcon.png</normaloff>:/Icons/resource/CircleIcon.png</iconset>
+   </property>
    <property name="text">
     <string>Circle</string>
    </property>
@@ -104,11 +123,19 @@
    </property>
   </action>
   <action name="actionRectangle">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/RectangleIcon.png</normaloff>:/Icons/resource/RectangleIcon.png</iconset>
+   </property>
    <property name="text">
     <string>Rectangle</string>
    </property>
   </action>
   <action name="actionLine">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/LineIcon.png</normaloff>:/Icons/resource/LineIcon.png</iconset>
+   </property>
    <property name="text">
     <string>Line</string>
    </property>
@@ -186,6 +213,10 @@
    </property>
   </action>
   <action name="actionUndo">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/undo.png</normaloff>:/Icons/resource/undo.png</iconset>
+   </property>
    <property name="text">
     <string>Undo</string>
    </property>
@@ -194,6 +225,10 @@
    </property>
   </action>
   <action name="actionRedo">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/redo.png</normaloff>:/Icons/resource/redo.png</iconset>
+   </property>
    <property name="text">
     <string>Redo</string>
    </property>
@@ -202,11 +237,100 @@
    </property>
   </action>
   <action name="actionDelete">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/trash_can.png</normaloff>:/Icons/resource/trash_can.png</iconset>
+   </property>
    <property name="text">
     <string>Delete</string>
    </property>
    <property name="shortcut">
     <string>Del</string>
+   </property>
+  </action>
+  <action name="actionBring_To_Front">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/bringToFront.png</normaloff>:/Icons/resource/bringToFront.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bring to Front</string>
+   </property>
+  </action>
+  <action name="actionSend_to_Back">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/sendToBack.png</normaloff>:/Icons/resource/sendToBack.png</iconset>
+   </property>
+   <property name="text">
+    <string>Send to Back</string>
+   </property>
+  </action>
+  <action name="actionBring_Forward">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/bringForward.png</normaloff>:/Icons/resource/bringForward.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bring Forward</string>
+   </property>
+  </action>
+  <action name="actionSend_Backward">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/sendBackward.png</normaloff>:/Icons/resource/sendBackward.png</iconset>
+   </property>
+   <property name="text">
+    <string>Send Backward</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/open.png</normaloff>:/Icons/resource/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/save.png</normaloff>:/Icons/resource/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="text">
+    <string>Save As...</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionNew">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/new.png</normaloff>:/Icons/resource/new.png</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
  </widget>
