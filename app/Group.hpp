@@ -9,7 +9,7 @@ public:
     Group();
     ~Group();
 
-    int add(VisualEntity *val) override;
+    void add(VisualEntity *val) override;
 
     VisualEntity* getClicked(int x, int y);
 

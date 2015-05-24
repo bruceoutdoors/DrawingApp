@@ -14,7 +14,7 @@ public:
     Selection& operator=(Selection const &other);
 
     void draw(QPainter *painter) override;
-    int add(VisualEntity *val) override;
+    void add(VisualEntity *val) override;
 
     VisualEntity* getLastSelected();
     bool isSelected(VisualEntity *val);

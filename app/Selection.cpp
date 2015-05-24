@@ -25,13 +25,13 @@ void Selection::draw(QPainter *painter)
     }
 }
 
-int Selection::add(VisualEntity *val)
+void Selection::add(VisualEntity *val)
 {
     m_lastSelected = val;
 
     for (int i = 0; i < int(m_children.size()); i++) {
         if (m_children[i] == val)
-            return i;
+            return;
     }
 
     m_children.push_back(val);
@@ -39,8 +39,6 @@ int Selection::add(VisualEntity *val)
     // retain the order in the parent group where it was
     // selected:
     sortByIndex();
-
-    return m_children.size() - 1;
 }
 
 VisualEntity *Selection::getLastSelected()

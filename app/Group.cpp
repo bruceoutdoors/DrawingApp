@@ -15,7 +15,7 @@ Group::~Group()
 }
 
 // returns index of added visual entity
-int Group::add(VisualEntity *val)
+void Group::add(VisualEntity *val)
 {
     if (val->getParentGroup()) {
         Group *xparent = val->getParentGroup();
@@ -26,8 +26,6 @@ int Group::add(VisualEntity *val)
     m_children.push_back(val);
     int index = m_children.size() - 1;
     val->setIndex(index);
-
-    return index;
 }
 
 void Group::draw(QPainter *painter)

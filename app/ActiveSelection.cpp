@@ -7,16 +7,15 @@ ActiveSelection &ActiveSelection::getInstance()
     return instance;
 }
 
-int ActiveSelection::add(VisualEntity *val)
+void ActiveSelection::add(VisualEntity *val)
 {
     int size = m_children.size();
-    int index = Selection::add(val);
+    Selection::add(val);
+    int newSize = m_children.size();
 
-    if (size != index + 1) {
+    if (size != newSize) {
         GlobalDrawProperties::getInstance().update();
     }
-
-    return index;
 }
 
 ActiveSelection::ActiveSelection()
