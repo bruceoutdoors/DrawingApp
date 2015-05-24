@@ -274,6 +274,9 @@
    <property name="text">
     <string>Bring Forward</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+}</string>
+   </property>
   </action>
   <action name="actionSend_Backward">
    <property name="icon">
@@ -282,6 +285,9 @@
    </property>
    <property name="text">
     <string>Send Backward</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+{</string>
    </property>
   </action>
   <action name="actionOpen">

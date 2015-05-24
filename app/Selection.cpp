@@ -1,6 +1,7 @@
 #include "Selection.hpp"
 #include "Group.hpp"
 #include <QPainter>
+#include <algorithm>
 
 void Selection::draw(QPainter *painter)
 {
@@ -26,6 +27,8 @@ void Selection::draw(QPainter *painter)
 
 int Selection::add(VisualEntity *val)
 {
+    m_lastSelected = val;
+
     for (int i = 0; i < int(m_children.size()); i++) {
         if (m_children[i] == val)
             return i;
@@ -33,17 +36,21 @@ int Selection::add(VisualEntity *val)
 
     m_children.push_back(val);
 
+    // retain the order in the parent group where it was
+    // selected:
+    sort();
+
     return m_children.size() - 1;
 }
 
 VisualEntity *Selection::getLastSelected()
 {
-    return m_children[m_children.size() - 1];
+    return m_lastSelected;
 }
 
 bool Selection::isSelected(VisualEntity *val)
 {
-    return find(val) != m_children.end();
+    return AbstractGroup::isInside(val);
 }
 
 void Selection::toggleSelect(VisualEntity *val)
@@ -58,6 +65,14 @@ void Selection::toggleSelect(VisualEntity *val)
 void Selection::deselectAll()
 {
     m_children.clear();
+}
+
+void Selection::sort()
+{
+    std::sort(m_children.begin(), m_children.end(),
+              [](VisualEntity *a, VisualEntity *b) {
+                  return a->getIndex() > b->getIndex();
+              });
 }
 
 Selection::Selection()

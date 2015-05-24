@@ -42,7 +42,12 @@ SOURCES += main.cpp \
     commands/ChangeLineThicknessCommand.cpp \
     commands/DrawCommand.cpp \
     commands/DeleteSelectedCommand.cpp \
-    commands/MoveSelectionCommand.cpp
+    commands/MoveSelectionCommand.cpp \
+    commands/SendBackwardCommand.cpp \
+    commands/ChangeOrderCommand.cpp \
+    commands/BringForwardCommand.cpp \
+    commands/BringToFrontCommand.cpp \
+    commands/SendToBackCommand.cpp
 
 HEADERS  += \
     MainWindow.hpp \
@@ -78,7 +83,12 @@ HEADERS  += \
     commands/ChangeLineThicknessCommand.hpp \
     commands/DrawCommand.hpp \
     commands/DeleteSelectedCommand.hpp \
-    commands/MoveSelectionCommand.hpp
+    commands/MoveSelectionCommand.hpp \
+    commands/SendBackwardCommand.hpp \
+    commands/ChangeOrderCommand.hpp \
+    commands/BringForwardCommand.hpp \
+    commands/BringToFrontCommand.hpp \
+    commands/SendToBackCommand.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

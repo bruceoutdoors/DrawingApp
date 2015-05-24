@@ -2,6 +2,7 @@
 #include "VisualEntity.hpp"
 #include <stdexcept>
 #include <climits>
+#include <algorithm>
 
 AbstractGroup::AbstractGroup()
 {
@@ -35,6 +36,8 @@ void AbstractGroup::remove(VisualEntity *val)
     if (result != m_children.end()) {
         m_children.erase(result);
     }
+
+    reindexChildren();
 }
 
 bool AbstractGroup::contains(int x, int y)
@@ -44,6 +47,16 @@ bool AbstractGroup::contains(int x, int y)
     }
 
     return false;
+}
+
+void AbstractGroup::swap(int idx1, int idx2)
+{
+    auto ve1 = m_children.begin() + idx1;
+    (*ve1)->setIndex(idx2);
+    auto ve2 = m_children.begin() + idx2;
+    (*ve2)->setIndex(idx1);
+
+    std::iter_swap(ve1, ve2);
 }
 
 void AbstractGroup::destroy(int index)
@@ -90,6 +103,11 @@ std::vector<VisualEntity*>::iterator AbstractGroup::find(VisualEntity *val)
     } else return m_children.end();
 }
 
+bool AbstractGroup::isInside(VisualEntity *val)
+{
+    return find(val) != m_children.end();
+}
+
 void AbstractGroup::setPosition(QPoint )
 {
     // TODO: implement this...
@@ -101,5 +119,12 @@ QPoint AbstractGroup::getPosition()
 
     return QPoint(b.x() + b.width()/2,
                   b.y() + b.height()/2);
+}
+
+void AbstractGroup::reindexChildren()
+{
+    for (size_t i = 0; i < m_children.size(); i++) {
+        get(i)->setIndex(i);
+    }
 }
 

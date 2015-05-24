@@ -36,6 +36,10 @@ private slots:
     void on_actionUndo_triggered();
     void on_actionRedo_triggered();
     void on_actionDelete_triggered();
+    void on_actionSend_Backward_triggered();
+    void on_actionBring_Forward_triggered();
+    void on_actionBring_To_Front_triggered();
+    void on_actionSend_to_Back_triggered();
 
 private:
     void uncheckAllToolbar();

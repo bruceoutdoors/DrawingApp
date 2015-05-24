@@ -17,7 +17,9 @@ public:
     virtual void remove(VisualEntity *val);
     virtual bool contains(int x, int y);
 
+    void swap(int idx1, int idx2);
     std::vector<VisualEntity*>::iterator find(VisualEntity *val);
+    bool isInside(VisualEntity *val);
     VisualEntity* get(int index) const;
     void destroy(int index);
     int getSize() const;
@@ -27,5 +29,6 @@ public:
     QPoint getPosition() override;
 
 protected:
+    void reindexChildren();
     std::vector<VisualEntity*> m_children;
 };

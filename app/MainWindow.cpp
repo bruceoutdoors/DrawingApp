@@ -16,6 +16,10 @@
 #include "ActiveSelection.hpp"
 #include "DrawCommand.hpp"
 #include "DeleteSelectedCommand.hpp"
+#include "SendBackwardCommand.hpp"
+#include "BringForwardCommand.hpp"
+#include "BringToFrontCommand.hpp"
+#include "SendToBackCommand.hpp"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -174,6 +178,50 @@ void MainWindow::on_actionDelete_triggered()
     DeleteSelectedCommand *dsc = new DeleteSelectedCommand();
     dsc->execute();
     dsc->addtoCommandStack();
+
+    m_canvas->repaint();
+}
+
+void MainWindow::on_actionSend_Backward_triggered()
+{
+    if (!ChangeOrderCommand::canChangeOrder()) return;
+
+    SendBackwardCommand *comm = new SendBackwardCommand();
+    comm->execute();
+    comm->addtoCommandStack();
+
+    m_canvas->repaint();
+}
+
+void MainWindow::on_actionBring_Forward_triggered()
+{
+    if (!ChangeOrderCommand::canChangeOrder()) return;
+
+    BringForwardCommand *comm = new BringForwardCommand();
+    comm->execute();
+    comm->addtoCommandStack();
+
+    m_canvas->repaint();
+}
+
+void MainWindow::on_actionBring_To_Front_triggered()
+{
+    if (!ChangeOrderCommand::canChangeOrder()) return;
+
+    BringToFrontCommand *comm = new BringToFrontCommand();
+    comm->execute();
+    comm->addtoCommandStack();
+
+    m_canvas->repaint();
+}
+
+void MainWindow::on_actionSend_to_Back_triggered()
+{
+    if (!ChangeOrderCommand::canChangeOrder()) return;
+
+    SendToBackCommand *comm = new SendToBackCommand();
+    comm->execute();
+    comm->addtoCommandStack();
 
     m_canvas->repaint();
 }
