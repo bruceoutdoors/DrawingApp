@@ -1,11 +1,5 @@
 #include "CommandStack.hpp"
 
-CommandStack &CommandStack::getInstance()
-{
-    static CommandStack instance;
-    return instance;
-}
-
 void CommandStack::add(Command *c)
 {
     if (m_stack.size() == 0) { // 1st element
@@ -50,9 +44,14 @@ void CommandStack::clear()
     m_stack.clear();
 }
 
-int CommandStack::getSize()
+int CommandStack::getSize() const
 {
     return m_stack.size();
+}
+
+int CommandStack::getCurrentIdx() const
+{
+    return m_current;
 }
 
 CommandStack::CommandStack()

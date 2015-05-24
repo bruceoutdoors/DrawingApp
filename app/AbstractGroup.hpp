@@ -28,6 +28,8 @@ public:
     void setPosition(QPoint pos) override;
     QPoint getPosition() override;
 
+    void sortByIndex();
+
 protected:
     void reindexChildren();
     std::vector<VisualEntity*> m_children;

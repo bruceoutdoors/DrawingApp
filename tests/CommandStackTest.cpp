@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "CommandStack.hpp"
+#include "MainCommandStack.hpp"
 #include <string>
 
 int globalVariable;
@@ -21,7 +21,7 @@ private:
 
 TEST_CASE("Command Stack Test") {
     globalVariable = 0;
-    CommandStack *cs = &CommandStack::getInstance();
+    CommandStack *cs = &MainCommandStack::getInstance();
     cs->clear();
 
     SECTION("Add a command") {

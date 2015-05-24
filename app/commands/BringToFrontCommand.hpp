@@ -1,10 +1,10 @@
 #pragma once
 
-#include "ChangeOrderCommand.hpp"
+#include "BulkOrderCommand.hpp"
 
-class BringToFrontCommand : public ChangeOrderCommand
+class BringToFrontCommand : public BulkOrderCommand
 {
 public:
-    void execute() override;
+    ChangeOrderCommand* getNewChangeOrderCommand() override;
 };
 

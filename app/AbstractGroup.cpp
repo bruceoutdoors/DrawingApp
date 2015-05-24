@@ -52,11 +52,10 @@ bool AbstractGroup::contains(int x, int y)
 void AbstractGroup::swap(int idx1, int idx2)
 {
     auto ve1 = m_children.begin() + idx1;
-    (*ve1)->setIndex(idx2);
     auto ve2 = m_children.begin() + idx2;
-    (*ve2)->setIndex(idx1);
 
     std::iter_swap(ve1, ve2);
+    reindexChildren();
 }
 
 void AbstractGroup::destroy(int index)
@@ -128,3 +127,10 @@ void AbstractGroup::reindexChildren()
     }
 }
 
+void AbstractGroup::sortByIndex()
+{
+    std::sort(m_children.begin(), m_children.end(),
+              [](VisualEntity *a, VisualEntity *b) {
+                  return a->getIndex() < b->getIndex();
+              });
+}

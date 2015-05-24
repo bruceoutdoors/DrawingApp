@@ -7,19 +7,17 @@
 class CommandStack
 {
 public:
-    static CommandStack &getInstance();
+    CommandStack();
+    virtual ~CommandStack();
+
     void add(Command *c);
     void undo();
     void redo();
     void clear();
-    int getSize();
+    int getSize() const;
+    int getCurrentIdx() const;
 
 private:
-    CommandStack();
-    ~CommandStack();
-    CommandStack(CommandStack const&) {}
-    CommandStack& operator=(CommandStack const&) {}
-
     std::vector<Command*> m_stack;
     int m_current;
 };

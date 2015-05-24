@@ -27,7 +27,6 @@ SOURCES += main.cpp \
     PropertySpinBox.cpp \
     PropertyColorButton.cpp \
     GlobalDrawProperties.cpp \
-    CommandStack.cpp \
     Command.cpp \
     shapes/Circle.cpp \
     shapes/Line.cpp \
@@ -47,7 +46,10 @@ SOURCES += main.cpp \
     commands/ChangeOrderCommand.cpp \
     commands/BringForwardCommand.cpp \
     commands/BringToFrontCommand.cpp \
-    commands/SendToBackCommand.cpp
+    commands/SendToBackCommand.cpp \
+    MainCommandStack.cpp \
+    CommandStack.cpp \
+    commands/BulkOrderCommand.cpp
 
 HEADERS  += \
     MainWindow.hpp \
@@ -64,7 +66,6 @@ HEADERS  += \
     PropertyColorButton.hpp \
     GlobalDrawProperties.hpp \
     Command.hpp \
-    CommandStack.hpp \
     interfaces/IDrawable.hpp \
     interfaces/IFillable.hpp \
     interfaces/ILine.hpp \
@@ -88,7 +89,10 @@ HEADERS  += \
     commands/ChangeOrderCommand.hpp \
     commands/BringForwardCommand.hpp \
     commands/BringToFrontCommand.hpp \
-    commands/SendToBackCommand.hpp
+    commands/SendToBackCommand.hpp \
+    MainCommandStack.hpp \
+    CommandStack.hpp \
+    commands/BulkOrderCommand.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

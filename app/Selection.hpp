@@ -20,7 +20,6 @@ public:
     bool isSelected(VisualEntity *val);
     void toggleSelect(VisualEntity *val);
     void deselectAll();
-    void sort();
 //    Group* makeGroup();
 
 private:

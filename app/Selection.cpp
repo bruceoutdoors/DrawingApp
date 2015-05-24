@@ -38,7 +38,7 @@ int Selection::add(VisualEntity *val)
 
     // retain the order in the parent group where it was
     // selected:
-    sort();
+    sortByIndex();
 
     return m_children.size() - 1;
 }
@@ -67,13 +67,7 @@ void Selection::deselectAll()
     m_children.clear();
 }
 
-void Selection::sort()
-{
-    std::sort(m_children.begin(), m_children.end(),
-              [](VisualEntity *a, VisualEntity *b) {
-                  return a->getIndex() > b->getIndex();
-              });
-}
+
 
 Selection::Selection()
 {

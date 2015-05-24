@@ -33,7 +33,8 @@ SOURCES += TestMain.cpp \
     ../app/commands/ChangeLineThicknessCommand.cpp \
     ../app/commands/DrawCommand.cpp \
     ../app/shapes/Line.cpp \
-    ../app/commands/MoveSelectionCommand.cpp
+    ../app/commands/MoveSelectionCommand.cpp \
+    ../app/MainCommandStack.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -62,7 +63,8 @@ HEADERS += \
     ../app/commands/ChangeLineThicknessCommand.hpp \
     ../app/commands/DrawCommand.hpp \
     ../app/shapes/Line.hpp \
-    ../app/commands/MoveSelectionCommand.hpp
+    ../app/commands/MoveSelectionCommand.hpp \
+    ../app/MainCommandStack.hpp
 
 INCLUDEPATH += \
     ../app \

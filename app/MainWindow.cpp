@@ -12,7 +12,7 @@
 #include "PropertyColorButton.hpp"
 #include "PropertySpinBox.hpp"
 #include "GlobalDrawProperties.hpp"
-#include "CommandStack.hpp"
+#include "MainCommandStack.hpp"
 #include "ActiveSelection.hpp"
 #include "DrawCommand.hpp"
 #include "DeleteSelectedCommand.hpp"
@@ -161,13 +161,13 @@ void MainWindow::on_actionDrawLine_triggered()
 
 void MainWindow::on_actionUndo_triggered()
 {
-    CommandStack::getInstance().undo();
+    MainCommandStack::getInstance().undo();
     m_canvas->repaint();
 }
 
 void MainWindow::on_actionRedo_triggered()
 {
-    CommandStack::getInstance().redo();
+    MainCommandStack::getInstance().redo();
     m_canvas->repaint();
 }
 
