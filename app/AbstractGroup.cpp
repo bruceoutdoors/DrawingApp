@@ -51,6 +51,9 @@ bool AbstractGroup::contains(int x, int y)
 
 void AbstractGroup::swap(int idx1, int idx2)
 {
+    if (idx1 == idx2)
+        return;
+
     auto ve1 = m_children.begin() + idx1;
     auto ve2 = m_children.begin() + idx2;
 

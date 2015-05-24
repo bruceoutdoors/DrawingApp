@@ -42,8 +42,8 @@ bool ChangeOrderCommand::canChangeOrder()
 void ChangeOrderCommand::undo()
 {
     for (int i = 0; i < m_sel->getSize(); i++) {
-        int idx = m_sel->get(i)->getIndex();
-        m_parent->swap(idx, m_initOrder[i]);
+        m_parent->swap(m_sel->get(i)->getIndex(),
+                       m_initOrder[i]);
     }
 }
 
