@@ -42,13 +42,10 @@ SCENARIO( "remove does not destroy shape; destroy does.") {
         }
 
         WHEN( "A shape is removed with destroy" ) {
-            c->setRadius(509);
             g.destroy(0);
 
             THEN( "the size changes, but shape is deleted" ) {
                 REQUIRE(g.getSize() == 0);
-                REQUIRE(c->getRadius() != 509);
-                REQUIRE(c->getIndex() != 0);
             }
         }
     }
