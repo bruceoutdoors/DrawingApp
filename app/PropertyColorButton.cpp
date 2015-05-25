@@ -42,7 +42,7 @@ void PropertyColorButton::setGetterSetter(std::function<QColor()> getter,
                     connect(m_colorDialog, &QColorDialog::currentColorChanged,
                         [=](QColor color) {
                             if (color.isValid()) {
-                                setColor(getter());
+                                setColor(color);
                                 setter(color);
                                 m_canvas->repaint();
                             }
