@@ -136,10 +136,14 @@ void GlobalDrawProperties::onClickFillColor()
 
 void GlobalDrawProperties::onSelectFillColor(QColor color)
 {
+    if (m_changeFillColorComm == nullptr) return;
+
     if (selection->getSize() == 0) return;
 
     m_changeFillColorComm->setColor(color);
     m_changeFillColorComm->addtoCommandStack();
+
+    m_changeFillColorComm = nullptr;
 }
 
 void GlobalDrawProperties::onRejectFillColor()
@@ -159,10 +163,14 @@ void GlobalDrawProperties::onClickLineColor()
 
 void GlobalDrawProperties::onSelectLineColor(QColor color)
 {
+    if (m_changeLineColorComm == nullptr) return;
+
     if (selection->getSize() == 0) return;
 
     m_changeLineColorComm->setColor(color);
     m_changeLineColorComm->addtoCommandStack();
+
+    m_changeLineColorComm = nullptr;
 }
 
 void GlobalDrawProperties::onRejectLineColor()
