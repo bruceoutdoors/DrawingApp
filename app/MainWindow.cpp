@@ -21,12 +21,14 @@
 #include "BringForwardCommand.hpp"
 #include "BringToFrontCommand.hpp"
 #include "SendToBackCommand.hpp"
-#include "JsonFileWriter.hpp"
-#include "JsonFileReader.hpp"
+#include "FileReaderFactory.hpp"
+#include "FileWriterFactory.hpp"
 
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QCloseEvent>
+#include <QFileInfo>
+#include <cassert>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -110,7 +112,11 @@ bool MainWindow::promptUnsavedWork()
 
 void MainWindow::saveFile()
 {
-    IFileWriter *writer = new JsonFileWriter();
+    QString ext = QFileInfo(m_canvasFile).suffix();
+    IFileWriter *writer = FileWriterFactory::create(ext.toStdString());
+
+    assert(writer != nullptr);
+
     writer->setup(m_canvas->getMainGroup());
 
     if (writer->write(m_canvasFile.toStdString())) {
@@ -119,6 +125,8 @@ void MainWindow::saveFile()
         QMessageBox::critical(this,
                               "File Write Error",
                               "I can't write to this file. Does it exist, and if so do you give me access to write to it?");
+        delete writer;
+        return;
     }
 
     setCommandStackIdx(m_mcs->getCurrentIdx());
@@ -350,11 +358,20 @@ void MainWindow::on_actionOpen_triggered()
             QFileDialog::getOpenFileName(this,
                                          tr("Open Canvas"),
                                          QDir::currentPath(),
-                                         tr("Json (*.json)"));
+                                         tr("Json (*.json);;All File Types (*.*)"));
 
     if (fileName.isEmpty()) return;
 
-    IFileReader *reader = new JsonFileReader();
+    QString ext = QFileInfo(fileName).suffix();
+    IFileReader *reader = FileReaderFactory::create(ext.toStdString());
+
+    if (reader == nullptr) {
+        QMessageBox::critical(this,
+                              "Unsupported file type",
+                              QString("I can't read *.%1 files.").arg(ext));
+        return;
+    }
+
     Group *readCanvas = new Group();
     reader->setup(readCanvas);
 

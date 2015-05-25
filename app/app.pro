@@ -52,6 +52,8 @@ SOURCES += main.cpp \
     commands/BulkOrderCommand.cpp \
     fileio/JsonFileReader.cpp \
     fileio/JsonFileWriter.cpp \
+    fileio/FileReaderFactory.cpp \
+    fileio/FileWriterFactory.cpp
 
 HEADERS  += \
     MainWindow.hpp \
@@ -99,6 +101,8 @@ HEADERS  += \
     interfaces/IFileReader.hpp \
     fileio/JsonFileReader.hpp \
     fileio/JsonFileWriter.hpp \
+    fileio/FileReaderFactory.hpp \
+    fileio/FileWriterFactory.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

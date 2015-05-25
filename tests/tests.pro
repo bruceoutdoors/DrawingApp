@@ -49,7 +49,9 @@ SOURCES += TestMain.cpp \
     ../app/commands/SendBackwardCommand.cpp \
     ../app/commands/SendToBackCommand.cpp \
     ../app/fileio/JsonFileReader.cpp \
-    ../app/fileio/JsonFileWriter.cpp
+    ../app/fileio/JsonFileWriter.cpp \
+    ../app/fileio/FileReaderFactory.cpp \
+    ../app/fileio/FileWriterFactory.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -94,7 +96,11 @@ HEADERS += \
     ../app/commands/SendBackwardCommand.hpp \
     ../app/commands/SendToBackCommand.hpp \
     ../app/fileio/JsonFileReader.hpp \
-    ../app/fileio/JsonFileWriter.hpp
+    ../app/fileio/JsonFileWriter.hpp \
+    ../app/interfaces/IFileReader.hpp \
+    ../app/interfaces/IFileWriter.hpp \
+    ../app/fileio/FileReaderFactory.hpp \
+    ../app/fileio/FileWriterFactory.hpp
 
 INCLUDEPATH += \
     ../app \
