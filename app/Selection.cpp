@@ -65,8 +65,6 @@ void Selection::deselectAll()
     m_children.clear();
 }
 
-
-
 Selection::Selection()
 {
 }

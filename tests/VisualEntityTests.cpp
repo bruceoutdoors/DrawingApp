@@ -17,7 +17,6 @@ TEST_CASE("getParentGroup test") {
 TEST_CASE("selfDestruct test") {
 
     Circle *c = new Circle();
-    c->setRadius(608);
 
     SECTION("Kills itself using parent") {
         Group g;
@@ -25,7 +24,6 @@ TEST_CASE("selfDestruct test") {
         REQUIRE(g.getSize() == 1);
 
         c->selfDestruct();
-        REQUIRE(c->getRadius() != 608);
         REQUIRE(g.getSize() == 0);
     }
 

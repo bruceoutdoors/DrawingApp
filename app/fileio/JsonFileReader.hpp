@@ -26,8 +26,8 @@ private:
     Rectangle *readRectangle(const QJsonObject &r);
     Line *readLine(const QJsonObject &l);
     void readShape(Shape *s, const QJsonObject &obj);
-    QPoint readPoint(QJsonObject &p) const;
-    QColor readColor(QJsonObject &c) const;
+    QPoint readPoint(const QJsonObject &p) const;
+    QColor readColor(const QJsonObject &c) const;
 
     Group *m_mainGroup;
 };

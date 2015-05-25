@@ -375,7 +375,10 @@ void MainWindow::on_actionOpen_triggered()
     Group *readCanvas = new Group();
     reader->setup(readCanvas);
 
-    if (reader->read(fileName.toStdString())) {
+    bool canRead = reader->read(fileName.toStdString());
+    delete reader;
+
+    if (canRead) {
         m_canvas->setMainGroup(readCanvas);
         ui->statusBar->showMessage(QString("Opened file: \"%1\"").arg(fileName));
     } else {

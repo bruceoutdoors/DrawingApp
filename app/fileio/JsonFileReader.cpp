@@ -102,7 +102,7 @@ void JsonFileReader::readShape(Shape *s, const QJsonObject &obj)
     s->setLineThickness(obj["LineThickness"].toInt());
 }
 
-QPoint JsonFileReader::readPoint(QJsonObject &p) const
+QPoint JsonFileReader::readPoint(const QJsonObject &p) const
 {
     QPoint point(p["x"].toInt(),
                  p["y"].toInt());
@@ -110,7 +110,7 @@ QPoint JsonFileReader::readPoint(QJsonObject &p) const
     return point;
 }
 
-QColor JsonFileReader::readColor(QJsonObject &c) const
+QColor JsonFileReader::readColor(const QJsonObject &c) const
 {
     QColor color(c["r"].toInt(),
                  c["g"].toInt(),
