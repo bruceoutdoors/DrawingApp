@@ -1,0 +1,850 @@
+{
+    "CanvasShapes": [
+        {
+            "FillColor": {
+                "b": 102,
+                "g": 200,
+                "r": 93
+            },
+            "Height": 146,
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 4,
+            "Position": {
+                "x": 179,
+                "y": 73
+            },
+            "Type": "Rectangle",
+            "Width": 53
+        },
+        {
+            "FillColor": {
+                "b": 102,
+                "g": 200,
+                "r": 93
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 4,
+            "Position": {
+                "x": 205,
+                "y": 77
+            },
+            "Radius": 49,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 102,
+                "g": 200,
+                "r": 93
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 4,
+            "Position": {
+                "x": 166,
+                "y": 57
+            },
+            "Radius": 20,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 94,
+                "g": 184,
+                "r": 86
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 4,
+            "Position": {
+                "x": 220,
+                "y": 56
+            },
+            "Radius": 27,
+            "Type": "Circle"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 7,
+            "P1": {
+                "x": 158,
+                "y": 56
+            },
+            "P2": {
+                "x": 171,
+                "y": 56
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 7,
+            "P1": {
+                "x": 205,
+                "y": 56
+            },
+            "P2": {
+                "x": 236,
+                "y": 56
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 7,
+            "P1": {
+                "x": 163,
+                "y": 90
+            },
+            "P2": {
+                "x": 181,
+                "y": 103
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 7,
+            "P1": {
+                "x": 180,
+                "y": 102
+            },
+            "P2": {
+                "x": 237,
+                "y": 91
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 235,
+                "y": 124
+            },
+            "P2": {
+                "x": 296,
+                "y": 117
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 300,
+                "y": 116
+            },
+            "P2": {
+                "x": 337,
+                "y": 67
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 337,
+                "y": 64
+            },
+            "P2": {
+                "x": 324,
+                "y": 41
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 336,
+                "y": 66
+            },
+            "P2": {
+                "x": 350,
+                "y": 30
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 341,
+                "y": 65
+            },
+            "P2": {
+                "x": 361,
+                "y": 59
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 177,
+                "y": 129
+            },
+            "P2": {
+                "x": 115,
+                "y": 154
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 111,
+                "y": 151
+            },
+            "P2": {
+                "x": 79,
+                "y": 111
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 79,
+                "y": 111
+            },
+            "P2": {
+                "x": 55,
+                "y": 105
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 75,
+                "y": 106
+            },
+            "P2": {
+                "x": 75,
+                "y": 72
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 79,
+                "y": 104
+            },
+            "P2": {
+                "x": 94,
+                "y": 85
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 177,
+                "y": 217
+            },
+            "P2": {
+                "x": 111,
+                "y": 242
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 111,
+                "y": 242
+            },
+            "P2": {
+                "x": 187,
+                "y": 285
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 233,
+                "y": 214
+            },
+            "P2": {
+                "x": 280,
+                "y": 239
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 280,
+                "y": 239
+            },
+            "P2": {
+                "x": 267,
+                "y": 267
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 267,
+                "y": 267
+            },
+            "P2": {
+                "x": 248,
+                "y": 266
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 265,
+                "y": 268
+            },
+            "P2": {
+                "x": 260,
+                "y": 291
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 269,
+                "y": 269
+            },
+            "P2": {
+                "x": 279,
+                "y": 281
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 189,
+                "y": 281
+            },
+            "P2": {
+                "x": 212,
+                "y": 276
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 191,
+                "y": 283
+            },
+            "P2": {
+                "x": 228,
+                "y": 299
+            },
+            "Type": "Line"
+        },
+        {
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 8,
+            "P1": {
+                "x": 187,
+                "y": 285
+            },
+            "P2": {
+                "x": 196,
+                "y": 297
+            },
+            "Type": "Line"
+        },
+        {
+            "FillColor": {
+                "b": 45,
+                "g": 195,
+                "r": 200
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 2,
+            "Position": {
+                "x": 183,
+                "y": 135
+            },
+            "Radius": 5,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 45,
+                "g": 195,
+                "r": 200
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 2,
+            "Position": {
+                "x": 217,
+                "y": 139
+            },
+            "Radius": 3,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 45,
+                "g": 195,
+                "r": 200
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 2,
+            "Position": {
+                "x": 221,
+                "y": 166
+            },
+            "Radius": 6,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 45,
+                "g": 195,
+                "r": 200
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 2,
+            "Position": {
+                "x": 197,
+                "y": 200
+            },
+            "Radius": 5,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 45,
+                "g": 195,
+                "r": 200
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 2,
+            "Position": {
+                "x": 246,
+                "y": 83
+            },
+            "Radius": 4,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 45,
+                "g": 195,
+                "r": 200
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 2,
+            "Position": {
+                "x": 182,
+                "y": 82
+            },
+            "Radius": 5,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 45,
+                "g": 195,
+                "r": 200
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 2,
+            "Position": {
+                "x": 205,
+                "y": 112
+            },
+            "Radius": 3,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 321,
+                "y": 35
+            },
+            "Radius": 7,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 352,
+                "y": 22
+            },
+            "Radius": 7,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 365,
+                "y": 55
+            },
+            "Radius": 7,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 75,
+                "y": 63
+            },
+            "Radius": 7,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 94,
+                "y": 81
+            },
+            "Radius": 5,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 52,
+                "y": 105
+            },
+            "Radius": 10,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 215,
+                "y": 275
+            },
+            "Radius": 6,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 226,
+                "y": 296
+            },
+            "Radius": 7,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 197,
+                "y": 300
+            },
+            "Radius": 6,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 246,
+                "y": 261
+            },
+            "Radius": 9,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 255,
+                "y": 292
+            },
+            "Radius": 7,
+            "Type": "Circle"
+        },
+        {
+            "FillColor": {
+                "b": 87,
+                "g": 167,
+                "r": 67
+            },
+            "LineColor": {
+                "b": 49,
+                "g": 134,
+                "r": 53
+            },
+            "LineThickness": 6,
+            "Position": {
+                "x": 277,
+                "y": 282
+            },
+            "Radius": 8,
+            "Type": "Circle"
+        }
+    ]
+}
