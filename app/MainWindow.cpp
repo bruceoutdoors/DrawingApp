@@ -428,3 +428,17 @@ void MainWindow::on_actionExit_triggered()
 {
     close();
 }
+
+void MainWindow::on_actionAbout_Qt_triggered()
+{
+    QMessageBox::aboutQt(this);
+}
+
+void MainWindow::on_actionAbout_me_3_triggered()
+{
+    QMessageBox::about(this, "About me",
+                       "Simple Drawing App v1.0\n"
+                       "Created by Lee Zhen Yong AKA bruceoutdoors\n\n"
+                       "Wordpress: https://bruceoutdoors.wordpress.com/ \n"
+                       "Source code: https://github.com/bruceoutdoors/DrawingApp");
+}

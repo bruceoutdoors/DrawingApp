@@ -62,10 +62,18 @@
     <addaction name="actionBring_Forward"/>
     <addaction name="actionSend_Backward"/>
    </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>About</string>
+    </property>
+    <addaction name="actionAbout_me_3"/>
+    <addaction name="actionAbout_Qt"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuArrange"/>
    <addaction name="menuDraw"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="toolBar">
@@ -337,6 +345,16 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionAbout_me_3">
+   <property name="text">
+    <string>About me :3</string>
+   </property>
+  </action>
+  <action name="actionAbout_Qt">
+   <property name="text">
+    <string>About Qt...</string>
    </property>
   </action>
  </widget>

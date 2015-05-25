@@ -58,6 +58,8 @@ private slots:
     void on_actionNew_triggered();
     void on_actionSave_As_triggered();
     void on_actionExit_triggered();
+    void on_actionAbout_Qt_triggered();
+    void on_actionAbout_me_3_triggered();
 
 private:
     void uncheckAllToolbar();
