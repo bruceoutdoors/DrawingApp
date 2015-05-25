@@ -3,6 +3,8 @@ Drawing App
 
 ![Screenshot](https://lh5.googleusercontent.com/-y40TrMwn3Ac/VWMzffXUf5I/AAAAAAAACLg/1WEoJZxaNSI/w659-h445-no/2015-05-25%2B22_35_03-.png)
 
+[ [Link to video demonstration](https://www.youtube.com/watch?v=_Mo0yeKc6xk) ]
+
 This Drawing App has no functional purpose by itself; it is an experiment of complexity management to test how much requirements (and maybe future requirements) I can mash together by designing software properly. I'm not quite sure if I was successful, but it was still to date the most complex piece of work I've created.
 
 Technically this app will compile in any OS that Qt 5 supports, given you have a C++11 compliant compiler. I heavily rely on lambdas, foreach loops, auto, some smart pointers and other C++11 goodness. 
