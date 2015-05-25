@@ -10,6 +10,7 @@ class DrawCircleTool;
 class DrawRectangleTool;
 class DrawLineTool;
 class GlobalDrawProperties;
+class MainCommandStack;
 
 namespace Ui {
 class MainWindow;
@@ -23,7 +24,19 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     Canvas* getCanvas();
     void setActiveTool(Tool *tool);
+    bool isDirty() const;
+    bool promptUnsavedWork();
+    void saveFile();
+    void setCommandStackIdx(int val);
+    void mainCommandStackHasChanged();
+    QString getTitle() const;
     ~MainWindow();
+
+    QString getCanvasFile() const;
+    void setCanvasFile(const QString &value);
+
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void on_actionCircle_triggered();
@@ -40,14 +53,26 @@ private slots:
     void on_actionBring_Forward_triggered();
     void on_actionBring_To_Front_triggered();
     void on_actionSend_to_Back_triggered();
+    void on_actionSave_triggered();
+    void on_actionOpen_triggered();
+    void on_actionNew_triggered();
+    void on_actionSave_As_triggered();
+    void on_actionExit_triggered();
 
 private:
     void uncheckAllToolbar();
+    void resetCommandStack();
+
+    MainCommandStack *m_mcs;
 
     Ui::MainWindow *ui;
     Canvas *m_canvas;
     Tool *m_activeTool;
     GlobalDrawProperties *m_gp;
+    QString m_appName;
+    QString m_canvasFile;
+    int m_appStackIdx;
+    bool m_isFileSet;
 
     std::unique_ptr<SelectionTool> m_selectionTool;
     std::unique_ptr<DrawCircleTool> m_drawCircleTool;

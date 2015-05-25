@@ -34,7 +34,22 @@ SOURCES += TestMain.cpp \
     ../app/commands/DrawCommand.cpp \
     ../app/shapes/Line.cpp \
     ../app/commands/MoveSelectionCommand.cpp \
-    ../app/MainCommandStack.cpp
+    ../app/MainCommandStack.cpp \
+    ../app/MainWindow.cpp \
+    ../app/DrawDialog.cpp \
+    ../app/DrawDialogFactory.cpp \
+    ../app/tools/DrawCircleTool.cpp \
+    ../app/tools/DrawLineTool.cpp \
+    ../app/tools/DrawRectangleTool.cpp \
+    ../app/commands/BringForwardCommand.cpp \
+    ../app/commands/BringToFrontCommand.cpp \
+    ../app/commands/BulkOrderCommand.cpp \
+    ../app/commands/ChangeOrderCommand.cpp \
+    ../app/commands/DeleteSelectedCommand.cpp \
+    ../app/commands/SendBackwardCommand.cpp \
+    ../app/commands/SendToBackCommand.cpp \
+    ../app/fileio/JsonFileReader.cpp \
+    ../app/fileio/JsonFileWriter.cpp
 
 HEADERS += \
     ../app/Canvas.hpp \
@@ -64,7 +79,22 @@ HEADERS += \
     ../app/commands/DrawCommand.hpp \
     ../app/shapes/Line.hpp \
     ../app/commands/MoveSelectionCommand.hpp \
-    ../app/MainCommandStack.hpp
+    ../app/MainCommandStack.hpp \
+    ../app/MainWindow.hpp \
+    ../app/DrawDialog.hpp \
+    ../app/DrawDialogFactory.hpp \
+    ../app/tools/DrawCircleTool.hpp \
+    ../app/tools/DrawLineTool.hpp \
+    ../app/tools/DrawRectangleTool.hpp \
+    ../app/commands/BringForwardCommand.hpp \
+    ../app/commands/BringToFrontCommand.hpp \
+    ../app/commands/BulkOrderCommand.hpp \
+    ../app/commands/ChangeOrderCommand.hpp \
+    ../app/commands/DeleteSelectedCommand.hpp \
+    ../app/commands/SendBackwardCommand.hpp \
+    ../app/commands/SendToBackCommand.hpp \
+    ../app/fileio/JsonFileReader.hpp \
+    ../app/fileio/JsonFileWriter.hpp
 
 INCLUDEPATH += \
     ../app \
@@ -72,6 +102,11 @@ INCLUDEPATH += \
     ../app/commands \
     ../app/interfaces \
     ../app/shapes \
+    ../app/fileio \
     ../lib
 
 DESTDIR = $$PWD/../build
+
+FORMS += \
+    ../app/mainwindow.ui \
+    ../app/drawdialog.ui

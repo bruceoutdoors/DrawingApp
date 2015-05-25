@@ -45,6 +45,18 @@ void Canvas::setActiveTool(Tool *val)
     m_activeTool = val;
 }
 
+Group *Canvas::getMainGroup()
+{
+    return m_mainGroup;
+}
+
+// bear in mind doing this will delete m_mainGroup
+void Canvas::setMainGroup(Group *group)
+{
+    delete m_mainGroup;
+    m_mainGroup = group;
+}
+
 void Canvas::paintEvent(QPaintEvent *)
 {
     QPainter *painter = new QPainter(this);

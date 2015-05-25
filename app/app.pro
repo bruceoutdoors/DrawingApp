@@ -49,7 +49,9 @@ SOURCES += main.cpp \
     commands/SendToBackCommand.cpp \
     MainCommandStack.cpp \
     CommandStack.cpp \
-    commands/BulkOrderCommand.cpp
+    commands/BulkOrderCommand.cpp \
+    fileio/JsonFileReader.cpp \
+    fileio/JsonFileWriter.cpp \
 
 HEADERS  += \
     MainWindow.hpp \
@@ -92,7 +94,11 @@ HEADERS  += \
     commands/SendToBackCommand.hpp \
     MainCommandStack.hpp \
     CommandStack.hpp \
-    commands/BulkOrderCommand.hpp
+    commands/BulkOrderCommand.hpp \
+    interfaces/IFileWriter.hpp \
+    interfaces/IFileReader.hpp \
+    fileio/JsonFileReader.hpp \
+    fileio/JsonFileWriter.hpp \
 
 FORMS    += mainwindow.ui \
     drawdialog.ui
@@ -104,7 +110,8 @@ INCLUDEPATH += \
     interfaces \
     commands \
     tools \
-    shapes
+    shapes \
+    fileio
 
 RESOURCES += \
     resource.qrc

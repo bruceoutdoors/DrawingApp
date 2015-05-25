@@ -4,7 +4,7 @@ void CommandStack::add(Command *c)
 {
     if (m_stack.size() == 0) { // 1st element
         m_stack.push_back(c);
-        m_current = 0;
+        setCurrentIdx(0);
         return;
     }
 
@@ -16,14 +16,15 @@ void CommandStack::add(Command *c)
     }
 
     m_stack.push_back(c);
-    m_current++;
+    setCurrentIdx(m_current+1);
 }
 
 void CommandStack::undo()
 {
     if (m_current == -1) return;
 
-    m_stack[m_current--]->undo();
+    m_stack[m_current]->undo();
+    setCurrentIdx(m_current-1);
 }
 
 void CommandStack::redo()
@@ -32,7 +33,8 @@ void CommandStack::redo()
     if (m_stack.size() == 0
             || m_current == m_stack.size() - 1) return;
 
-    m_stack[++m_current]->execute();
+    setCurrentIdx(m_current+1);
+    m_stack[m_current]->execute();
 }
 
 void CommandStack::clear()
@@ -42,6 +44,7 @@ void CommandStack::clear()
     }
 
     m_stack.clear();
+    setCurrentIdx(-1);
 }
 
 int CommandStack::getSize() const
@@ -49,14 +52,19 @@ int CommandStack::getSize() const
     return m_stack.size();
 }
 
+void CommandStack::setCurrentIdx(const int &idx)
+{
+    m_current = idx;
+}
+
 int CommandStack::getCurrentIdx() const
 {
     return m_current;
 }
 
-CommandStack::CommandStack()
+CommandStack::CommandStack() :
+    m_current(-1)
 {
-    m_current = -1;
 }
 
 CommandStack::~CommandStack()

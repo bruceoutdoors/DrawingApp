@@ -9,9 +9,7 @@ Group::Group()
 
 Group::~Group()
 {
-    for (VisualEntity *visual : m_children) {
-        delete visual;
-    }
+    clear();
 }
 
 // returns index of added visual entity
@@ -50,6 +48,15 @@ void Group::remove(VisualEntity *val)
     AbstractGroup::remove(val);
     val->setParentGroup(nullptr);
     val->setSelected(false);
+}
+
+void Group::clear()
+{
+    for (VisualEntity *visual : m_children) {
+        delete visual;
+    }
+
+    m_children.clear();
 }
 
 // first in order gets sent back

@@ -21,6 +21,8 @@ public:
     void setBackgroundColor(QColor val);
     void addVisualEntity(VisualEntity *val);
     void setActiveTool(Tool *val);
+    Group *getMainGroup();
+    void setMainGroup(Group *group);
 
 protected:
     void paintEvent(QPaintEvent *event) override;

@@ -15,7 +15,11 @@ public:
     void redo();
     void clear();
     int getSize() const;
+
     int getCurrentIdx() const;
+
+protected:
+    virtual void setCurrentIdx(const int &idx);
 
 private:
     std::vector<Command*> m_stack;

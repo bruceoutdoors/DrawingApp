@@ -19,6 +19,8 @@ public:
     void remove(int index) override;
     void remove(VisualEntity *val) override;
 
+    void clear();
+
     // as visual entity inherits IDrawable and ITransformable, we need to
     // reimplement it again (just reuse implementation from AbstractGroup)
     QRect getBoundary() override          { return AbstractGroup::getBoundary(); }
