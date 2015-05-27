@@ -4,9 +4,6 @@
 #include "Line.hpp"
 #include "Shape.hpp"
 #include "ActiveSelection.hpp"
-#include "ChangeFillColorCommand.hpp"
-#include "ChangeLineColorCommand.hpp"
-#include "ChangeLineThicknessCommand.hpp"
 
 #include <QDebug>
 #include <QColorDialog>
@@ -63,19 +60,19 @@ int GlobalDrawProperties::getThickness()
 void GlobalDrawProperties::update()
 {
     const static auto setLineColorFunc = [=](QColor c) {
-        m_changeLineColorComm->setColor(c);
+        m_changeLineColorComm->setValue(c);
         m_changeLineColorComm->execute();
     };
 
     const static auto setFillColorFunc = [=](QColor c) {
-        m_changeFillColorComm->setColor(c);
+        m_changeFillColorComm->setValue(c);
         m_changeFillColorComm->execute();
     };
 
     const static auto setThicknessFunc = [=](int t) {
         ChangeLineThicknessCommand *changeLineThicknessComm =
                 new ChangeLineThicknessCommand();
-        changeLineThicknessComm->setThickness(t);
+        changeLineThicknessComm->setValue(t);
         changeLineThicknessComm->execute();
         changeLineThicknessComm->addtoCommandStack();
     };
@@ -140,7 +137,7 @@ void GlobalDrawProperties::onSelectFillColor(QColor color)
 
     if (selection->getSize() == 0) return;
 
-    m_changeFillColorComm->setColor(color);
+    m_changeFillColorComm->setValue(color);
     m_changeFillColorComm->addtoCommandStack();
 
     m_changeFillColorComm = nullptr;
@@ -167,7 +164,7 @@ void GlobalDrawProperties::onSelectLineColor(QColor color)
 
     if (selection->getSize() == 0) return;
 
-    m_changeLineColorComm->setColor(color);
+    m_changeLineColorComm->setValue(color);
     m_changeLineColorComm->addtoCommandStack();
 
     m_changeLineColorComm = nullptr;
@@ -180,5 +177,3 @@ void GlobalDrawProperties::onRejectLineColor()
     m_changeLineColorComm->undo();
     delete m_changeLineColorComm;
 }
-
-

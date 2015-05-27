@@ -3,12 +3,11 @@
 #include <QColor>
 #include <QObject>
 
+#include "ChangePropertyCommandList.hpp"
 class VisualEntity;
 class PropertyColorButton;
 class PropertySpinBox;
 class Selection;
-class ChangeFillColorCommand;
-class ChangeLineColorCommand;
 
 // singleton
 class GlobalDrawProperties : public QObject

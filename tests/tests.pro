@@ -28,9 +28,6 @@ SOURCES += TestMain.cpp \
     ../app/tools/SelectionTool.cpp \
     SelectionTests.cpp \
     ../app/ActiveSelection.cpp \
-    ../app/commands/ChangeFillColorCommand.cpp \
-    ../app/commands/ChangeLineColorCommand.cpp \
-    ../app/commands/ChangeLineThicknessCommand.cpp \
     ../app/commands/DrawCommand.cpp \
     ../app/shapes/Line.cpp \
     ../app/commands/MoveSelectionCommand.cpp \
@@ -73,9 +70,6 @@ HEADERS += \
     ../app/shapes/Rectangle.hpp \
     ../app/tools/SelectionTool.hpp \
     ../app/ActiveSelection.hpp \
-    ../app/commands/ChangeFillColorCommand.hpp \
-    ../app/commands/ChangeLineColorCommand.hpp \
-    ../app/commands/ChangeLineThicknessCommand.hpp \
     ../app/commands/DrawCommand.hpp \
     ../app/shapes/Line.hpp \
     ../app/commands/MoveSelectionCommand.hpp \
@@ -96,7 +90,9 @@ HEADERS += \
     ../app/interfaces/IFileReader.hpp \
     ../app/interfaces/IFileWriter.hpp \
     ../app/fileio/FileReaderFactory.hpp \
-    ../app/fileio/FileWriterFactory.hpp
+    ../app/fileio/FileWriterFactory.hpp \
+    ../app/commands/ChangePropertyCommand.hpp \
+    ../app/commands/ChangePropertyCommandList.hpp
 
 INCLUDEPATH += \
     ../app \
