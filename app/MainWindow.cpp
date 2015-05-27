@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include "Canvas.hpp"
 #include "Group.hpp"
-#include "DrawDialogFactory.hpp"
 #include "Circle.hpp"
 #include "Rectangle.hpp"
 #include "Line.hpp"
@@ -15,7 +14,6 @@
 #include "GlobalDrawProperties.hpp"
 #include "MainCommandStack.hpp"
 #include "ActiveSelection.hpp"
-#include "DrawCommand.hpp"
 #include "DeleteSelectedCommand.hpp"
 #include "SendBackwardCommand.hpp"
 #include "BringForwardCommand.hpp"
@@ -160,54 +158,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
     delete m_canvas;
-}
-
-void MainWindow::on_actionCircle_triggered()
-{
-    Circle *c = new Circle();
-    m_canvas->addVisualEntity(c);
-
-    DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, c);
-    d->exec();
-    delete d;
-
-    ActiveSelection::getInstance().deselectAll();
-    c->setSelected(true);
-
-    DrawCommand *comm = new DrawCommand(c);
-    comm->addtoCommandStack();
-}
-
-void MainWindow::on_actionRectangle_triggered()
-{
-    Rectangle *r = new Rectangle();
-    m_canvas->addVisualEntity(r);
-
-    DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, r);
-    d->exec();
-    delete d;
-
-    ActiveSelection::getInstance().deselectAll();
-    r->setSelected(true);
-
-    DrawCommand *comm = new DrawCommand(r);
-    comm->addtoCommandStack();
-}
-
-void MainWindow::on_actionLine_triggered()
-{
-    Line *l = new Line();
-    m_canvas->addVisualEntity(l);
-
-    DrawDialog *d = DrawDialogFactory::CreateDrawDialog(this, l);
-    d->exec();
-    delete d;
-
-    ActiveSelection::getInstance().deselectAll();
-    l->setSelected(true);
-
-    DrawCommand *comm = new DrawCommand(l);
-    comm->addtoCommandStack();
 }
 
 void MainWindow::on_actionSelectionTool_triggered()

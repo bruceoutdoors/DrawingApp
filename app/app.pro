@@ -19,8 +19,6 @@ SOURCES += main.cpp \
     VisualEntity.cpp \
     Shape.cpp \
     Group.cpp \
-    DrawDialog.cpp \
-    DrawDialogFactory.cpp \
     Selection.cpp \
     AbstractGroup.cpp \
     Tool.cpp \
@@ -61,8 +59,6 @@ HEADERS  += \
     VisualEntity.hpp \
     Shape.hpp \
     Group.hpp \
-    DrawDialog.hpp \
-    DrawDialogFactory.hpp \
     Selection.hpp \
     Tool.hpp \
     AbstractGroup.hpp \
@@ -104,8 +100,7 @@ HEADERS  += \
     fileio/FileReaderFactory.hpp \
     fileio/FileWriterFactory.hpp
 
-FORMS    += mainwindow.ui \
-    drawdialog.ui
+FORMS    += mainwindow.ui
 
 DESTDIR = $$PWD/../build
 

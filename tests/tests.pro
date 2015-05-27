@@ -36,8 +36,6 @@ SOURCES += TestMain.cpp \
     ../app/commands/MoveSelectionCommand.cpp \
     ../app/MainCommandStack.cpp \
     ../app/MainWindow.cpp \
-    ../app/DrawDialog.cpp \
-    ../app/DrawDialogFactory.cpp \
     ../app/tools/DrawCircleTool.cpp \
     ../app/tools/DrawLineTool.cpp \
     ../app/tools/DrawRectangleTool.cpp \
@@ -83,8 +81,6 @@ HEADERS += \
     ../app/commands/MoveSelectionCommand.hpp \
     ../app/MainCommandStack.hpp \
     ../app/MainWindow.hpp \
-    ../app/DrawDialog.hpp \
-    ../app/DrawDialogFactory.hpp \
     ../app/tools/DrawCircleTool.hpp \
     ../app/tools/DrawLineTool.hpp \
     ../app/tools/DrawRectangleTool.hpp \
@@ -115,4 +111,3 @@ DESTDIR = $$PWD/../build
 
 FORMS += \
     ../app/mainwindow.ui \
-    ../app/drawdialog.ui
