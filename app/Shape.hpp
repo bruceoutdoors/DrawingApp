@@ -10,16 +10,16 @@ public:
     Shape();
     virtual ~Shape();
 
-    void setFillColor(QColor val) override;
-    QColor getFillColor() override;
+    void setFillColor(const QColor &val) override;
+    QColor getFillColor() const override;
 
-    void setLineColor(QColor val) override;
-    QColor getLineColor() override;
+    void setLineColor(const QColor &val) override;
+    QColor getLineColor() const override;
 
-    void setLineThickness(int val) override;
-    int getLineThickness() override;
+    void setLineThickness(const int &val) override;
+    int getLineThickness() const override;
 
-    void setPosition(QPoint pos);
+    void setPosition(const QPoint &pos) override;
     QPoint getPosition();
 
 protected:

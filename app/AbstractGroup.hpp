@@ -25,7 +25,7 @@ public:
     int getSize() const;
     QRect getBoundary() override;
 
-    void setPosition(QPoint pos) override;
+    void setPosition(const QPoint &pos) override;
     QPoint getPosition() override;
 
     void sortByIndex();

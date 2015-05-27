@@ -21,7 +21,7 @@ Shape::~Shape()
 
 }
 
-void Shape::setPosition(QPoint pos)
+void Shape::setPosition(const QPoint &pos)
 {
     m_position = pos;
 }
@@ -31,32 +31,32 @@ QPoint Shape::getPosition()
     return m_position;
 }
 
-void Shape::setFillColor(QColor val)
+void Shape::setFillColor(const QColor &val)
 {
     m_fillColor = val;
 }
 
-QColor Shape::getFillColor()
+QColor Shape::getFillColor() const
 {
     return m_fillColor;
 }
 
-void Shape::setLineColor(QColor val)
+void Shape::setLineColor(const QColor &val)
 {
     m_lineColor = val;
 }
 
-QColor Shape::getLineColor()
+QColor Shape::getLineColor() const
 {
     return m_lineColor;
 }
 
-void Shape::setLineThickness(int val)
+void Shape::setLineThickness(const int &val)
 {
     m_lineThickness = val;
 }
 
-int Shape::getLineThickness()
+int Shape::getLineThickness() const
 {
     return m_lineThickness;
 }

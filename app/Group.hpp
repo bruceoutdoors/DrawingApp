@@ -24,6 +24,6 @@ public:
     // as visual entity inherits IDrawable and ITransformable, we need to
     // reimplement it again (just reuse implementation from AbstractGroup)
     QRect getBoundary() override          { return AbstractGroup::getBoundary(); }
-    void setPosition(QPoint pos) override { AbstractGroup::setPosition(pos);     }
+    void setPosition(const QPoint &pos) override { AbstractGroup::setPosition(pos);     }
     QPoint getPosition() override         { return AbstractGroup::getPosition(); }
 };

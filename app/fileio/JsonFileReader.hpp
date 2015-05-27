@@ -18,7 +18,7 @@ public:
     ~JsonFileReader();
 
     void setup(Group *mainGroup) override;
-    bool read(std::string fileDir) override;
+    bool read(const std::string &fileDir) override;
 
 private:
     void readGroup(Group *group, const QJsonArray &groupObj);

@@ -110,7 +110,7 @@ bool AbstractGroup::isInside(VisualEntity *val)
     return find(val) != m_children.end();
 }
 
-void AbstractGroup::setPosition(QPoint )
+void AbstractGroup::setPosition(const QPoint & )
 {
     // TODO: implement this...
 }

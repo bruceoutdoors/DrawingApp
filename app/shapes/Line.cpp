@@ -23,22 +23,22 @@ Line::~Line()
 
 }
 
-void Line::setLineColor(QColor val)
+void Line::setLineColor(const QColor &val)
 {
     m_lineColor = val;
 }
 
-QColor Line::getLineColor()
+QColor Line::getLineColor() const
 {
     return m_lineColor;
 }
 
-void Line::setLineThickness(int val)
+void Line::setLineThickness(const int &val)
 {
     m_lineThickness = val;
 }
 
-int Line::getLineThickness()
+int Line::getLineThickness() const
 {
     return m_lineThickness;
 }
@@ -90,7 +90,7 @@ bool Line::contains(int x, int y)
     return discriminant >= 0;
 }
 
-void Line::setPosition(QPoint pos)
+void Line::setPosition(const QPoint &pos)
 {
     QPoint diff = pos - getPosition();
     m_p1 += diff;
