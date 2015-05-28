@@ -36,9 +36,6 @@ SOURCES += main.cpp \
     tools/DrawRectangleTool.cpp \
     tools/SelectionTool.cpp \
     ActiveSelection.cpp \
-    commands/ChangeFillColorCommand.cpp \
-    commands/ChangeLineColorCommand.cpp \
-    commands/ChangeLineThicknessCommand.cpp \
     commands/DrawCommand.cpp \
     commands/DeleteSelectedCommand.cpp \
     commands/MoveSelectionCommand.cpp \
@@ -83,9 +80,6 @@ HEADERS  += \
     tools/DrawRectangleTool.hpp \
     tools/SelectionTool.hpp \
     ActiveSelection.hpp \
-    commands/ChangeFillColorCommand.hpp \
-    commands/ChangeLineColorCommand.hpp \
-    commands/ChangeLineThicknessCommand.hpp \
     commands/DrawCommand.hpp \
     commands/DeleteSelectedCommand.hpp \
     commands/MoveSelectionCommand.hpp \
@@ -102,7 +96,10 @@ HEADERS  += \
     fileio/JsonFileReader.hpp \
     fileio/JsonFileWriter.hpp \
     fileio/FileReaderFactory.hpp \
-    fileio/FileWriterFactory.hpp
+    fileio/FileWriterFactory.hpp \
+    commands/ChangePropertyCommand.hpp \
+    commands/ChangePropertyCommandList.hpp \
+    Signal.hpp
 
 FORMS    += mainwindow.ui \
     drawdialog.ui

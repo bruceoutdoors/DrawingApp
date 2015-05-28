@@ -1,5 +1,4 @@
 #include "ActiveSelection.hpp"
-#include "GlobalDrawProperties.hpp"
 
 ActiveSelection &ActiveSelection::getInstance()
 {
@@ -9,13 +8,29 @@ ActiveSelection &ActiveSelection::getInstance()
 
 void ActiveSelection::add(VisualEntity *val)
 {
-    int size = m_children.size();
+    int size = getSize();
     Selection::add(val);
-    int newSize = m_children.size();
+    int newSize = getSize();
 
     if (size != newSize) {
-        GlobalDrawProperties::getInstance().update();
+        m_selectionSizeChanged.broadcast(getSize());
     }
+}
+
+void ActiveSelection::remove(VisualEntity *val)
+{
+    int size = getSize();
+    Selection::remove(val);
+    int newSize = getSize();
+
+    if (size != newSize) {
+        m_selectionSizeChanged.broadcast(getSize());
+    }
+}
+
+Signal<size_t> *ActiveSelection::getSelectionSizeChangedSignal()
+{
+    return &m_selectionSizeChanged;
 }
 
 ActiveSelection::ActiveSelection()
@@ -25,6 +40,6 @@ ActiveSelection::ActiveSelection()
 
 ActiveSelection::~ActiveSelection()
 {
-
+    m_selectionSizeChanged.disconnectAll();
 }
 

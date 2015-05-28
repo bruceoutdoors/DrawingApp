@@ -1,21 +1,13 @@
 #include "Line.hpp"
 #include <QPainter>
 #include <cmath>
-#include "GlobalDrawProperties.hpp"
 
 Line::Line()
 {
     m_p1 = QPoint(5, 5);
     m_p2 = QPoint(75, 75);
 
-    GlobalDrawProperties *gp = &GlobalDrawProperties::getInstance();
-
-    if (gp->isSetup()) {
-        setLineThickness(gp->getThickness());
-        setLineColor(gp->getLineColor());
-    } else {
-        setLineThickness(2);
-    }
+    setLineThickness(2);
 }
 
 Line::~Line()
@@ -23,22 +15,22 @@ Line::~Line()
 
 }
 
-void Line::setLineColor(QColor val)
+void Line::setLineColor(const QColor &val)
 {
     m_lineColor = val;
 }
 
-QColor Line::getLineColor()
+QColor Line::getLineColor() const
 {
     return m_lineColor;
 }
 
-void Line::setLineThickness(int val)
+void Line::setLineThickness(const int &val)
 {
     m_lineThickness = val;
 }
 
-int Line::getLineThickness()
+int Line::getLineThickness() const
 {
     return m_lineThickness;
 }
@@ -90,7 +82,7 @@ bool Line::contains(int x, int y)
     return discriminant >= 0;
 }
 
-void Line::setPosition(QPoint pos)
+void Line::setPosition(const QPoint &pos)
 {
     QPoint diff = pos - getPosition();
     m_p1 += diff;

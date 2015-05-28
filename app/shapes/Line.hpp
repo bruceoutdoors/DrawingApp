@@ -8,17 +8,17 @@ class Line : public VisualEntity, public ILine
 public:
     Line();
     ~Line();
-    void setLineColor(QColor val) override;
-    QColor getLineColor() override;
+    void setLineColor(const QColor &val) override;
+    QColor getLineColor() const override;
 
-    void setLineThickness(int val) override;
-    int getLineThickness() override;
+    void setLineThickness(const int &val) override;
+    int getLineThickness() const override;
 
     void draw(QPainter *painter) override;
     QRect getBoundary() override;
     bool contains(int x, int y) override;
 
-    void setPosition(QPoint pos) override;
+    void setPosition(const QPoint &pos) override;
     QPoint getPosition() override;
 
     QPoint getP1() const;

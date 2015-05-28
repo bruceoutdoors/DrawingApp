@@ -5,6 +5,24 @@
 #include <exception>
 #include <stdexcept>
 
+TEST_CASE("Circle cast test") {
+    Group g;
+    Circle *c = new Circle();
+    g.add(c);
+
+    VisualEntity *ve = g.get(0);
+    REQUIRE(ve);
+
+    IFillable *fillable = dynamic_cast<IFillable*>(ve);
+    REQUIRE(fillable);
+
+    ILine *line = dynamic_cast<ILine*>(ve);
+    REQUIRE(line);
+
+    Group *cg = dynamic_cast<Group*>(ve);
+    REQUIRE(!cg);
+}
+
 TEST_CASE("getParentGroup test") {
     Group g;
     Circle *c = new Circle();

@@ -24,7 +24,7 @@ void JsonFileWriter::setup(Group *mainGroup)
     m_mainGroup = mainGroup;
 }
 
-bool JsonFileWriter::write(std::string fileDir)
+bool JsonFileWriter::write(const std::string &fileDir)
 {
     QFile saveFile(QString::fromUtf8(fileDir.c_str()));
 

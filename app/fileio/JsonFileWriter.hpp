@@ -18,7 +18,7 @@ public:
     ~JsonFileWriter();
 
     void setup(Group *mainGroup) override;
-    bool write(std::string fileDir) override;
+    bool write(const std::string &fileDir) override;
 
 private:
     QJsonArray writeGroup(Group *group);

@@ -12,7 +12,7 @@ public:
 //    virtual void setScale(QPointF scale) = 0;
 //    virtual QPointF getScale() = 0;
 
-    virtual void setPosition(QPoint pos) = 0;
+    virtual void setPosition(const QPoint &pos) = 0;
     virtual QPoint getPosition() = 0;
 
     virtual ~ITransformable() {}

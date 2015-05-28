@@ -4,14 +4,9 @@
 #include "Line.hpp"
 #include "Shape.hpp"
 #include "ActiveSelection.hpp"
-#include "ChangeFillColorCommand.hpp"
-#include "ChangeLineColorCommand.hpp"
-#include "ChangeLineThicknessCommand.hpp"
 
 #include <QDebug>
 #include <QColorDialog>
-
-ActiveSelection *selection = &ActiveSelection::getInstance();
 
 GlobalDrawProperties &GlobalDrawProperties::getInstance()
 {
@@ -44,6 +39,22 @@ void GlobalDrawProperties::setup(PropertyColorButton *fillColorProp,
             this, &GlobalDrawProperties::onRejectLineColor);
 }
 
+void GlobalDrawProperties::setVEProperties(VisualEntity *ve)
+{
+    ILine *l = dynamic_cast<ILine*>(ve);
+
+    if (l) {
+        l->setLineColor(getLineColor());
+        l->setLineThickness(getThickness());
+    }
+
+    IFillable *f = dynamic_cast<IFillable*>(ve);
+
+    if (f) {
+        f->setFillColor(getFillColor());
+    }
+}
+
 QColor GlobalDrawProperties::getFillColor()
 {
     return m_fillColorProp->getColor();
@@ -60,32 +71,37 @@ int GlobalDrawProperties::getThickness()
 }
 
 // get from one source; apply to many
-void GlobalDrawProperties::update()
+void GlobalDrawProperties::update(size_t selSize)
 {
     const static auto setLineColorFunc = [=](QColor c) {
-        m_changeLineColorComm->setColor(c);
+        m_changeLineColorComm->setValue(c);
         m_changeLineColorComm->execute();
     };
 
     const static auto setFillColorFunc = [=](QColor c) {
-        m_changeFillColorComm->setColor(c);
+        m_changeFillColorComm->setValue(c);
         m_changeFillColorComm->execute();
     };
 
     const static auto setThicknessFunc = [=](int t) {
-        ChangeLineThicknessCommand *changeLineThicknessComm =
+        ChangeLineThicknessCommand *comm =
                 new ChangeLineThicknessCommand();
-        changeLineThicknessComm->setThickness(t);
-        changeLineThicknessComm->execute();
-        changeLineThicknessComm->addtoCommandStack();
+
+        if (comm->canExecute()) {
+            comm->setValue(t);
+            comm->execute();
+            comm->addtoCommandStack();
+        } else {
+            delete comm;
+        }
     };
 
-    if (selection->getSize() == 0) {
+    if (selSize == 0) {
         unlinkProperties();
         return;
     }
 
-    VisualEntity *ve = selection->getLastSelected();
+    VisualEntity *ve = m_as->getLastSelected();
     Line *line = dynamic_cast<Line*>(ve);
 
     if (line) {
@@ -97,6 +113,10 @@ void GlobalDrawProperties::update()
                     [=]() { return line->getLineThickness(); },
                     setThicknessFunc);
 
+        // though seemingly doing nothing, this prevents occasions
+        // where on global draw properties tries to retrieve the fill
+        // color from a destroyed object. This is why we explicitly cast
+        // to Shape and Line instead of ILine and IDrawable.
         m_fillColorProp->setGetterSetter(
                     [=]() { return getFillColor(); },
                     setFillColorFunc);
@@ -129,7 +149,7 @@ void GlobalDrawProperties::unlinkProperties()
 
 void GlobalDrawProperties::onClickFillColor()
 {
-    if (selection->getSize() == 0) return;
+    if (m_as->getSize() == 0) return;
 
     m_changeFillColorComm = new ChangeFillColorCommand();
 }
@@ -138,17 +158,19 @@ void GlobalDrawProperties::onSelectFillColor(QColor color)
 {
     if (m_changeFillColorComm == nullptr) return;
 
-    if (selection->getSize() == 0) return;
-
-    m_changeFillColorComm->setColor(color);
-    m_changeFillColorComm->addtoCommandStack();
+    if (m_changeFillColorComm->canExecute()) {
+        m_changeFillColorComm->setValue(color);
+        m_changeFillColorComm->addtoCommandStack();
+    } else {
+        delete m_changeFillColorComm;
+    }
 
     m_changeFillColorComm = nullptr;
 }
 
 void GlobalDrawProperties::onRejectFillColor()
 {
-    if (selection->getSize() == 0) return;
+    if (m_changeFillColorComm == nullptr) return;
 
     m_changeFillColorComm->undo();
     delete m_changeFillColorComm;
@@ -156,7 +178,7 @@ void GlobalDrawProperties::onRejectFillColor()
 
 void GlobalDrawProperties::onClickLineColor()
 {
-    if (selection->getSize() == 0) return;
+    if (m_as->getSize() == 0) return;
 
     m_changeLineColorComm = new ChangeLineColorCommand();
 }
@@ -165,20 +187,30 @@ void GlobalDrawProperties::onSelectLineColor(QColor color)
 {
     if (m_changeLineColorComm == nullptr) return;
 
-    if (selection->getSize() == 0) return;
-
-    m_changeLineColorComm->setColor(color);
-    m_changeLineColorComm->addtoCommandStack();
+    if (m_changeLineColorComm->canExecute()) {
+        m_changeLineColorComm->setValue(color);
+        m_changeLineColorComm->addtoCommandStack();
+    } else {
+        delete m_changeLineColorComm;
+    }
 
     m_changeLineColorComm = nullptr;
 }
 
 void GlobalDrawProperties::onRejectLineColor()
 {
-    if (selection->getSize() == 0) return;
+    if (m_changeLineColorComm == nullptr) return;
 
     m_changeLineColorComm->undo();
     delete m_changeLineColorComm;
 }
 
+GlobalDrawProperties::GlobalDrawProperties() :
+    m_isSetup(false)
+{
+    m_as = &ActiveSelection::getInstance();
 
+    m_as->getSelectionSizeChangedSignal()->connect([=](size_t t) {
+        update(t);
+    });
+}

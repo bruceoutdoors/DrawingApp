@@ -24,7 +24,7 @@ void JsonFileReader::setup(Group *mainGroup)
     m_mainGroup = mainGroup;
 }
 
-bool JsonFileReader::read(std::string fileDir)
+bool JsonFileReader::read(const std::string &fileDir)
 {
     QFile loadFile(QString::fromUtf8(fileDir.c_str()));
 

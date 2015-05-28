@@ -1,5 +1,6 @@
 #include "DrawDialogFactory.hpp"
 #include "DrawDialog.hpp"
+#include "GlobalDrawProperties.hpp"
 
 #include "Shape.hpp"
 #include "Circle.hpp"
@@ -19,6 +20,8 @@ DrawDialogFactory::~DrawDialogFactory()
 DrawDialog *DrawDialogFactory::CreateShapeDrawDialog(MainWindow *parent, Shape *shape)
 {
     DrawDialog *d = new DrawDialog(parent);
+
+    GlobalDrawProperties::getInstance().setVEProperties(shape);
 
     d->appendSpinBox("Position X",
                   [=]() { return shape->getPosition().x(); },
@@ -72,6 +75,8 @@ DrawDialog *DrawDialogFactory::CreateDrawDialog(MainWindow *parent, Rectangle *r
 DrawDialog *DrawDialogFactory::CreateDrawDialog(MainWindow *parent, Line *l)
 {
     DrawDialog *d = new DrawDialog(parent);
+
+    GlobalDrawProperties::getInstance().setVEProperties(l);
 
     d->appendSpinBox("P1.x",
                      [=]() { return l->getP1().x(); },

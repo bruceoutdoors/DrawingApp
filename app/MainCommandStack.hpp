@@ -10,15 +10,9 @@ class MainCommandStack : public CommandStack
 {
 public:
     static MainCommandStack &getInstance();
-    void setMainWindow(MainWindow *mw);
-
-protected:
-    void setCurrentIdx(const int &idx) override;
 
 private:
-    MainWindow *m_mw;
-
-    MainCommandStack() : m_mw(nullptr) {}
+    MainCommandStack() {}
     virtual ~MainCommandStack() {}
     MainCommandStack(MainCommandStack const&) {}
     MainCommandStack& operator=(MainCommandStack const&) {}
