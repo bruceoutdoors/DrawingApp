@@ -12,13 +12,11 @@ SOURCES += TestMain.cpp \
     VisualEntityTests.cpp \
     CommandStackTest.cpp \
     SelectionTests.cpp \
-    ../app/Canvas.cpp \
     ../app/Group.cpp \
     ../app/Shape.cpp \
     ../app/VisualEntity.cpp \
     ../app/Selection.cpp \
     ../app/AbstractGroup.cpp \
-    ../app/Tool.cpp \
     ../app/CommandStack.cpp \
     ../app/Command.cpp \
     ../app/shapes/Circle.cpp \
@@ -28,13 +26,11 @@ SOURCES += TestMain.cpp \
     ../app/MainCommandStack.cpp \
 
 HEADERS += \
-    ../app/Canvas.hpp \
     ../app/Group.hpp \
     ../app/Shape.hpp \
     ../app/VisualEntity.hpp \
     ../app/Selection.hpp \
     ../app/AbstractGroup.h \
-    ../app/Tool.hpp \
     ../app/Command.hpp \
     ../app/CommandStack.hpp \
     ../app/interfaces/IDrawable.hpp \
