@@ -94,7 +94,8 @@ HEADERS  += \
     fileio/FileReaderFactory.hpp \
     fileio/FileWriterFactory.hpp \
     commands/ChangePropertyCommand.hpp \
-    commands/ChangePropertyCommandList.hpp
+    commands/ChangePropertyCommandList.hpp \
+    Signal.hpp
 
 FORMS    += mainwindow.ui
 

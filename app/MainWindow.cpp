@@ -41,7 +41,8 @@ MainWindow::MainWindow(QWidget *parent) :
     m_gp = &GlobalDrawProperties::getInstance();
     m_mcs = &MainCommandStack::getInstance();
 
-    m_mcs->setMainWindow(this);
+    m_mcs->getCurrentIndexChangedSignal()
+            ->connect([=](int){ mainCommandStackHasChanged(); });
 
     m_selectionTool = std::unique_ptr<SelectionTool>
             (new SelectionTool(m_canvas));

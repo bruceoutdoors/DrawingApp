@@ -55,11 +55,18 @@ int CommandStack::getSize() const
 void CommandStack::setCurrentIdx(const int &idx)
 {
     m_current = idx;
+
+    m_currentIndexChanged.broadcast(m_current);
 }
 
 int CommandStack::getCurrentIdx() const
 {
     return m_current;
+}
+
+Signal<int> *CommandStack::getCurrentIndexChangedSignal()
+{
+    return &m_currentIndexChanged;
 }
 
 CommandStack::CommandStack() :
@@ -69,5 +76,7 @@ CommandStack::CommandStack() :
 
 CommandStack::~CommandStack()
 {
+    m_currentIndexChanged.disconnectAll();
+
     clear();
 }
