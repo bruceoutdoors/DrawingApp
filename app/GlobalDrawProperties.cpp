@@ -70,11 +70,16 @@ void GlobalDrawProperties::update()
     };
 
     const static auto setThicknessFunc = [=](int t) {
-        ChangeLineThicknessCommand *changeLineThicknessComm =
+        ChangeLineThicknessCommand *comm =
                 new ChangeLineThicknessCommand();
-        changeLineThicknessComm->setValue(t);
-        changeLineThicknessComm->execute();
-        changeLineThicknessComm->addtoCommandStack();
+
+        if (comm->canExecute()) {
+            comm->setValue(t);
+            comm->execute();
+            comm->addtoCommandStack();
+        } else {
+            delete comm;
+        }
     };
 
     if (selection->getSize() == 0) {
@@ -135,17 +140,19 @@ void GlobalDrawProperties::onSelectFillColor(QColor color)
 {
     if (m_changeFillColorComm == nullptr) return;
 
-    if (selection->getSize() == 0) return;
-
-    m_changeFillColorComm->setValue(color);
-    m_changeFillColorComm->addtoCommandStack();
+    if (m_changeFillColorComm->canExecute()) {
+        m_changeFillColorComm->setValue(color);
+        m_changeFillColorComm->addtoCommandStack();
+    } else {
+        delete m_changeFillColorComm;
+    }
 
     m_changeFillColorComm = nullptr;
 }
 
 void GlobalDrawProperties::onRejectFillColor()
 {
-    if (selection->getSize() == 0) return;
+    if (m_changeFillColorComm == nullptr) return;
 
     m_changeFillColorComm->undo();
     delete m_changeFillColorComm;
@@ -162,17 +169,19 @@ void GlobalDrawProperties::onSelectLineColor(QColor color)
 {
     if (m_changeLineColorComm == nullptr) return;
 
-    if (selection->getSize() == 0) return;
-
-    m_changeLineColorComm->setValue(color);
-    m_changeLineColorComm->addtoCommandStack();
+    if (m_changeLineColorComm->canExecute()) {
+        m_changeLineColorComm->setValue(color);
+        m_changeLineColorComm->addtoCommandStack();
+    } else {
+        delete m_changeLineColorComm;
+    }
 
     m_changeLineColorComm = nullptr;
 }
 
 void GlobalDrawProperties::onRejectLineColor()
 {
-    if (selection->getSize() == 0) return;
+    if (m_changeLineColorComm == nullptr) return;
 
     m_changeLineColorComm->undo();
     delete m_changeLineColorComm;

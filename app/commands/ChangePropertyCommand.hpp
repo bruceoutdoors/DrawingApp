@@ -36,6 +36,11 @@ public:
 
     virtual ~ChangePropertyCommand() {}
 
+    bool canExecute() override
+    {
+        return (m_Ts.size() == 0) ? false : true;
+    }
+
     void setValue(const Type &color)
     {
         m_val = color;
