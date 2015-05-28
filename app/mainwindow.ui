@@ -36,6 +36,14 @@
     <addaction name="actionSave_As"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuDraw">
+    <property name="title">
+     <string>Draw</string>
+    </property>
+    <addaction name="actionCircle"/>
+    <addaction name="actionRectangle"/>
+    <addaction name="actionLine"/>
+   </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
      <string>Edit</string>
@@ -64,6 +72,7 @@
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
    <addaction name="menuArrange"/>
+   <addaction name="menuDraw"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -109,6 +118,36 @@
     </layout>
    </widget>
   </widget>
+  <action name="actionCircle">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/CircleIcon.png</normaloff>:/Icons/resource/CircleIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Circle</string>
+   </property>
+   <property name="statusTip">
+    <string>Draw a Circle</string>
+   </property>
+  </action>
+  <action name="actionRectangle">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/RectangleIcon.png</normaloff>:/Icons/resource/RectangleIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Rectangle</string>
+   </property>
+  </action>
+  <action name="actionLine">
+   <property name="icon">
+    <iconset resource="resource.qrc">
+     <normaloff>:/Icons/resource/LineIcon.png</normaloff>:/Icons/resource/LineIcon.png</iconset>
+   </property>
+   <property name="text">
+    <string>Line</string>
+   </property>
+  </action>
   <action name="actionDrawCircle">
    <property name="checkable">
     <bool>true</bool>

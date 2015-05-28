@@ -39,6 +39,9 @@ protected:
     void closeEvent(QCloseEvent *event) override;
 
 private slots:
+    void on_actionCircle_triggered();
+    void on_actionRectangle_triggered();
+    void on_actionLine_triggered();
     void on_actionSelectionTool_triggered();
     void on_actionDrawCircle_triggered();
     void on_actionDrawRectangle_triggered();
