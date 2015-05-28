@@ -26,6 +26,7 @@ void DrawLineTool::mousePress(QMouseEvent *event)
     m_startPosition = event->pos();
 
     m_line = new Line();
+    GlobalDrawProperties::getInstance().setVEProperties(m_line);
     m_canvas->addVisualEntity(m_line);
     m_line->setP1(m_startPosition);
     m_line->setP2(m_startPosition);

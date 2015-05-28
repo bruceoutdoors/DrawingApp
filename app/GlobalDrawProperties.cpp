@@ -8,8 +8,6 @@
 #include <QDebug>
 #include <QColorDialog>
 
-ActiveSelection *selection = &ActiveSelection::getInstance();
-
 GlobalDrawProperties &GlobalDrawProperties::getInstance()
 {
     static GlobalDrawProperties instance;
@@ -41,6 +39,22 @@ void GlobalDrawProperties::setup(PropertyColorButton *fillColorProp,
             this, &GlobalDrawProperties::onRejectLineColor);
 }
 
+void GlobalDrawProperties::setVEProperties(VisualEntity *ve)
+{
+    ILine *l = dynamic_cast<ILine*>(ve);
+
+    if (l) {
+        l->setLineColor(getLineColor());
+        l->setLineThickness(getThickness());
+    }
+
+    IFillable *f = dynamic_cast<IFillable*>(ve);
+
+    if (f) {
+        f->setFillColor(getFillColor());
+    }
+}
+
 QColor GlobalDrawProperties::getFillColor()
 {
     return m_fillColorProp->getColor();
@@ -57,7 +71,7 @@ int GlobalDrawProperties::getThickness()
 }
 
 // get from one source; apply to many
-void GlobalDrawProperties::update()
+void GlobalDrawProperties::update(size_t selSize)
 {
     const static auto setLineColorFunc = [=](QColor c) {
         m_changeLineColorComm->setValue(c);
@@ -82,12 +96,12 @@ void GlobalDrawProperties::update()
         }
     };
 
-    if (selection->getSize() == 0) {
+    if (selSize == 0) {
         unlinkProperties();
         return;
     }
 
-    VisualEntity *ve = selection->getLastSelected();
+    VisualEntity *ve = m_as->getLastSelected();
     Line *line = dynamic_cast<Line*>(ve);
 
     if (line) {
@@ -131,7 +145,7 @@ void GlobalDrawProperties::unlinkProperties()
 
 void GlobalDrawProperties::onClickFillColor()
 {
-    if (selection->getSize() == 0) return;
+    if (m_as->getSize() == 0) return;
 
     m_changeFillColorComm = new ChangeFillColorCommand();
 }
@@ -160,7 +174,7 @@ void GlobalDrawProperties::onRejectFillColor()
 
 void GlobalDrawProperties::onClickLineColor()
 {
-    if (selection->getSize() == 0) return;
+    if (m_as->getSize() == 0) return;
 
     m_changeLineColorComm = new ChangeLineColorCommand();
 }
@@ -185,4 +199,14 @@ void GlobalDrawProperties::onRejectLineColor()
 
     m_changeLineColorComm->undo();
     delete m_changeLineColorComm;
+}
+
+GlobalDrawProperties::GlobalDrawProperties() :
+    m_isSetup(false)
+{
+    m_as = &ActiveSelection::getInstance();
+
+    m_as->getSelectionSizeChangedSignal()->connect([=](size_t t) {
+        update(t);
+    });
 }

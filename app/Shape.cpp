@@ -1,19 +1,10 @@
 #include "Shape.hpp"
-#include "GlobalDrawProperties.hpp"
 
 Shape::Shape()
 {
-    GlobalDrawProperties *gp = &GlobalDrawProperties::getInstance();
-
-    if (gp->isSetup()) {
-        setLineThickness(gp->getThickness());
-        setLineColor(gp->getLineColor());
-        setFillColor(gp->getFillColor());
-    } else {
-        setFillColor(QColor(50, 150, 0));
-        setLineColor(QColor(0, 0, 0));
-        setLineThickness(2);
-    }
+    setFillColor(QColor(50, 150, 0));
+    setLineColor(QColor(0, 0, 0));
+    setLineThickness(2);
 }
 
 Shape::~Shape()

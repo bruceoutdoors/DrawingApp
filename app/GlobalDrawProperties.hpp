@@ -19,11 +19,12 @@ public:
     void setup(PropertyColorButton *fillColorProp,
                PropertyColorButton *lineColorProp,
                PropertySpinBox *thicknessProp);
+    void setVEProperties(VisualEntity *ve);
     QColor getFillColor();
     QColor getLineColor();
     bool isSetup() { return m_isSetup; }
     int getThickness();
-    void update();
+    void update(size_t selSize);
     void unlinkProperties();
 
 private slots:
@@ -41,11 +42,12 @@ private:
     PropertySpinBox *m_thicknessProp;
 
     bool m_isSetup;
+    ActiveSelection *m_as;
 
     ChangeFillColorCommand *m_changeFillColorComm;
     ChangeLineColorCommand *m_changeLineColorComm;
 
-    GlobalDrawProperties() : m_isSetup(false) {}
+    GlobalDrawProperties();
     ~GlobalDrawProperties() {}
 };
 

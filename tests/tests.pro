@@ -8,24 +8,21 @@ CONFIG += console
 CONFIG += c++11
 
 SOURCES += TestMain.cpp \
+    GroupTests.cpp \
+    VisualEntityTests.cpp \
+    CommandStackTest.cpp \
+    SelectionTests.cpp \
     ../app/Canvas.cpp \
     ../app/Group.cpp \
     ../app/Shape.cpp \
     ../app/VisualEntity.cpp \
-    GroupTests.cpp \
-    VisualEntityTests.cpp \
     ../app/Selection.cpp \
     ../app/AbstractGroup.cpp \
     ../app/Tool.cpp \
-    ../app/GlobalDrawProperties.cpp \
-    ../app/PropertyColorButton.cpp \
-    ../app/PropertySpinBox.cpp \
     ../app/CommandStack.cpp \
-    CommandStackTest.cpp \
     ../app/Command.cpp \
     ../app/shapes/Circle.cpp \
     ../app/shapes/Rectangle.cpp \
-    SelectionTests.cpp \
     ../app/ActiveSelection.cpp \
     ../app/shapes/Line.cpp \
     ../app/MainCommandStack.cpp \
@@ -38,9 +35,6 @@ HEADERS += \
     ../app/Selection.hpp \
     ../app/AbstractGroup.h \
     ../app/Tool.hpp \
-    ../app/GlobalDrawProperties.hpp \
-    ../app/PropertyColorButton.hpp \
-    ../app/PropertySpinBox.hpp \
     ../app/Command.hpp \
     ../app/CommandStack.hpp \
     ../app/interfaces/IDrawable.hpp \
@@ -53,8 +47,6 @@ HEADERS += \
     ../app/ActiveSelection.hpp \
     ../app/shapes/Line.hpp \
     ../app/MainCommandStack.hpp \
-    ../app/commands/ChangePropertyCommand.hpp \
-    ../app/commands/ChangePropertyCommandList.hpp
 
 INCLUDEPATH += \
     ../app \

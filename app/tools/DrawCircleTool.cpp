@@ -28,6 +28,7 @@ void DrawCircleTool::mousePress(QMouseEvent *event)
     m_startPosition = event->pos();
 
     m_circle = new Circle();
+    GlobalDrawProperties::getInstance().setVEProperties(m_circle);
     m_canvas->addVisualEntity(m_circle);
     m_circle->setPosition(m_startPosition);
     m_circle->setRadius(2);

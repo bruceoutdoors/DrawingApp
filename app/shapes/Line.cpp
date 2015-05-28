@@ -1,21 +1,13 @@
 #include "Line.hpp"
 #include <QPainter>
 #include <cmath>
-#include "GlobalDrawProperties.hpp"
 
 Line::Line()
 {
     m_p1 = QPoint(5, 5);
     m_p2 = QPoint(75, 75);
 
-    GlobalDrawProperties *gp = &GlobalDrawProperties::getInstance();
-
-    if (gp->isSetup()) {
-        setLineThickness(gp->getThickness());
-        setLineColor(gp->getLineColor());
-    } else {
-        setLineThickness(2);
-    }
+    setLineThickness(2);
 }
 
 Line::~Line()
