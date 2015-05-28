@@ -113,6 +113,10 @@ void GlobalDrawProperties::update(size_t selSize)
                     [=]() { return line->getLineThickness(); },
                     setThicknessFunc);
 
+        // though seemingly doing nothing, this prevents occasions
+        // where on global draw properties tries to retrieve the fill
+        // color from a destroyed object. This is why we explicitly cast
+        // to Shape and Line instead of ILine and IDrawable.
         m_fillColorProp->setGetterSetter(
                     [=]() { return getFillColor(); },
                     setFillColorFunc);
